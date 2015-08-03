@@ -1,0 +1,70 @@
+\documentclass[12pt]{amsart}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, fullpage, stmaryrd,  url}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{theorem}
+
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Qp}{\mathbb{Q}_p}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\Zp}{\mathbb{Z}_p}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+
+\newcommand{\gothm}{\mathfrak{m}}
+\newcommand{\gotho}{\mathfrak{o}}
+
+\DeclareMathOperator{\FEt}{\mathbf{F\acute{E}t}}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\perf}{perf}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Trace}{Trace}
+
+\begin{document}
+
+\title{On categoriesn of $(\varphi, \Gamma)$-modules}
+\author{Kiran S. Kedlaya}
+\thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship).}
+\date{\textit{unstable draft}; version of August 1, 2015}
+
+\begin{abstract}
+Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
+\end{abstract}
+
+\maketitle
+
+Throughout, let $p$ be a prime number and let $K$ be a \emph{$p$-adic field}, by which we mean a complete discretely valued field of mixed characteristics $(0,p)$ and perfect (but not necessarily finite) residue field. In $p$-adic Hodge theory, one studies the relationship between different cohomology theories associated to algebraic (and more recently analytic) varieties over $K$. One of these theories is \'etale cohomology with $\QQ_p$-coefficients, which naturally leads to a detailed study of continuous representations of $G_K$, the absolute Galois group of $K$, acting on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has been discovered that this category embeds naturally and usefully into a larger category of \emph{$(\varphi, \Gamma)$-modules}, in much the same way that the Narasimhan-Seshadri theorem embeds the category of irreducible unitary representations of the fundamental group of a compact Riemann surface into the category of vector bundles on that surface.
+
+One indication of the naturality of the category of $(\varphi, \Gamma)$-modules is that it can be given several equivalent descriptions. The original description emerging out of the work of Fontaine, Colmez, Berger, and others involves modules over certain rings of convergent Laurent series. In this description, a privileged role is played by the infinite extension $K_\infty$ of $K$ obtained by adjoining all $p$-power roots of unity; for example, the base rings carry an action of the Galois group of $K_\infty$ over $K$ (the eponymous $\Gamma$). However, several other descriptions of the same category can now be given in which the cyclotomic tower plays no distinguished role; these include the description by Berger in the language of $B$-pairs and the description by Fargues--Fontaine in terms of vector bundles on certain one-dimensional noetherian schemes. The latter description arises very naturally within the geometric reinterpretation of $p$-adic Hodge theory in the language of \emph{perfectoid spaces}, as in the work of Scholze and Kedlaya-Liu.
+
+It is thus natural to ask to what extent constructions made in the language of $(\varphi, \Gamma)$-modules can be realized using these alternate descriptions. \textbf{et cetera}
+
+\section{Categories of $(\varphi, \Gamma)$-modules}
+
+\textbf{better to include arithmetic deformations??}
+
+\begin{thebibliography}{99}
+
+\bibitem{kedlaya-new-phigamma}
+K.S. Kedlaya, New methods for $(\varphi, \Gamma)$-modules,
+to appear in \textit{Res. Math. Sci.}
+
+\end{thebibliography}
+
+\end{document}
