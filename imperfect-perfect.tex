@@ -1,9 +1,11 @@
 \documentclass[12pt]{amsart}
 \usepackage{amsmath, amssymb, amsfonts, amsthm, fullpage, stmaryrd,  url}
+\usepackage[all]{xy}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{cor}[theorem]{Corollary}
+\newtheorem{prop}[theorem]{Proposition}
 
 \theoremstyle{definition}
 \newtheorem{defn}[theorem]{Definition}
@@ -17,22 +19,29 @@
 
 \newcommand{\bA}{\mathbf{A}}
 \newcommand{\be}{\mathbf{e}}
+\newcommand{\bv}{\mathbf{v}}
+
 \newcommand{\Fp}{\mathbb{F}_p}
 \newcommand{\Qp}{\mathbb{Q}_p}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\calR}{\mathcal{R}}
 
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frako}{\mathfrak{o}}
 
-\newcommand{\gothm}{\mathfrak{m}}
-\newcommand{\gotho}{\mathfrak{o}}
+\newcommand{\dual}{\vee}
 
 \DeclareMathOperator{\FEt}{\mathbf{F\acute{E}t}}
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Maxspec}{Maxspec}
 \DeclareMathOperator{\perf}{perf}
+\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Trace}{Trace}
 
@@ -41,7 +50,7 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya}
 \thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship).}
-\date{\textit{unstable draft}; version of August 1, 2015}
+\date{\textit{unstable draft}; version of August 9, 2015}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -55,17 +64,26 @@ One indication of the naturality of the category of $(\varphi, \Gamma)$-modules 
 
 It is thus natural to ask to what extent constructions made in the language of $(\varphi, \Gamma)$-modules can be realized using these alternate descriptions. \textbf{et cetera}
 
+\textbf{conventions to be decided}:
+\begin{itemize}
+\item Notation for base fields, base affinoid algebra.
+\item Notation for the Robba ring and extended Robba ring.
+\item Use the usual subgroup $\Gamma_K$ of $\Gamma$, or induce back up to the full group?
+\item Notation for twists.
+\end{itemize}
+
 \section{Categories of $(\varphi, \Gamma)$-modules}
 
 We begin by giving various characterizations of the category of $(\varphi, \Gamma)$-modules,
-into which the category of continuous representations of $G_K$ on finite-dimensional $\QQ_p$-vector spaces embeds. However, in preparation for our later discussion, we will immediately escalate the level of generality somewhat, in order to accommodate representations on coherent sheaves over a rigid analytic space.
+into which the category of continuous representations of $G_K$ on finite-dimensional $\QQ_p$-vector spaces embeds. However, in preparation for our later discussion, we will immediately escalate the level of generality to accommodate representations on coherent sheaves over a rigid analytic space.
 
 \begin{hypothesis}
 Throughout this section, let $A$ be an affinoid algebra over $\QQ_p$ (in the sense of Tate, rather than the more expansive sense of Berkovich).  Also, let $k$ be the residue field of $K$ (which we are assuming to be perfect), and let $K_0 \subseteq K$ be the fraction field of the ring of Witt vectors $W(k)$.
 \end{hypothesis}
 
 \begin{defn}
-Suppose that $K = K_0$. \textbf{give this definition first}
+Suppose that $K = K_0$. Define the \emph{Robba ring} $\calR_K$ in this case to be...
+\textbf{give this definition first}
 
 \textbf{then the general case}
 
@@ -79,19 +97,134 @@ Suppose that $K = K_0$. \textbf{give this definition first}
 
 \textbf{FF curve}
 
+\textbf{\'etale condition, both over a point and not}
+
+\section{Slopes of $(\varphi, \Gamma)$-modules}
+
+\begin{defn}
+Suppose that $A$ is a field. \textbf{define the slopes, filtration in that case}.
+
+\textbf{now in the general case, talk about the slopes as a function on $\Maxspec(A)$, and remark that they cannot be defined for Berkovich points}.
+\end{defn}
+
+
+\begin{lemma} \label{L:bounded slopes}
+Let $M$ be a projective $(\varphi, \Gamma)$-module. Then as $\frakm$ varies over $\Maxspec(A)$, the slopes of $M/\frakm$ are uniformly bounded above and below.
+\end{lemma}
+\begin{proof}
+...
+\end{proof}
+ 
+\begin{lemma} \label{L:modification slope bound}
+Assume that $A$ is a field. 
+Choose $s \in \QQ$.
+Let $M$ be a projective $(\varphi, \Gamma)$-module whose slopes are all at least $s$.
+Let $T$ be a $t$-torsion $(\varphi, \Gamma)$-module of degree $d$.
+Then for any short exact sequence $0 \to N \to M \to T \to 0$,
+the slopes of $N$ are all at least $s-d$.
+\end{lemma}
+\begin{proof}
+Let $P$ be the final quotient in the slope filtration of $N$.
+By pushing out, we form the exact sequence 
+\[
+0 \to P \to M/N \to T \to 0.
+\]
+Put $r = \rank(P)$, so that $\rank(M/N) = r$ and  $\deg(M/N) = r \mu(P)  + d$, yielding  $\mu(M/N) = \mu(P) + d/r$. Since $M/N$ is a quotient of $M$, we must have
+ $\mu(M/N) \geq s$; since $r \in \{1,\dots,n\}$, we deduce the desired result.
+\end{proof}
+
+\section{Cohomology of $(\varphi, \Gamma)$-modules}
+
 \textbf{also talk about cohomology, including the short proof of finiteness?}
 
-\begin{remark}
-Even when $A = \QQ_p$, it is unknown whether every torsion $(\varphi, \Gamma)$-module is covered by a projective $(\varphi, \Gamma)$-module.
-\end{remark}
+\begin{theorem}
+\end{theorem}
 
-\subsection{Iwasawa cohomology}
+
+
+\section{Torsion $(\varphi, \Gamma)$-modules}
+
+\begin{lemma} \label{L:lift topological action}
+Let $R$ be a Banach algebra over $\QQ_p$. Let $\Gamma$ be a pro-$p$-cyclic group topologically generated by $\gamma$ acting continuously on $R$. Let $F$ be a finite free $R$-module with basis $\be_1,\dots,\be_d$. Fix a semilinear action of $\gamma$ on $F$ with the property that the matrix of action $A$ of $\gamma$ on $\be_1,\dots,\be_d$ satisfies $\left| A-1 \right| < 1$.
+Then the action of $\gamma$ on $F$ extends to a continuous action of $\Gamma$.
+\end{lemma}
+\begin{proof}
+Choose $c$ such that $\left| A-1 \right| < c < 1$.
+For $n$ a nonnegative integer, let $A_n$ be the matrix of action of $\gamma^{p^n}$
+on $\be_1,\dots,\be_d$. It suffices to prove that for all sufficiently large $n$ we have
+$\left| A_n-1 \right| \leq \max\{c^2, p^{-1}c\}$, as then iterating the argument (with $\Gamma$ replaced by the closure of the subgroup generated by $\gamma^{p^n}$ for some large $n$) will show that the action of $\gamma^{\ZZ}$ extends continuously to $\Gamma$.
+
+By hypothesis, the action of $\Gamma$ on $R$ is continuous. Consequently, there exists 
+$n_0 \geq 0$ such that for all $n \geq n_0+1$, we have $\left| (\gamma^{p^n}-1)(A) \right| \leq c^2$. For such $n$, modulo elements of $R$ of norm at most $\max\{c^2,p^{-1}c\}$ we have
+\[
+A_{n} = A \gamma(A) \cdots \gamma^{p^{n}-1}(A) \equiv 1 + \sum_{i=0}^{p^{n}-1} (\gamma^i(A)-1) \equiv 1 + p\sum_{j=0}^{p^{n-1}-1} (\gamma^{j}(A)-1) \equiv 1.
+\]
+This proves the claim.
+\end{proof}
+
+\textbf{warning: the twist in the following lemma is the phi-twist. Need to fix notation.}
+\begin{lemma} \label{L:lift torsion action}
+Let $M$ be a $t$-torsion $(\varphi, \Gamma)$-module. Then there exists
+a projective $(\varphi, \Gamma)$-module $F$ such that for each $n \in \ZZ$, there exists a surjection $F(n) \to M$ of $(\varphi, \Gamma)$-modules.
+\end{lemma}
+\begin{proof}
+Represent $M$ as a finitely generated $\widehat{K}_{\infty} \widehat{\otimes}_{\Qp} A$-module equipped with a continuous semilinear $\Gamma_K$-action.
+We first make an argument emulating \cite[Lemma~1.5.2]{kedlaya-liu1}.
+Choose module generators $\bv_1,\dots,\bv_d$ of $M$,
+let $F_0$ be the free module over $\tilde{\calR}^{[p^{-1/2}, p^{1/2}]}_{K,A}$ on the
+generators $\be_1,\dots,\be_d$, and form the surjection $F_0 \to M$ taking $\be_i$ to $\bv_i$. For $\gamma \in \Gamma_K$, there exist $d \times d$ matrices
+$B_\gamma, C_\gamma$ over $\tilde{\calR}^{[p^{-1/2}, p^{1/2}]}_{K,A}$ such that
+$\gamma(\bv_j) = \sum_i B_{\gamma,ij} \bv_i$, $\gamma^{-1}(\bv_j) = \sum_i \gamma^{-1}(C_{\gamma,ij}) \bv_i$. Equip $F_1 = F_0 \oplus F_0$ with the action of $\gamma$ defined on the standard basis by the block matrix
+\[
+\begin{pmatrix} B_\gamma & B_\gamma C_\gamma -1 \\ 1 & C_\gamma
+\end{pmatrix};
+\]
+then this action of $\gamma$ is invertible and the map $F_1 \to M$ given by projecting onto the first copy of $F_0$ and then onto $M$ is $\gamma$-equivariant.
+
+Recall that by hypothesis, the action of $\Gamma_K$ on $M$ is continuous. Consequently,
+for $\gamma$ sufficiently small, the matrices $B_\gamma, C_\gamma$ can be chosen so that
+$\left| B_\gamma-1 \right|, \left| C_\gamma -1 \right| < 1$.
+By Lemma~\ref{L:lift topological action}, the action of $\gamma$ on $F_1$ extends to an open subgroup $\Gamma'$ of $\Gamma_K$, and the map $F_1 \to M$ is necessarily also $\Gamma'$-equivariant. Put $F = \Ind_{\Gamma'}^{\Gamma_K} F_1$; then $F_1 \to M$ corresponds to a $\Gamma$-equivariant surjection $F \to M$. 
+
+We may choose any matrix of action for $\varphi$ to promote $F$ to a projective $(\varphi, \Gamma)$-module equipped with an equivariant surjection $F \to M$. Given one such choice, we may then multiply the matrix of action by powers of $p$ to obtain maps $F(n) \to M$ for $n \in \ZZ$. 
+\end{proof}
+
+\begin{theorem}
+Every $t$-coherent $(\varphi, \Gamma)$-module admits a surjective morphism from some projective $(\varphi, \Gamma)$-module.
+\end{theorem}
+\begin{proof}
+Let $M$ be a $t$-coherent $(\varphi, \Gamma)$-module. Let $T$ be the $t$-torsion submodule of $M$; by hypothesis, $F = M/T$ is a projective $(\varphi, \Gamma)$-module.
+By Lemma~\ref{L:lift torsion action}, there exists a projective $(\varphi, \Gamma)$-module $F'$ such that  for each $n \in \ZZ$, there exists a surjection $F'(n) \to T$ of $(\varphi, \Gamma)$-modules. Let $K_n$ be the kernel of one such surjection. 
+
+We claim that for $n$ sufficiently large, $H^2_{\varphi, \Gamma}(F^\dual \otimes K_n) = 0$.
+To check this, first apply Lemma~\ref{L:bounded slopes} twice to produce values $s_0, s_1$ such that $F$ has all slopes at most $s_0$ while $F'$ has all slopes at least $s_1$.
+Then apply Lemma~\ref{L:modification slope bound} to see that for any
+$n \geq s_0-s_1 + \deg(T)$,
+$F^\dual \otimes K_n$ has everywhere positive slopes. 
+By \textbf{coherence}, for such $n$ we have $H^2_{\varphi, \Gamma}(F^\dual \otimes K_n) = 0$; consequently, $H^1_{\varphi, \Gamma}(F^\dual \otimes F'(n)) \to H^1_{\varphi, \Gamma}(F^\dual \otimes T)$ is surjective. In particular, there exists a commutative diagram
+\[
+\xymatrix{
+0 \ar[r] & F'(n) \ar[r] \ar[d] & M' \ar[r] \ar[d] & F \ar[r] \ar@{=}[d] & 0 \\
+0 \ar[r] & T \ar[r] & M \ar[r] & F \ar[r] & 0
+}
+\]
+with exact rows; by the five lemma, $M' \to M$ is surjective, proving the claim.
+\end{proof}
+
+\section{Iwasawa cohomology and the cyclotomic deformation}
 
 \begin{thebibliography}{99}
 
 \bibitem{kedlaya-new-phigamma}
 K.S. Kedlaya, New methods for $(\varphi, \Gamma)$-modules,
 to appear in \textit{Res. Math. Sci.}
+
+\bibitem{kedlaya-liu1}
+K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
+\textit{Ast\'erisque} \textbf{371} (2015), 239 pages. 
+
+\bibitem{kpx}
+K.S. Kedlaya, J. Pottharst, and L. Xiao, Cohomology of arithmetic families of $(\varphi, \Gamma)$-modules, \textit{J. Amer. Math. Soc.}  \textbf{27} (2014), 1043--1115. 
 
 \end{thebibliography}
 
