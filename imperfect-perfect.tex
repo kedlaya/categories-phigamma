@@ -41,6 +41,7 @@
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\Maxspec}{Maxspec}
 \DeclareMathOperator{\perf}{perf}
+\DeclareMathOperator{\PhiGamma}{\mathbf{\Phi \Gamma}}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Trace}{Trace}
@@ -48,9 +49,9 @@
 \begin{document}
 
 \title{On categories of $(\varphi, \Gamma)$-modules}
-\author{Kiran S. Kedlaya}
+\author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship).}
-\date{\textit{unstable draft}; version of August 9, 2015}
+\date{\textit{unstable draft}; version of August 10, 2015}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -62,34 +63,61 @@ Throughout, let $p$ be a prime number and let $K$ be a \emph{$p$-adic field}, by
 
 One indication of the naturality of the category of $(\varphi, \Gamma)$-modules is that it can be given several equivalent descriptions. The original description emerging out of the work of Fontaine, Colmez, Berger, and others involves modules over certain rings of convergent Laurent series. In this description, a privileged role is played by the infinite extension $K_\infty$ of $K$ obtained by adjoining all $p$-power roots of unity; for example, the base rings carry an action of the Galois group of $K_\infty$ over $K$ (the eponymous $\Gamma$). However, several other descriptions of the same category can now be given in which the cyclotomic tower plays no distinguished role; these include the description by Berger in the language of $B$-pairs and the description by Fargues--Fontaine in terms of vector bundles on certain one-dimensional noetherian schemes. The latter description arises very naturally within the geometric reinterpretation of $p$-adic Hodge theory in the language of \emph{perfectoid spaces}, as in the work of Scholze and Kedlaya-Liu.
 
-It is thus natural to ask to what extent constructions made in the language of $(\varphi, \Gamma)$-modules can be realized using these alternate descriptions. \textbf{et cetera}
+It is thus natural to ask to what extent constructions made in the language of $(\varphi, \Gamma)$-modules, particularly those which have become relevant in Iwasawa theory, can be realized using these alternate descriptions. The purpose of this paper is to give some answers to this question, using the theory of arithmetic deformations of $(\varphi, \Gamma)$-modules developed in \cite{kpx}. The basic idea is to exchange the explicit use of the cyclotomic tower in the classical construction of $(\varphi, \Gamma)$-modules for an arithmetic deformation parametrizing cyclotomic twists. This makes it natural to consider other deformations corresponding to other $p$-adic Lie groups, including nonabelian ones.
 
-\textbf{conventions to be decided}:
+Before concluding this introduction, we set a few running notations. Our primary model for these and other notations is \cite{kpx}.
+\setcounter{theorem}{0}
+\begin{hypothesis}
+Throughout this paper, as in this introduction, let $K$ be a complete discretely valued field of mixed characteristics with perfect residue field $k$; we do not assume $k$ is finite (i.e., that $K$ is a finite extension of $\QQ_p$) unless explicitly specified.
+Put $F = W(k)[1/p]$ for $W(k)$ the ring of Witt vectors over $k$, so that $K/F$ is a finite totally ramified extension.
+Let $A$ be an affinoid algebra over $\QQ_p$ in the sense of Tate, rather than the more expansive sense of Berkovich. 
+\end{hypothesis}
+
+\textbf{conventions to be decided; defaulting to conventions of KPX}:
 \begin{itemize}
-\item Notation for base fields, base affinoid algebra.
-\item Notation for the Robba ring and extended Robba ring.
+\item Notation for the Robba ring and extended Robba ring, including the dependence on the Galois base field and the coefficient base ring. The notation of KPX only really works well for $K$ a finite extension of $\QQ_p$.
 \item Use the usual subgroup $\Gamma_K$ of $\Gamma$, or induce back up to the full group?
-\item Notation for twists.
+In the former case, we talk about $(\varphi, \Gamma_K)$-modules.
+\item Notation for characters and twists.
+\item It would be helpful to have a name for the category of $(\varphi, \Gamma)$-modules with a given Galois base field and coefficient base ring. One possibility would be $\mathbf{\Phi \Gamma}_{K,A}$.
 \end{itemize}
 
 \section{Categories of $(\varphi, \Gamma)$-modules}
+\label{sec:categories}
 
-We begin by giving various characterizations of the category of $(\varphi, \Gamma)$-modules,
-into which the category of continuous representations of $G_K$ on finite-dimensional $\QQ_p$-vector spaces embeds. However, in preparation for our later discussion, we will immediately escalate the level of generality to accommodate representations on coherent sheaves over a rigid analytic space.
-
-\begin{hypothesis}
-Throughout this section, let $A$ be an affinoid algebra over $\QQ_p$ (in the sense of Tate, rather than the more expansive sense of Berkovich).  Also, let $k$ be the residue field of $K$ (which we are assuming to be perfect), and let $K_0 \subseteq K$ be the fraction field of the ring of Witt vectors $W(k)$.
-\end{hypothesis}
+We begin with the original construction of the category of $(\varphi, \Gamma)$-modules,
+into which the category of continuous representations of $G_K$ on finite-dimensional $\QQ_p$-vector spaces embeds, followed by several equivalent descriptions. In preparation for our later discussion, we escalate the level of generality to accommodate representations on coherent sheaves over a rigid analytic space.
 
 \begin{defn}
-Suppose that $K = K_0$. Define the \emph{Robba ring} $\calR_K$ in this case to be...
-\textbf{give this definition first}
+Suppose that $K = F$. Define the \emph{Robba ring} $\calR_{F,A}$ to be the set of formal sums $\sum_{n \in \ZZ} c_n \pi^n$ with $c_n \in F \widehat{\otimes}_{\Qp} A$ that converge in some range of the form
+$* < \left| \pi \right| < 1$.
+The ring $\calR_{F,A}$ admits an endomorphism $\varphi$ defined by the formula
+\[
+\sum_{n \in \ZZ} c_n \pi^n \mapsto \sum_{n \in \ZZ} \varphi_F(a) ((1 + \pi)^p-1)^n,
+\]
+where $\varphi_F: F \widehat{\otimes}_{\Qp} A$ is the $A$-linear extension of the
+Witt vector Frobenius map on $F$.
+ 
+For $\gamma$ in the group $\Gamma = \ZZ_p^*$, $\calR_{F,A}$ also admits an endomorphism $\gamma$ defined by the formula
+\[
+\sum_{n \in \ZZ} c_n \pi^n \mapsto \sum_{n \in \ZZ} \varphi_F(a) ((1 + \pi)^\gamma-1)^n,
+\]
+interpreting $(1 + \pi)^\gamma$ as the binomial series 
+\[
+(1 + \pi)^\gamma = \sum_{n=0}^\infty \frac{\gamma(\gamma-1)\cdots (\gamma-n+1)}{n!} \pi^n.
+\]
+Note that the actions of $\varphi$ and $\Gamma$ commute.
+
+A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous \textbf{explain the topology condition here}. Let $\PhiGamma_{F,A}$ denote the category of such objects.
 
 \textbf{then the general case}
 
 \end{defn}
 
-\textbf{classical Robba ring}
+
+ For $A = \QQ_p$, the units of $\calR_F$ can be characterized as the series with bounded coefficients; this forms an incomplete but henselian discretely valued field with residue field $k((\overline{\pi}))$.
+
+
 
 \textbf{extended Robba ring}
 
@@ -97,9 +125,10 @@ Suppose that $K = K_0$. Define the \emph{Robba ring} $\calR_K$ in this case to b
 
 \textbf{FF curve}
 
-\textbf{\'etale condition, both over a point and not}
-
 \section{Slopes of $(\varphi, \Gamma)$-modules}
+
+
+\textbf{\'etale condition, both over a point and not}
 
 \begin{defn}
 Suppose that $A$ is a field. \textbf{define the slopes, filtration in that case}.
@@ -138,11 +167,22 @@ Put $r = \rank(P)$, so that $\rank(M/N) = r$ and  $\deg(M/N) = r \mu(P)  + d$, y
 \textbf{also talk about cohomology, including the short proof of finiteness?}
 
 \begin{theorem}
+coherence, base change
 \end{theorem}
 
 
+\begin{remark}
+One of the more delicate parts of \cite{kpx} is the proof of \textbf{coherence}. 
+We would like to indicate here a simpler proof using the Cartan-Serre method (i.e., the Schwartz lemma).
+
+...
+\end{remark}
 
 \section{Torsion $(\varphi, \Gamma)$-modules}
+
+As an aside, we resolve a minor open question in the classical theory of $(\varphi, \Gamma)$-modules.
+
+\textbf{define $t$-torsion, $t$-coherent $(\varphi, \Gamma)$-modules}
 
 \begin{lemma} \label{L:lift topological action}
 Let $R$ be a Banach algebra over $\QQ_p$. Let $\Gamma$ be a pro-$p$-cyclic group topologically generated by $\gamma$ acting continuously on $R$. Let $F$ be a finite free $R$-module with basis $\be_1,\dots,\be_d$. Fix a semilinear action of $\gamma$ on $F$ with the property that the matrix of action $A$ of $\gamma$ on $\be_1,\dots,\be_d$ satisfies $\left| A-1 \right| < 1$.
@@ -189,7 +229,7 @@ By Lemma~\ref{L:lift topological action}, the action of $\gamma$ on $F_1$ extend
 We may choose any matrix of action for $\varphi$ to promote $F$ to a projective $(\varphi, \Gamma)$-module equipped with an equivariant surjection $F \to M$. Given one such choice, we may then multiply the matrix of action by powers of $p$ to obtain maps $F(n) \to M$ for $n \in \ZZ$. 
 \end{proof}
 
-\begin{theorem}
+\begin{theorem} \label{T:t-coherent lift}
 Every $t$-coherent $(\varphi, \Gamma)$-module admits a surjective morphism from some projective $(\varphi, \Gamma)$-module.
 \end{theorem}
 \begin{proof}
@@ -211,13 +251,51 @@ By \textbf{coherence}, for such $n$ we have $H^2_{\varphi, \Gamma}(F^\dual \otim
 with exact rows; by the five lemma, $M' \to M$ is surjective, proving the claim.
 \end{proof}
 
+\begin{remark}
+Theorem~\ref{T:t-coherent lift} resolves a question raised implicitly in
+\cite{kedlaya-bordeaux} by showing that in the terminology of that paper,
+every generalized $(\varphi, \Gamma)$-module is a $B$-quotient.
+\end{remark}
+
 \section{Iwasawa cohomology and the cyclotomic deformation}
 
+The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
+
+\begin{defn}
+Define the map $\psi: \calR_K \to \calR_K$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $(\varphi, \Gamma)$-module $M$,
+we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$. Consequently, we obtain an exact sequence
+\begin{equation} \label{eq:psi sequence}
+0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
+\end{equation}
+\end{defn}
+
+One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of constructions that translate to other descriptions of the category of $(\varphi, \Gamma)$-modules. These translations must remove any mention of $\psi$, as this operator has no analogue in the other descriptions.
+
+\begin{prop}
+define psi-cohomology and equivalence as in \cite[Definition~2.3.3]{kpx}.
+\end{prop}
+
+\begin{defn}
+Cyclotomic deformation as in \cite[Definition~4.4.7]{kpx}...
+\end{defn}
+
+The following is \cite[Theorem~4.4.8]{kpx}.
+\begin{theorem}
+Let $M$ be a $(\varphi, \Gamma_K)$-module over $\calR_{K,A}$. Then...
+\end{theorem}
+
 \begin{thebibliography}{99}
+
+\bibitem{kedlaya-bordeaux}
+K.S. Kedlaya, Some new directions in $p$-adic Hodge theory, \textit{J. Th\'eorie Nombres Bordeaux} \textbf{21} (2009), 285--300.
 
 \bibitem{kedlaya-new-phigamma}
 K.S. Kedlaya, New methods for $(\varphi, \Gamma)$-modules,
 to appear in \textit{Res. Math. Sci.}
+
+\bibitem{kedlaya-noetherian}
+K.S. Kedlaya, Noetherian properties of Fargues-Fontaine curves,
+\textit{Int. Math. Res. Notices} (2015), article ID rnv227. 
 
 \bibitem{kedlaya-liu1}
 K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
