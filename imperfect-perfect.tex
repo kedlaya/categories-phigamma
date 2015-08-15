@@ -24,6 +24,7 @@
 \newcommand{\Fp}{\mathbb{F}_p}
 \newcommand{\Qp}{\mathbb{Q}_p}
 \newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\calO}{\mathcal{O}}
@@ -34,6 +35,7 @@
 
 \newcommand{\dual}{\vee}
 
+\DeclareMathOperator{\BP}{\mathbf{BP}}
 \DeclareMathOperator{\Dfm}{\mathbf{Dfm}}
 \DeclareMathOperator{\FEt}{\mathbf{F\acute{E}t}}
 \DeclareMathOperator{\Frac}{Frac}
@@ -44,6 +46,7 @@
 \DeclareMathOperator{\Maxspec}{Maxspec}
 \DeclareMathOperator{\perf}{perf}
 \DeclareMathOperator{\PhiGamma}{\mathbf{\Phi \Gamma}}
+\DeclareMathOperator{\PhiGammatilde}{\widetilde{\mathbf{\Phi \Gamma}}}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Rep}{\mathbf{Rep}}
 \DeclareMathOperator{\Res}{Res}
@@ -115,7 +118,7 @@ A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\
 with rank function $\rank_F: \Phi\Gamma_{F,A} \to \ZZ$ computing the rank of the underlying $\calR_{F,A}$-module.
 \end{defn}
 
-We will sketch the proof of the following result in \S\ref{sec:alternate}.
+We will establish the following result in \S\ref{sec:alternate}.
 \begin{theorem} \label{T:phi gamma embedding1}
 There exists a full embedding $\Rep_A(G_F) \to \PhiGamma_{F,A}$.
 \end{theorem}
@@ -147,35 +150,92 @@ There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with 
 \end{theorem}
 
 \begin{remark} \label{R:not connected}
-The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not most older references. The reason is that the ring $\calR_{K,A}$ is in general not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
+The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not most older references. The reason is that even if $A$ is connecetd, the ring $\calR_{K,A}$ is in general not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
 See Remark~\ref{R:not connected2} for further discussion.
 \end{remark}
 
-\section{Alternate categories}
+\section{Alternate descriptions}
 \label{sec:alternate}
 
-We now give several equivalent descriptions of the category $\PhiGamma_{K,A}$, 
-in the process establishing Theorem~\ref{T:phi gamma embedding}. In the process, we will see why the original construction implicitly uses special properties of cyclotomic extensions.
+We now give several alternate descriptions of the category $\PhiGamma_{K,A}$. In the process, we will establish Theorem~\ref{T:phi gamma embedding}; this will illustrate that cyclotomic extensions play a special role in the original construction, but not in some of
+the alternate descriptions.
 
- which make less use of special properties of cyclotomic extensions.
+We begin with some basic facts from the theory of \emph{perfectoid fields}. This theory subsumes the earlier theory of \emph{norm fields} on which the classical theory of $(\varphi, \Gamma)$-modules is built; see \cite{kedlaya-new-phigamma} for more historical discussion.
 
- For $A = \QQ_p$, the units of $\calR_F$ can be characterized as the series with bounded coefficients; this forms an incomplete but henselian discretely valued field with residue field $k((\overline{\pi}))$.
+\begin{defn}
+Let $L$ be a field containing $K$ which is complete with respect to a nonarchimedean absolute value, denoted $\left| \bullet \right|$. Let $\frako_L$ denote the valuation subring of $L$ (i.e., elements of norm at most $1$). We say $L$ is \emph{perfectoid} if $L$ is not discretely valued and the Frobenius map on $\frako_L/(p)$ is surjective.
+\end{defn}
 
+\begin{example}  \label{exa:cyclotomic}
+Suppose that $K = F$ and $L$ is the completion of $K(\mu_{p^\infty})$.
+Then 
+\begin{align*}
+\frako_L &\cong (W(k)[\zeta_p, \zeta_{p^2}, \dots]/(1 + \zeta_p + \cdots + \zeta_p^{p-1}, \zeta_p - \zeta_{p^2}^p, \zeta_{p^2} - \zeta_{p^3}^p, \dots)^{\wedge}_{(p)} \\
+\frako_L/(p) &\cong k[T_1, T_2, \dots]/(1+T_1 + \cdots + T_1^{p-1}, T_1 - T_2^p, T_2 - T_3^p, \dots),
+\end{align*}
+so $L$ is perfectoid.
+\end{example}
 
+\begin{theorem} \label{T:perfectoid}
+Let $L$ be a perfectoid field and define the multiplicative monoids
+\[
+\frako_{L^{\flat}} = \varprojlim_{x \mapsto x^p} \frako_L, \qquad
+L^{\flat} = \varprojlim_{x \mapsto x^p} L.
+\]
+\begin{enumerate}
+\item[(a)]
+There is a unique way to promote $\frako_{L^{\flat}}$ and $L^{\flat}$ to rings
+in such a way that the maps $\frako_{L^{\flat}} \to L^{\flat}$ and $\frako_{L^{\flat}} \to \frako_L \to \frako_L/(p)$ become ring homomorphisms.
+\item[(b)]
+The ring $L^{\flat}$ is a perfect field. In addition,
+the function $L^{\flat} \to L \stackrel{\left| \bullet \right|}{\to} \RR$ is an absolute value with respect to which $L^{\flat}$ is complete with valuation subring $\frako_{L^{\flat}}$.
+\item[(c)]
+Any finite extension of $L$, equipped with the unique extension of the absolute value, is again perfectoid.
+\item[(d)]
+The functor $L' \mapsto L^{\prime \flat}$ defines an equivalence of categories between finite extensions of $L$ and $L^{\flat}$. Consequently, there is a canonical isomorphism $G_L \cong G_{L^{\flat}}$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+See \cite[\S 1]{kedlaya-new-phigamma} and references therein.
+\end{proof}
 
-We start with a description in which the cyclotomic extension nominally still appears.
+\begin{defn}
+Let $L$ be a perfectoid field. 
+\textbf{extended Robba ring, its topology}
+\textbf{$\varphi$-modules}
 
-\textbf{extended Robba ring}
+\end{defn}
+
+\begin{lemma}
+For any perfectoid field $L$, we have $\tilde{\calR}_L^{\varphi} = \QQ_p$.
+\end{lemma}
+\begin{proof}
+...
+\end{proof}
+
+\begin{defn}
+Let $L$ be the completion of $K(\mu_{p^\infty})$; it is a perfectoid field by
+Example~\ref{exa:cyclotomic} and Theorem~\ref{T:perfectoid}.
+Let $\PhiGammatilde_{K,A}$ denote the category of finite projective $\tilde{\calR}_{L,A}$-modules equipped with continuous semilinear commuting actions of $\varphi$ and $\Gamma$.
+\end{defn}
+
+\textbf{some results}
+
 
 \textbf{B-pairs}
 
 \textbf{FF curve}
 
 \begin{remark} \label{R:not connected2}
+Following up on Remark~\ref{R:not connected}, we may now see that if $A$ is connected, then the connected components of $\calR_{K,A}$ correspond canonically to the connected components of $K \otimes_F F(\mu_{p^\infty})$; the group $\Gamma$ acting on $\calR_{K,A}$ may be canonically identified with $\Gal(F(\mu_{p^\infty})/F)$; and the stabilizer in $\Gamma$ of any connected component of $K \otimes_F F(\mu_{p^\infty})$ is
+the open subgroup $\Gamma_K = \Gal(K(\mu_{p^\infty})/K)$ of $\Gamma$. In the prior literature (excluding \cite{kedlaya-new-phigamma}), it is customary to replace $\calR_{K,A}$ with a connected component and then replace $\Gamma$ with $\Gamma_K$; this gives an equivalent category of $(\varphi, \Gamma)$-modules. See \cite[Remark~2.2.12]{kedlaya-new-phigamma} for further discussion.
 \end{remark}
 
 
 \section{Slopes of $(\varphi, \Gamma)$-modules}
+
+We now introduce the important concept of \emph{slopes} of $(\varphi, \Gamma)$-modules. The basic theory is motivated by the corresponding theory of slopes of vector bundles on algebraic varieties (especially curves). In the process, we identify the essential image of the embedding functor of Theorem~\ref{T:phi gamma embedding1} in case $A$ is a field.
+
 
 \textbf{degree, slope}
 
@@ -218,23 +278,10 @@ Let $M$ be a projective $(\varphi, \Gamma)$-module. Then as $\frakm$ varies over
 ...
 \end{proof}
  
-\begin{lemma} \label{L:modification slope bound}
-Assume that $A$ is a field. 
-Choose $s \in \QQ$.
-Let $M$ be a projective $(\varphi, \Gamma)$-module whose slopes are all at least $s$.
-Let $T$ be a $t$-torsion $(\varphi, \Gamma)$-module of degree $d$.
-Then for any short exact sequence $0 \to N \to M \to T \to 0$,
-the slopes of $N$ are all at least $s-d$.
-\end{lemma}
-\begin{proof}
-Let $P$ be the final quotient in the slope filtration of $N$ and put $N' = \ker(N \to P)$.
-By pushing out, we form the exact sequence 
-\[
-0 \to P \to M/N' \to T \to 0.
-\]
-Put $r = \rank(P)$, so that $\rank(M/N') = r$ and  $\deg(M/N') = r \mu(P)  + d$, yielding  $\mu(M/N') = \mu(P) + d/r$. Since $M/N'$ is a quotient of $M$, we must have
- $\mu(M/N') \geq s$; since $r \in \{1,\dots,n\}$, we deduce the desired result.
-\end{proof}
+\begin{remark}
+If $A$ is not a field, then the subcategory of $\PhiGamma_{K,A}$ consisting of \'etale objects may be strictly larger than the essential image of $\Rep_A(G_K)$; in fact, this already occurs for objects of rank 1, as noted in \cite[Remarque 4.2.10]{berger-colmez}.
+For further discussion, see \cite{kedlaya-liu-families}.
+\end{remark}
 
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
 
@@ -315,7 +362,27 @@ Let $M$ be a $(\varphi, \Gamma_K)$-module over $\calR_{K,A}$. Then...
 
 \section{Torsion $(\varphi, \Gamma)$-modules}
 
-As an aside, we resolve a minor open question in the classical theory of $(\varphi, \Gamma)$-modules. This section can be skipped on first reading.
+As an aside, we resolve a minor open question in the classical theory of $(\varphi, \Gamma)$-modules.
+
+\begin{lemma} \label{L:modification slope bound}
+Assume that $A$ is a field. 
+Choose $s \in \QQ$.
+Let $M$ be a projective $(\varphi, \Gamma)$-module whose slopes are all at least $s$.
+Let $T$ be a $t$-torsion $(\varphi, \Gamma)$-module of degree $d$.
+Then for any short exact sequence $0 \to N \to M \to T \to 0$,
+the slopes of $N$ are all at least $s-d$.
+\end{lemma}
+\begin{proof}
+Let $P$ be the final quotient in the slope filtration of $N$ and put $N' = \ker(N \to P)$.
+By pushing out, we form the exact sequence 
+\[
+0 \to P \to M/N' \to T \to 0.
+\]
+Put $r = \rank(P)$, so that $\rank(M/N') = r$ and  $\deg(M/N') = r \mu(P)  + d$, yielding  $\mu(M/N') = \mu(P) + d/r$. Since $M/N'$ is a quotient of $M$, we must have
+ $\mu(M/N') \geq s$; since $r \in \{1,\dots,n\}$, we deduce the desired result.
+\end{proof}
+
+
 
 \textbf{define $t$-torsion, $t$-coherent $(\varphi, \Gamma)$-modules}
 
@@ -404,6 +471,12 @@ We would like to indicate here a simpler proof using the Cartan-Serre method (i.
 
 \begin{thebibliography}{99}
 
+\bibitem{beauville-laszlo}
+A. Beauville and Y. Laszlo, Un lemme de descente, \textit{C. R. Acad. Sci. Paris} \textbf{320} (1995), 335--340.
+
+\bibitem{berger-colmez}
+L. Berger and P. Colmez, Familles de repr\'esentations de de Rham et monodromie $p$-adique, \textit{Ast\'erisque} \textbf{319} (2008), 303--337.
+
 \bibitem{chenevier}
 G. Chenevier, Sur la densit\'e des repr\'esentations cristallines de
 $\Gal(\overline{\QQ}_p/\QQ_p)$, \textit{Math. Ann.} \textbf{355} (2013), 1469--1525.
@@ -418,6 +491,10 @@ to appear in \textit{Res. Math. Sci.}
 \bibitem{kedlaya-noetherian}
 K.S. Kedlaya, Noetherian properties of Fargues-Fontaine curves,
 \textit{Int. Math. Res. Notices} (2015), article ID rnv227. 
+
+\bibitem{kedlaya-liu-families}
+K.S. Kedlaya and R. Liu, On families of $(\varphi, \Gamma)$-modules,
+\textit{Alg. and Number Theory} \textbf{4} (2010), 943--967.
 
 \bibitem{kedlaya-liu1}
 K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
