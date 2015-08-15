@@ -26,6 +26,7 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\calO}{\mathcal{O}}
 \newcommand{\calR}{\mathcal{R}}
 
 \newcommand{\frakm}{\mathfrak{m}}
@@ -33,6 +34,7 @@
 
 \newcommand{\dual}{\vee}
 
+\DeclareMathOperator{\Dfm}{\mathbf{Dfm}}
 \DeclareMathOperator{\FEt}{\mathbf{F\acute{E}t}}
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Gal}{Gal}
@@ -43,15 +45,18 @@
 \DeclareMathOperator{\perf}{perf}
 \DeclareMathOperator{\PhiGamma}{\mathbf{\Phi \Gamma}}
 \DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Rep}{\mathbf{Rep}}
+\DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Trace}{Trace}
+\DeclareMathOperator{\triv}{triv}
 
 \begin{document}
 
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship).}
-\date{\textit{unstable draft}; version of August 10, 2015}
+\date{\textit{unstable draft}; version of August 14, 2015}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -73,51 +78,92 @@ Put $F = W(k)[1/p]$ for $W(k)$ the ring of Witt vectors over $k$, so that $K/F$ 
 Let $A$ be an affinoid algebra over $\QQ_p$ in the sense of Tate, rather than the more expansive sense of Berkovich. 
 \end{hypothesis}
 
-\textbf{conventions to be decided; defaulting to conventions of KPX}:
-\begin{itemize}
-\item Notation for the Robba ring and extended Robba ring, including the dependence on the Galois base field and the coefficient base ring. The notation of KPX only really works well for $K$ a finite extension of $\QQ_p$.
-\item Use the usual subgroup $\Gamma_K$ of $\Gamma$, or induce back up to the full group?
-In the former case, we talk about $(\varphi, \Gamma_K)$-modules.
-\item Notation for characters and twists.
-\item It would be helpful to have a name for the category of $(\varphi, \Gamma)$-modules with a given Galois base field and coefficient base ring. One possibility would be $\mathbf{\Phi \Gamma}_{K,A}$.
-\end{itemize}
-
-\section{Categories of $(\varphi, \Gamma)$-modules}
+\section{The original category of $(\varphi, \Gamma)$-modules}
 \label{sec:categories}
 
-We begin with the original construction of the category of $(\varphi, \Gamma)$-modules,
-into which the category of continuous representations of $G_K$ on finite-dimensional $\QQ_p$-vector spaces embeds, followed by several equivalent descriptions. In preparation for our later discussion, we escalate the level of generality to accommodate representations on coherent sheaves over a rigid analytic space.
+We begin by describing the original construction of the category of $(\varphi, \Gamma)$-modules,
+into which the category of continuous representations of $G_K$ on finite-dimensional $\QQ_p$-vector spaces embeds; this is most explicit in the case $K=F$.
+In preparation for our later discussion, we escalate the level of generality to accommodate representations valued in affinoid algebras.
 
 \begin{defn}
-Suppose that $K = F$. Define the \emph{Robba ring} $\calR_{F,A}$ to be the set of formal sums $\sum_{n \in \ZZ} c_n \pi^n$ with $c_n \in F \widehat{\otimes}_{\Qp} A$ that converge in some range of the form
-$* < \left| \pi \right| < 1$.
-The ring $\calR_{F,A}$ admits an endomorphism $\varphi$ defined by the formula
-\[
-\sum_{n \in \ZZ} c_n \pi^n \mapsto \sum_{n \in \ZZ} \varphi_F(a) ((1 + \pi)^p-1)^n,
-\]
-where $\varphi_F: F \widehat{\otimes}_{\Qp} A$ is the $A$-linear extension of the
-Witt vector Frobenius map on $F$.
- 
-For $\gamma$ in the group $\Gamma = \ZZ_p^*$, $\calR_{F,A}$ also admits an endomorphism $\gamma$ defined by the formula
-\[
-\sum_{n \in \ZZ} c_n \pi^n \mapsto \sum_{n \in \ZZ} \varphi_F(a) ((1 + \pi)^\gamma-1)^n,
-\]
+Let $\Rep_A(G_K)$ denote the category of representations of $G_K$ (the absolute Galois group of $K$) on finite projective $A$-modules.
+\end{defn}
+
+\begin{defn}
+Let $\calR^\infty_{F,A}$ be the ring of rigid analytic functions on the disc $\left| \pi \right| < 1$ over $F \widehat{\otimes}_{\QQ_p} A$. This ring is complete for the topology of uniform convergence on quasicompact subspaces (Fr\'echet topology). The ring admits a continuous endomorphism $\varphi$ defined by the formula
+\begin{equation} \label{eq:phi formula}
+\varphi \left( \sum_n c_n \pi^n \right) =  \sum_n \varphi_F(c_n) ((1 + \pi)^p-1)^n,
+\end{equation}
+where $\varphi_F$ denotes the $A$-linear extension of Witt vector Frobenius map on $F$.
+The group $\Gamma = \ZZ_p^\times$ also admits a continuous action on $\calR^\infty_{F,A}$ defined by the formula
+\begin{equation} \label{eq:gamma formula}
+\gamma \left( \sum_n c_n \pi^n \right) = \sum_n c_n ((1 + \pi)^\gamma-1)^n \qquad (\gamma \in \Gamma)
+\end{equation}
 interpreting $(1 + \pi)^\gamma$ as the binomial series 
 \[
 (1 + \pi)^\gamma = \sum_{n=0}^\infty \frac{\gamma(\gamma-1)\cdots (\gamma-n+1)}{n!} \pi^n.
 \]
 Note that the actions of $\varphi$ and $\Gamma$ commute.
-
-A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous \textbf{explain the topology condition here}. Let $\PhiGamma_{F,A}$ denote the category of such objects.
-
-\textbf{then the general case}
-
 \end{defn}
 
+\begin{defn}
+Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions on the annuli $* < \left| \pi \right| < 1$ over $F \widehat{\otimes}_{\QQ_p} A$. This ring is complete for the locally convex direct limit topology induced by the topologies of uniform convergence on quasicompact subspaces (the \emph{LF topology}). We extend the actions of $\varphi$ and $\Gamma$ on $\calR^\infty_{F,A}$ to continuous actions on $\calR_{F,A}$ using the same formulas \eqref{eq:phi formula}, \eqref{eq:gamma formula}.
+\end{defn}
+
+\begin{defn}
+A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Let $\PhiGamma_{F,A}$ denote the category of such objects, viewed as an exact tensor category
+with rank function $\rank_F: \Phi\Gamma_{F,A} \to \ZZ$ computing the rank of the underlying $\calR_{F,A}$-module.
+\end{defn}
+
+We will sketch the proof of the following result in \S\ref{sec:alternate}.
+\begin{theorem} \label{T:phi gamma embedding1}
+There exists a full embedding $\Rep_A(G_F) \to \PhiGamma_{F,A}$.
+\end{theorem}
+In the interim, let us see how this result can be used to define a corresponding category with $F$ replaced by $K$.
+
+\begin{defn}
+Let $\calR_{K,A} \in \PhiGamma_{F,A}$ be the object of rank $[F:K]$ corresponding to $\Ind^{G_F}_{G_K} \rho_{\triv}$ via Theorem~\ref{T:phi gamma embedding}. The canonical isomorphism $\rho_{\triv} \otimes \rho_{\triv} \cong \rho_{\triv}$
+then corresponds to an associative morphism $\mu_K: \calR_{K,A} \otimes \calR_{K,A} \to \calR_{K,A}$; this gives $\calR_{K,A}$ the structure of a finite flat $\calR_{F,A}$-algebra equipped with continuous actions of $\varphi$ and $\Gamma$.
+
+Let $\PhiGamma_{K,A}$ be the category of pairs $(M, \mu)$ for which $M \in \PhiGamma_{F,A}$
+and $\mu: \calR_{K,A} \otimes M \to M$ is a morphism which is associative with respect to $\mu_K$, i.e., the compositions
+\begin{gather*}
+\calR_{K,A} \otimes \calR_{K,A}  \otimes M \stackrel{\mu_K \otimes 1}{\to} M_K \otimes M \stackrel{\mu}{\to} M, \\
+\calR_{K,A} \otimes \calR_{K,A} \otimes M \stackrel{1 \otimes \mu}{\to} \calR_{K,A} \otimes  M \stackrel{\mu}{\to} M
+\end{gather*}
+coincide. 
+In other words, these are finite projective $\calR_{K,A}$-modules equipped with commuting semilinear continuous actions of $\varphi$ and $\Gamma$.
+We again view $\PhiGamma_{K,A}$ as an exact tensor category with rank function $\rank_K = \rank_F / [K:F]$ computing the rank of the underlying $\calR_{K,A}$-module.
+
+Let $K'$ be a finite extension of $K$. Define the induction functor
+$\Ind: \PhiGamma_{K',A} \to \PhiGamma_{K,A}$ 
+and the restriction functor $\Res: \PhiGamma_{K,A} \to \PhiGamma_{K',A}$
+by restriction of scalars and extension of scalars, respectively (sic), along the natural map $\calR_{K,A}  \to \calR_{K',A}$.
+\end{defn}
+
+We may then formally promote Theorem~\ref{T:phi gamma embedding1} as follows.
+\begin{theorem} \label{T:phi gamma embedding}
+There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with induction and restriction on both sides.
+\end{theorem}
+
+\begin{remark} \label{R:not connected}
+The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not most older references. The reason is that the ring $\calR_{K,A}$ is in general not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
+See Remark~\ref{R:not connected2} for further discussion.
+\end{remark}
+
+\section{Alternate categories}
+\label{sec:alternate}
+
+We now give several equivalent descriptions of the category $\PhiGamma_{K,A}$, 
+in the process establishing Theorem~\ref{T:phi gamma embedding}. In the process, we will see why the original construction implicitly uses special properties of cyclotomic extensions.
+
+ which make less use of special properties of cyclotomic extensions.
 
  For $A = \QQ_p$, the units of $\calR_F$ can be characterized as the series with bounded coefficients; this forms an incomplete but henselian discretely valued field with residue field $k((\overline{\pi}))$.
 
 
+
+We start with a description in which the cyclotomic extension nominally still appears.
 
 \textbf{extended Robba ring}
 
@@ -125,8 +171,36 @@ A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\
 
 \textbf{FF curve}
 
+\begin{remark} \label{R:not connected2}
+\end{remark}
+
+
 \section{Slopes of $(\varphi, \Gamma)$-modules}
 
+\textbf{degree, slope}
+
+\begin{defn}
+Throughout this definition, suppose that $A$ is a field. For $M$ a projective $(\varphi, \Gamma)$-module of rank 1, the \emph{degree} of $M$, denoted $M$, is ...
+Note that 
+\begin{equation} \label{eq:tensor product degree rank 1}
+\deg(M_1 \otimes M_2) = \deg(M_1) + \deg(M_2) \qquad (\rank(M_1) = \rank(M_2) = 1).
+\end{equation}
+For $M$ a projective $(\varphi, \Gamma)$-module of arbitrary rank, we set
+$\deg(M) = \deg(\wedge^{\rank(M)} M)$ according to the previous definition. If $\rank(M) \neq 0$, the \emph{slope} of $M$ is defined as the ratio $\mu(M) = \deg(M)/\rank(M)$.
+The degree is additive in short exact sequences: we have
+\begin{equation}
+0 \to M_1 \to M \to M_2 \to 0 \Longrightarrow \deg(M) = \deg(M_1) + \deg(M_2).
+\end{equation}
+by virtue of \eqref{eq:tensor product degree rank 1} and the canonical isomorphism
+$\wedge^{\rank(M)} M \cong \wedge^{\rank(M_1)} M_1 \otimes \wedge^{\rank(M_2)} M_2$.
+
+\textbf{extend the definition to the torsion case}
+\end{defn}
+
+\textbf{definition of slopes in the general case, as functions on $\Maxspec(A)$}
+
+\begin{defn}
+\end{defn}
 
 \textbf{\'etale condition, both over a point and not}
 
@@ -153,13 +227,13 @@ Then for any short exact sequence $0 \to N \to M \to T \to 0$,
 the slopes of $N$ are all at least $s-d$.
 \end{lemma}
 \begin{proof}
-Let $P$ be the final quotient in the slope filtration of $N$.
+Let $P$ be the final quotient in the slope filtration of $N$ and put $N' = \ker(N \to P)$.
 By pushing out, we form the exact sequence 
 \[
-0 \to P \to M/N \to T \to 0.
+0 \to P \to M/N' \to T \to 0.
 \]
-Put $r = \rank(P)$, so that $\rank(M/N) = r$ and  $\deg(M/N) = r \mu(P)  + d$, yielding  $\mu(M/N) = \mu(P) + d/r$. Since $M/N$ is a quotient of $M$, we must have
- $\mu(M/N) \geq s$; since $r \in \{1,\dots,n\}$, we deduce the desired result.
+Put $r = \rank(P)$, so that $\rank(M/N') = r$ and  $\deg(M/N') = r \mu(P)  + d$, yielding  $\mu(M/N') = \mu(P) + d/r$. Since $M/N'$ is a quotient of $M$, we must have
+ $\mu(M/N') \geq s$; since $r \in \{1,\dots,n\}$, we deduce the desired result.
 \end{proof}
 
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
@@ -170,17 +244,78 @@ Put $r = \rank(P)$, so that $\rank(M/N) = r$ and  $\deg(M/N) = r \mu(P)  + d$, y
 coherence, base change
 \end{theorem}
 
+\section{Iwasawa cohomology and the cyclotomic deformation}
 
-\begin{remark}
-One of the more delicate parts of \cite{kpx} is the proof of \textbf{coherence}. 
-We would like to indicate here a simpler proof using the Cartan-Serre method (i.e., the Schwartz lemma).
+The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
 
-...
-\end{remark}
+\begin{defn}
+Define the map $\psi: \calR_K \to \calR_K$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $(\varphi, \Gamma)$-module $M$,
+we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$. Consequently, we obtain an exact sequence
+\begin{equation} \label{eq:psi sequence}
+0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
+\end{equation}
+The pairing $\{, \}$ satisfies
+\begin{equation} \label{eq:pairing phi psi}
+\{\varphi(x), y\} = \{x, \psi(y)\} \qquad (x \in M, y \in M^*).
+\end{equation}
+\end{defn}
+
+The following is \cite[Proposition~3.3.2(1)]{kpx}.
+\begin{prop} \label{P:psi finite}
+For any $(\varphi, \Gamma)$-module $M$,
+the $A$-module $M/(\psi-1)$ is finitely generated.
+\end{prop}
+\begin{cor}
+The pairing $\{-,-\}: M \times M^* \to A$ induces an isomorphism
+\[
+M^{\varphi=1} \cong \Hom_A(M^*/(\psi-1), A).
+\]
+In particular, $M^{\varphi=1}$ is a finite $A$-module.
+\end{cor}
+\begin{proof}
+The nondegeneracy of the pairing defines an injection $M \to \Hom_A(M^*, A)$;
+the identity \eqref{eq:pairing phi psi} shows that the image of this map is contained in
+$\Hom_A(M^*/(\psi-1), A)$. In the other direction, note that Proposition~\ref{P:psi finite} and the open mapping theorem imply that $(\psi-1)M^*$ is a closed subspace of $M^*$
+\textbf{for what topology??}
+\end{proof}
+
+\begin{prop}[after Chenevier]
+Let $M$ be a $(\varphi, \Gamma)$-module.
+For any $\gamma \in \Gamma_K$ of infinite order, the map $\gamma-1$ on $M^{\psi=0}$ is bijective.
+\end{prop}
+
+One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of constructions that translate to other descriptions of the category of $(\varphi, \Gamma)$-modules. These translations must remove any mention of $\psi$, as this operator has no analogue in the other descriptions.
+
+\begin{prop}
+define psi-cohomology and equivalence as in \cite[Definition~2.3.3]{kpx}.
+\end{prop}
+
+\section{The cyclotomic deformation}
+
+We define the \emph{cyclotomic deformation} of a $(\varphi, \Gamma)$-module following 
+\cite[Definition~4.4.7]{kpx}, but using more geometric language.
+\begin{defn}
+Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $X$ over $\QQ_p$.
+The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\calO(X)$ by (left) multiplication
+defines a a canonical one-dimensional Galois representation on $X$; let $\Dfm$ be the corresponding $(\varphi, \Gamma_K)$-module.
+
+For $M$ a $(\varphi, \Gamma)$-module, 
+\end{defn}
+
+
+The following is \cite[Theorem~4.4.8]{kpx}.
+\begin{theorem}
+Let $M$ be a $(\varphi, \Gamma_K)$-module over $\calR_{K,A}$. Then...
+\end{theorem}
+
+
+\textbf{compare $M^{\psi=0}$ to the boundary of the cyclotomic deformation}
+
+\appendix
 
 \section{Torsion $(\varphi, \Gamma)$-modules}
 
-As an aside, we resolve a minor open question in the classical theory of $(\varphi, \Gamma)$-modules.
+As an aside, we resolve a minor open question in the classical theory of $(\varphi, \Gamma)$-modules. This section can be skipped on first reading.
 
 \textbf{define $t$-torsion, $t$-coherent $(\varphi, \Gamma)$-modules}
 
@@ -226,7 +361,8 @@ for $\gamma$ sufficiently small, the matrices $B_\gamma, C_\gamma$ can be chosen
 $\left| B_\gamma-1 \right|, \left| C_\gamma -1 \right| < 1$.
 By Lemma~\ref{L:lift topological action}, the action of $\gamma$ on $F_1$ extends to an open subgroup $\Gamma'$ of $\Gamma_K$, and the map $F_1 \to M$ is necessarily also $\Gamma'$-equivariant. Put $F = \Ind_{\Gamma'}^{\Gamma_K} F_1$; then $F_1 \to M$ corresponds to a $\Gamma$-equivariant surjection $F \to M$. 
 
-We may choose any matrix of action for $\varphi$ to promote $F$ to a projective $(\varphi, \Gamma)$-module equipped with an equivariant surjection $F \to M$. Given one such choice, we may then multiply the matrix of action by powers of $p$ to obtain maps $F(n) \to M$ for $n \in \ZZ$. 
+We may choose any matrix of action for $\varphi$ (with coefficients in $\tilde{\calR}^{[p^{1/2}, p^{1/2}]}_{K,A}$)
+to promote $F$ to a projective $(\varphi, \Gamma)$-module equipped with an equivariant surjection $F \to M$. Given one such choice, we may then multiply the matrix of action by powers of $p$ to obtain maps $F(n) \to M$ for $n \in \ZZ$. 
 \end{proof}
 
 \begin{theorem} \label{T:t-coherent lift}
@@ -257,34 +393,20 @@ Theorem~\ref{T:t-coherent lift} resolves a question raised implicitly in
 every generalized $(\varphi, \Gamma)$-module is a $B$-quotient.
 \end{remark}
 
-\section{Iwasawa cohomology and the cyclotomic deformation}
+\begin{remark}
+One of the more delicate parts of \cite{kpx} is the proof of \textbf{coherence}. 
+We would like to indicate here a simpler proof using the Cartan-Serre method (i.e., the Schwartz lemma).
 
-The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
+...
+\end{remark}
 
-\begin{defn}
-Define the map $\psi: \calR_K \to \calR_K$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $(\varphi, \Gamma)$-module $M$,
-we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$. Consequently, we obtain an exact sequence
-\begin{equation} \label{eq:psi sequence}
-0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
-\end{equation}
-\end{defn}
 
-One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of constructions that translate to other descriptions of the category of $(\varphi, \Gamma)$-modules. These translations must remove any mention of $\psi$, as this operator has no analogue in the other descriptions.
-
-\begin{prop}
-define psi-cohomology and equivalence as in \cite[Definition~2.3.3]{kpx}.
-\end{prop}
-
-\begin{defn}
-Cyclotomic deformation as in \cite[Definition~4.4.7]{kpx}...
-\end{defn}
-
-The following is \cite[Theorem~4.4.8]{kpx}.
-\begin{theorem}
-Let $M$ be a $(\varphi, \Gamma_K)$-module over $\calR_{K,A}$. Then...
-\end{theorem}
 
 \begin{thebibliography}{99}
+
+\bibitem{chenevier}
+G. Chenevier, Sur la densit\'e des repr\'esentations cristallines de
+$\Gal(\overline{\QQ}_p/\QQ_p)$, \textit{Math. Ann.} \textbf{355} (2013), 1469--1525.
 
 \bibitem{kedlaya-bordeaux}
 K.S. Kedlaya, Some new directions in $p$-adic Hodge theory, \textit{J. Th\'eorie Nombres Bordeaux} \textbf{21} (2009), 285--300.
