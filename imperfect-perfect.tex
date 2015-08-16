@@ -203,11 +203,34 @@ See \cite[\S 1]{kedlaya-new-phigamma} and references therein.
 \end{proof}
 
 \begin{defn}
-Let $W(L)^b$...
-\textbf{extended Robba ring, its topology}
+Equip $L^\flat$ with the absolute value described in 
+Theorem~\ref{T:perfectoid}(b). 
+For $r>0$, let $W^r(L)$ be the set of $x = \sum_{n=0}^\infty p^n [\overline{x}_n] \in W(L)$ such that $p^{-n} \left| \overline{x}_n \right|^r \to 0$ as $n \to \infty$.
+By \cite[Proposition~5.1.2]{kedlaya-liu1}, this set is a subring of $W(L)$ on which 
+the function $\left| \bullet \right|_r$ defined by
+\[
+\left| \sum_{n=0}^\infty p^n [\overline{x}_n]  \right|_r = \max_n \{p^{-n} \left| \overline{x}_n \right|^r\}
+\]
+is a complete multiplicative norm; this norm extends multiplicatively to $W^r(L)[p^{-1}]$.
+For $0 < s \leq r$, let $\tilde{\calR}^{[s,r]}_L$ be the completion of $W^r(L)[p^{-1}]$
+with respect to $\max\{\left| \bullet \right|_s, \left| \bullet \right|_r\}$,
+and put $\tilde{\calR}^{[s,r]}_{L,A} = \tilde{\calR}^{[s,r]}_L \widehat{\otimes}_{\QQ_p} A$.
+Let $\tilde{\calR}^r_{L,A}$ be the inverse limit of the $\tilde{\calR}^{[s,r]}_{L,A}$ over all $s \in (0,r)$, equipped with the Fr\'echet topology. Let $\tilde{\calR}_{L,A}$ be the direct  limit of the $\tilde{\calR}^r_{L,A}$ over all $r>0$, equipped with the locally convex direct limit topology (LF topology).
 
+Denote by $\varphi$ the following maps induced by the Witt vector Frobenius map on $W(L)$:
+\[
+W^r(L) \to W^{r/p}(L), \qquad
+\tilde{\calR}^{[s,r]}_{L,A} \to \tilde{\calR}^{[s/p,r/p]}_{L,A},
+\qquad
+\tilde{\calR}^{r}_{L,A} \to \tilde{\calR}^{r/p}_{L,A}, \qquad
+\tilde{\calR}_{L,A} \to \tilde{\calR}_{L,A}.
+\]
 Let $\PhiMod_{L,A}$ be the category of finite projective $\tilde{\calR}_{L,A}$-modules equipped with semilinear $\varphi$-actions.
 \end{defn}
+
+\begin{remark}
+It is shown in \cite{kedlaya-noetherian} that the rings $\tilde{\calR}^{[s,r]}_{L,\QQ_p}$ are \emph{strongly noetherian}, that is, any affinoid algebra over such a ring is noetherian. In particular, the rings $\tilde{\calR}^{[s,r]}_{L,A}$ are strongly noetherian.
+\end{remark}
 
 \begin{lemma}
 For any $r,s$ with $0 < s \leq r/p$, we have
@@ -220,10 +243,6 @@ In particular, we have $\tilde{\calR}_{L,A}^{\varphi} = A$.
 In the case $A = \QQ_p$, this is \cite[Corollary~5.2.4]{kedlaya-liu1}. 
 The general case may be deduced by constructing a Schauder basis for $A$ over $\QQ_p$; see \cite[Lemma~2.2.9(b)]{kedlaya-liu1}.
 \end{proof}
-
-\begin{remark}
-It is shown in \cite{kedlaya-noetherian} that the rings $\tilde{\calR}^{[s,r]}_{L,\QQ_p}$ are \emph{strongly noetherian}, that is, any affinoid algebra over such a ring is noetherian. In particular, the rings $\tilde{\calR}^{[s,r]}_{L,A}$ are strongly noetherian.
-\end{remark}
 
 \begin{theorem}
 Let $L$ be a perfectoid field. Let $L'$ be the completion of a (possibly infinite) Galois algebraic extension of $L$ with Galois group $G$. Then the functor from
@@ -346,6 +365,12 @@ For further discussion, see \cite{kedlaya-liu-families}.
 \begin{theorem}
 coherence, base change
 \end{theorem}
+
+\begin{remark}
+Beware that for $\tilde{M} \in \PhiGammatilde_{K,A}$, the action map
+$\tilde{M} \times \Gamma \to \tilde{M}$ is continuous, but does not define a bounded map
+$\tilde{M} \widehat{\otimes}_{\QQ_p} \Lambda \to \tilde{M}$.
+\end{remark}
 
 \section{Iwasawa cohomology and the cyclotomic deformation}
 
