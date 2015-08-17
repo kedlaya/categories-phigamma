@@ -462,10 +462,15 @@ The \emph{HN polygon} of $\calF$ is the Newton polygon of length $\rank(\calF)$ 
 Suppose that $A$ is a field.
 \begin{enumerate}
 \item[(a)] The tensor product of any two semistable bundles in $\VB_{L,A}$ is again semistable. In particular, the tensor product of two \'etale bundles is again \'etale.
-\item[(b)] The essential image of the full embedding $\Rep_A(G_L) \to \PhiMod_{L,A}$
-in Theorem~\ref{T:perfect embedding} consists precisely of the \'etale bundles.
+\item[(b)]
+Let $L'$ be any perfectoid field containing $L$. Then the HN polygon remains invariant under base extension from $\VB_{L,A}$ to $\VB_{L',A}$.
+\item[(c)] The essential image of the full embedding $\Rep_A(G_L) \to \PhiMod_{L,A}$
+in Theorem~\ref{T:perfect embedding} consists precisely of the \'etale objects.
 \end{enumerate}
 \end{theorem}
+\begin{proof}
+See \cite[\S 4]{kedlaya-liu1} and references therein.
+\end{proof}
 
 \begin{remark}
 For general $A$, we may define the degree, rank, slope, and HN polygon of $\calF \in \VB_{L,A}$ as functions on $\Maxspec(A)$. Unfortunately, these functions do not extend well to the Berkovich space associated to $A$, because the theory of slopes behaves poorly when the degree map does not take discrete values.
@@ -541,6 +546,16 @@ in this case, using Theorem~\ref{T:perfect equivalence} we get a description of
 $\PhiGamma_{K,A}$ as objects of $\BPair_{\CC_L,A}$ equipped with continuous semilinear $G_K$-actions. In the case $A = \QQ_p$, this description is due to Berger \cite{berger-b-pairs}.
 \end{remark}
 
+\begin{defn}
+We say that $M \in \PhiGamma_{K,A}$ is \emph{\'etale} if its image in $\PhiMod_{L,A}$ is \'etale.
+By Theorem~\ref{T:etale properties}, we may check this condition 
+with $L$ replaced by any field as in
+Remark~\ref{R:general field}.
+Moreover, if $A$ is a field, then 
+$M$ is \'etale if and only if it belongs
+to the essential image of the functor $\Rep_A(G_K)\to \PhiGamma_{K,A}$.
+\end{defn}
+
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
 
 We now upgrade the previous discussion to relate Galois cohomology to $(\varphi, \Gamma)$-modules. This time, we start directly with the perfectoid framework.
@@ -564,10 +579,22 @@ are quasi-isomorphic via the base extension functors.
 The proof of \cite[Proposition~6.3.19]{kedlaya-liu1} in the case $A = \QQ_p$ adapts without change.
 \end{proof}
 
+\begin{defn}
+For $G$ a profinite group acting continuously on a topological abelian group $M$,
+let $C_G(M)$ denote the complex of inhomogeneous continuous cochains on $G$ with values in $M$.
+
+For $M \in \PhiGamma_{K,A}$, let $C_{\varphi, \Gamma}(M)$ denote the total complex associated to the double complex
+\[
+0 \to C(\Gamma,M) \stackrel{\varphi-1}{\to} C(\Gamma,M) \to 0.
+\]
+Denote by $H^i_{\varphi, \Gamma}(M)$ the cohomology groups of this complex.
+We make an analogous definition for $\tilde{M} \in \PhiGammatilde_{K,A}$.
+\end{defn}
+
 \begin{lemma} \label{L:perfect descend cohomology}
 Let $L$ be a perfectoid field.
-Let $L'$ be the completion of a (possibly infinite) Galois algebraic extension of $L$ with Galois group $G$. Then for $0 < s \leq r$, for $M$ a finite projective $\tilde{\calR}^{[s,r]}_{L,A}$-module, $M$ is acyclic for continuous $G$-cohomology; that is, for $C(\Gamma,M)$ the complex of continuous $\Gamma$-cochains with values in $M$,
-the morphism $M \to C(\Gamma,M)$ is a quasi-isomorphism.
+Let $L'$ be the completion of a (possibly infinite) Galois algebraic extension of $L$ with Galois group $G$. Then for $0 < s \leq r$, for $M$ a finite projective $\tilde{\calR}^{[s,r]}_{L,A}$-module, $M$ is $G$-acyclic, i.e.,
+the morphism $M \to C(G,M)$ is a quasi-isomorphism.
 \end{lemma}
 \begin{proof}
 Using a Schauder basis for $A$ over $\QQ_p$, we may reduce to the case $A = \QQ_p$,
@@ -586,15 +613,6 @@ $H^i(X_{L,A}, \calF) = 0$ for $i \geq 2$. The identification for $i=0,1$ arises 
 from Theorem~\ref{T:perfect equivalence}, using in the case $i=1$ of the cohomology groups as Yoneda extension groups.
 \end{proof}
 
-\begin{defn}
-For $M \in \PhiGamma_{K,A}$, 
-let $C(\Gamma,M)$ denote the complex of continuous $\Gamma$-cochains with values in $M$.
-Let $H^i_{\varphi, \Gamma}(M)$ be the total cohomology of the double complex
-\[
-C_{\varphi, \Gamma}(M): 0 \to C(\Gamma,M) \stackrel{\varphi-1}{\to} C(\Gamma,M) \to 0.
-\]
-We make an analogous definition for $\tilde{M} \in \PhiGammatilde_{K,A}$.
-\end{defn}
 
 \begin{theorem} \label{T:compare phi Gamma cohomology}
 The morphisms $H^i_{\varphi, \Gamma}(M) \to H^i_{\varphi, \Gamma}(\tilde{M})$ are isomorphisms for all $i$.
@@ -604,19 +622,24 @@ The proof given in \cite{kedlaya-liu2} for the case $A = \QQ_p$ adapts without c
 \end{proof}
 
 \begin{theorem} \label{T:coherence cohomology}
+Suppose that $[K:\QQ_p] < \infty$.
 For $M \in \PhiGamma_{K,A}$, we have the following.
 \begin{enumerate}
 \item[(a)] The groups $H^i_{\varphi, \Gamma}(M)$ are finite $A$-modules for $i=0,1,2$, and vanish for $i>2$.
 \item[(b)] For any morphism $A \to B$ of affinoid algebras over $\QQ_p$, the canonical morphism
 \[
-C_{\varphi, \Gamma}(M) \otimes^{\mathbf{L}}_A B
+C_{\varphi, \Gamma}(M) \otimes^{\mathbb{L}}_A B
 \to C_{\varphi, \Gamma}(M \otimes_{\calR_{K,A}} \calR_{K,B})
 \]
 is a quasi-isomorphism.
+\item[(c)]
+If $M$ is the image of $V \in \Rep_A(G_K)$ under Theorem~\ref{T:phi gamma embedding1},
+then there is a canonical quasi-isomorphism $C_{G_K}(V) \cong C_{\varphi, \Gamma}(M)$.
+In particular, the $A$-modules $H^i_{\varphi, \Gamma}(M)$ coincide with the Galois cohomology groups of $V$.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-See \cite[Theorem~4.4.2, Theorem~4.4.3]{kpx}.
+See \cite[Proposition~2.3.7, Theorem~4.4.2, Theorem~4.4.3]{kpx}.
 \end{proof}
 
 \begin{remark}
@@ -625,16 +648,17 @@ we may compute the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
 using another extension of $K$ as in Remark~\ref{R:general field}. In particular, it is in some sense an intrinsic invariant of $\tilde{M}$. However, while Theorem~\ref{T:compare phi Gamma cohomology} and Theorem~\ref{T:coherence cohomology} together assert that the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
 are finite $A$-modules,
 the proof of this statement depends crucially on the interpretation of $\tilde{M}$ in terms of the category $\PhiGamma_{K,A}$. 
+To illustrate this, we sketch a proof of Theorem~\ref{T:coherence cohomology}(a) in the spirit of \cite{kpx} but technically somewhat simpler. (It is also slightly more general,
+as we only need to assume that $A$ is a noetherian Banach algebra over $\QQ_p$.)
 
-To illustrate this, we sketch a quick proof of Theorem~\ref{T:coherence cohomology}(a) which is somewhat simpler than the one given in \cite{kpx} (although in the same spirit).
-By formal arguments (Shapiro's lemma), we may reduce to the case $K = F$.
+By formal arguments (Shapiro's lemma), we may reduce to the case $K = \QQ_p$.
 Choose $r,s,r',s'$ with $0 < s < s' \leq r'/p \leq r/p$. 
 Let $\calR^{[s,r]}_{F,A}$ be the ring of rigid analytic functions 
-on the disc $p^{-rp/(p-1)} < \left| \pi \right| < p^{-sp/(p-1)}$. For $r$ sufficiently small, we may (by analogy with Lemma~\ref{L:phi modules bundles} and Lemma~\ref{L:truncate cohomology}) realize $M$ as a finite projective $\calR^{[s,r]}_{F,A}$-module $M^{[s,r]}$
+on the disc $p^{-rp/(p-1)} < \left| \pi \right| < p^{-sp/(p-1)}$. For $r$ sufficiently small, we may (by analogy with Lemma~\ref{L:phi modules bundles} and Lemma~\ref{L:truncate cohomology}) realize $M$ as a finite projective $\calR^{[s,r]}_{\QQ_p,A}$-module $M^{[s,r]}$
 equipped with an isomorphism 
 \[
-\varphi^* M^{[s,r]} \otimes_{\calR^{[s/p,r/p]}_{F,A}} \calR^{[s,r/p]}_{F,A} 
-\cong M^{[s,r]} \otimes_{\calR^{[s,r]}_{F,A}} \calR^{[s,r/p]}_{F,A}
+\varphi^* M^{[s,r]} \otimes_{\calR^{[s/p,r/p]}_{\QQ_p,A}} \calR^{[s,r/p]}_{\QQ_p,A} 
+\cong M^{[s,r]} \otimes_{\calR^{[s,r]}_{\QQ_p,A}} \calR^{[s,r/p]}_{\QQ_p,A}
 \]
 and compute $H^i_{\varphi, \Gamma}(M)$ as the cohomology of the total complex
 \[
@@ -647,8 +671,10 @@ We then have a diagram
 0 \ar[r] & C(\Gamma, M^{[s',r']}) \ar^{\varphi-1}[r] & C(\Gamma, M^{[s',r'/p]}) \ar[r] & 0
 }
 \]
-in which the vertical arrows define a quasi-isomorphism of the total complexes associated to the rows. However, each vertical arrow is composed of maps which are  \emph{completely continuous} morphisms of Banach spaces over $A$, i.e., uniform limits of morphisms of finite rank. By the Cartan-Serre-Schwartz lemma (as in \cite[Satz~2.6]{kiehl-finiteness}), we deduce that the cohomology groups of the total complexes are finite $A$-modules.
-(By contrast, the maps $\tilde{\calR}^{[s,r]}_{L,A} \to \tilde{\calR}^{[s',r']}_{L,A}$ are not completely continuous.)
+in which the vertical arrows define a quasi-isomorphism of the total complexes associated to the rows. However, each vertical arrow is composed of maps which are  \emph{completely continuous} morphisms of Banach spaces over $A$, i.e., uniform limits of morphisms of finite rank. 
+(Here we need $[K:\QQ_p] < \infty$ to ensure that $F \widehat{\otimes}_{\QQ_p} A$ is itself a finite $A$-module, since $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear.)
+By the Cartan-Serre-Schwartz lemma (as in \cite[Satz~2.6]{kiehl-finiteness}), we deduce that the cohomology groups of the total complexes are finite $A$-modules.
+(By contrast, the maps $\tilde{\calR}^{[s,r]}_{\QQ_p,A} \to \tilde{\calR}^{[s',r']}_{\QQ_p,A}$ are not completely continuous.)
 \end{remark}
 
 \section{Iwasawa cohomology and the cyclotomic deformation}
@@ -825,15 +851,6 @@ Theorem~\ref{T:t-coherent lift} resolves a question raised implicitly in
 \cite{kedlaya-bordeaux} by showing that in the terminology of that paper,
 every generalized $(\varphi, \Gamma)$-module is a $B$-quotient.
 \end{remark}
-
-\begin{remark}
-One of the more delicate parts of \cite{kpx} is the proof of \textbf{coherence}. 
-We would like to indicate here a simpler proof using the Cartan-Serre method (i.e., the Schwartz lemma).
-
-...
-\end{remark}
-
-
 
 \begin{thebibliography}{99}
 
