@@ -30,6 +30,7 @@
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\calF}{\mathcal{F}}
+\newcommand{\calL}{\mathcal{L}}
 \newcommand{\calO}{\mathcal{O}}
 \newcommand{\calR}{\mathcal{R}}
 
@@ -52,6 +53,7 @@
 \DeclareMathOperator{\PhiGamma}{\mathbf{\Phi \Gamma}}
 \DeclareMathOperator{\PhiGammatilde}{\widetilde{\mathbf{\Phi \Gamma}}}
 \DeclareMathOperator{\PhiMod}{\mathbf{\Phi Mod}}
+\DeclareMathOperator{\Pic}{Pic}
 \DeclareMathOperator{\Proj}{Proj}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Rep}{\mathbf{Rep}}
@@ -66,7 +68,7 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship).}
-\date{\textit{unstable draft}; version of August 15, 2015}
+\date{\textit{unstable draft}; version of August 16, 2015}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -181,7 +183,9 @@ Then
 so $L$ is perfectoid.
 \end{example}
 
+\begin{hypothesis}
 For the remainder of \S\ref{sec:perfectoid}, let $L$ be a perfectoid field.
+\end{hypothesis}
 
 \begin{theorem} \label{T:perfectoid}
 Define the multiplicative monoids
@@ -267,7 +271,9 @@ W^r(L) \to W^{r/p}(L), \qquad
 \tilde{\calR}^{r}_{L,A} \to \tilde{\calR}^{r/p}_{L,A}, \qquad
 \tilde{\calR}_{L,A} \to \tilde{\calR}_{L,A}.
 \]
-Let $\PhiMod_{L,A}$ be the category of finite projective $\tilde{\calR}_{L,A}$-modules equipped with semilinear $\varphi$-actions. Note that unlike for $(\varphi, \Gamma)$-modules, the action of $\varphi$ on an object of $\PhiMod_{L,A}$ is bijective, so we also have an induced action of $\varphi^{-1}$.
+A \emph{$\varphi$-module} over $\tilde{\calR}_{L,A}$ is a finite projective $\tilde{\calR}_{L,A}$-module equipped with a semilinear $\varphi$-action;
+note that unlike for $(\varphi, \Gamma)$-modules, this action is necessarily bijective.
+Let $\PhiMod_{L,A}$ be the category of $\varphi$-modules over $\tilde{\calR}_{L,A}$.
 \end{defn}
 
 \begin{lemma} \label{L:phi invariants}
@@ -278,7 +284,8 @@ For any $r,s$ with $0 < s \leq r/p$, we have
 In particular, we have $\tilde{\calR}_{L,A}^{\varphi} = A$.
 \end{lemma}
 \begin{proof}
-Again using \cite[Lemma~2.2.9(b)]{kedlaya-liu1}, this reduces to the case $A = \QQ_p$, for which see \cite[Corollary~5.2.4]{kedlaya-liu1}. 
+Again using \cite[Lemma~2.2.9(b)]{kedlaya-liu1}, we reduce to the case $A = \QQ_p$,
+for which see (a), see \cite[Corollary~5.2.4]{kedlaya-liu1}. 
 \end{proof}
 
 \begin{lemma} \label{L:phi modules bundles}
@@ -287,7 +294,7 @@ For any $r,s$ with $0 < s \leq r/p$, the following categories are canonically eq
 \item[(a)]
 the category $\PhiMod_{L,A}$;
 \item[(b)]
-the category of finite projective $\tilde{\calR}^r$-modules equipped with isomorphisms 
+the category of finite projective $\tilde{\calR}^r_{L,A}$-modules equipped with isomorphisms 
 \[
 \varphi^* M  \cong 
 M \otimes_{\tilde{\calR}^r_{L,A}} \tilde{\calR}^{r/p}_{L,A};
@@ -308,7 +315,19 @@ The functor from (b) to (c) is base extension from $\tilde{\calR}^r_{L,A}$ to $\
 	Remark~\ref{R:glueing lemma}, we see additionally that (c) is equivalent to the same category no matter what values of $r,s$ are used. We may then check the equivalence between (b) and (c) by imitating the proof of \cite[Proposition~2.2.7]{kpx}.
 \end{proof}
 
-\begin{theorem}
+\begin{defn}
+For $M \in \PhiMod_{L,A}$ and $n \in \ZZ$, define the twist $M(n)$ to have the same underlying module, with the action of $\varphi$ multiplied by $p^{-n}$.
+\end{defn}
+
+\begin{lemma} \label{L:enough phi-invariants}
+For $M \in \PhiMod_{L,A}$, there exists $n_0 \in \ZZ$ such that for all $n \geq n_0$,
+$M(n)$ is generated as a $\tilde{\calR}_{L,A}$-module by $M(n)^{\varphi}$.
+\end{lemma}
+\begin{proof}
+The proof of \cite[Proposition~6.2.4]{kedlaya-liu1} adapts directly.
+\end{proof}
+
+\begin{theorem} \label{T:perfect embedding}
 Let $\CC_L$ be a completed algebraic closure of $L$. Then the formula 
 \[
 V \mapsto (V \otimes_A \tilde{\calR}_{\CC_L, A})^{G_L}
@@ -370,72 +389,98 @@ For $\calF \in \VB_{L,A}$, for each $f \in P_{L,A}$ homogeneous of positive degr
 the sections of $\calF$ over the distinguished open affine subspace defined by $f$
 form a finite projective module over $(\tilde{\calR}_{L,A}[f^{-1}])^{\varphi}$; by base extension, we obtain a finite projective module over $\tilde{\calR}_{L,A}[f^{-1}]$ equipped with a semilinear $\varphi$-action. By \cite[Lemma~6.3.7]{kedlaya-liu1}, the possible values of $f$ generate the unit ideal in $\tilde{\calR}_{L,A}$, so we may glue to obtain an object of $\PhiMod_{L,A}$.
 
-In the other direction, for $M \in \PhiMod_{L,A}$ and $n \in \ZZ$, we may multiply the action of $\varphi$ on $M$ by $p^{-n}$ to obtain a new object $M(n) \in \PhiMod_{L,A}$. We may then view
+In the other direction, for $M \in \PhiMod_{L,A}$, we may then view
 $\bigoplus_{n=0}^\infty M(n)^{\varphi}$ as a graded module over $P_{L,A}$, and then form the associated quasicoherent sheaf, which we must show is a vector bundle.
-As in the proof of \cite[Theorem~6.3.12]{kedlaya-liu1}, this reduces to showing that
-for $n$ sufficiently large, $M(n)$ is generated as a $\tilde{\calR}_{L,A}$-module by
-$M(n)^{\varphi}$; this follows by imitating the proof of \cite[Proposition~6.2.4]{kedlaya-liu1}.
+Using Lemma~\ref{L:enough phi-invariants}, this follows as in the proof of \cite[Theorem~6.3.12]{kedlaya-liu1}.
 \end{proof}
 
-\section{Slopes of $(\varphi, \Gamma)$-modules}
+\section{Slopes of \texorpdfstring{$\varphi$}{phi}-modules}
 \label{sec:slopes}
 
-We now introduce the important concept of \emph{slopes} of $(\varphi, \Gamma)$-modules. The basic theory is motivated by the corresponding theory of slopes of vector bundles on algebraic varieties (especially curves). In the process, we identify the essential image of the embedding functor of Theorem~\ref{T:phi gamma embedding1} in case $A$ is a field.
+We now introduce the important concept of \emph{slopes} of $\varphi$-modules. The basic theory is motivated by the corresponding theory of slopes of vector bundles on algebraic varieties (especially curves). In the process, we identify the essential image of the embedding functor of Theorem~\ref{T:perfect embedding} in case $A$ is a field.
 
+\begin{hypothesis}
+Throughout \S\ref{sec:slopes}, let $L$ be a perfectoid field.
+\end{hypothesis}
 
-\textbf{degree, slope}
-
-\begin{defn}
-Throughout this definition, suppose that $A$ is a field. For $M$ a projective $(\varphi, \Gamma)$-module of rank 1, the \emph{degree} of $M$, denoted $M$, is ...
-Note that 
-\begin{equation} \label{eq:tensor product degree rank 1}
-\deg(M_1 \otimes M_2) = \deg(M_1) + \deg(M_2) \qquad (\rank(M_1) = \rank(M_2) = 1).
-\end{equation}
-For $M$ a projective $(\varphi, \Gamma)$-module of arbitrary rank, we set
-$\deg(M) = \deg(\wedge^{\rank(M)} M)$ according to the previous definition. If $\rank(M) \neq 0$, the \emph{slope} of $M$ is defined as the ratio $\mu(M) = \deg(M)/\rank(M)$.
-The degree is additive in short exact sequences: we have
-\begin{equation}
-0 \to M_1 \to M \to M_2 \to 0 \Longrightarrow \deg(M) = \deg(M_1) + \deg(M_2).
-\end{equation}
-by virtue of \eqref{eq:tensor product degree rank 1} and the canonical isomorphism
-$\wedge^{\rank(M)} M \cong \wedge^{\rank(M_1)} M_1 \otimes \wedge^{\rank(M_2)} M_2$.
-
-\textbf{extend the definition to the torsion case}
-\end{defn}
-
-\textbf{definition of slopes in the general case, as functions on $\Maxspec(A)$}
-
-\begin{defn}
-\end{defn}
-
-\textbf{\'etale condition, both over a point and not}
-
-\begin{defn}
-Suppose that $A$ is a field. \textbf{define the slopes, filtration in that case}.
-
-\textbf{now in the general case, talk about the slopes as a function on $\Maxspec(A)$, and remark that they cannot be defined for Berkovich points}.
-\end{defn}
-
-
-\begin{lemma} \label{L:bounded slopes}
-Let $M$ be a projective $(\varphi, \Gamma)$-module. Then as $\frakm$ varies over $\Maxspec(A)$, the slopes of $M/\frakm$ are uniformly bounded above and below.
+\begin{lemma} \label{L:units}
+Suppose that $A$ is a field.
+Then $\tilde{\calR}_{L,A}^{\times} = \bigcup_{r>0} W^r(L)[p^{-1}] \otimes_{\QQ_p} A$.
 \end{lemma}
 \begin{proof}
-...
+See \cite[Corollary~4.2.5]{kedlaya-liu1}.
 \end{proof}
- 
+
+\begin{defn}
+Suppose that $A$ is a field. Let $v(A)$ denote the valuation group of $A$, normalized so that $v(\QQ_p) = \ZZ$. By Lemma~\ref{L:units},
+we obtain a canonical homomorphism $\tilde{\calR}_{L,A}^{\times} \to v(A)$
+and thus a morphism $\deg: \Pic(X_{L,A}) \to v(A)$ called the \emph{degree} map.
+As usual, for $\calF \in \VB_{L,A}$ of arbitrary rank, we define the \emph{degree} of $\calF$ as the degree of its determinant $\wedge^{\rank(\calF)} \calF$, and (if $\calF \neq 0$) the \emph{slope} of $\calF$ as the ratio $\mu(\calF) = \deg(\calF)/\rank(\calF)$.
+We may transfer these definitions to $\PhiMod_{L,A}$ using Theorem~\ref{T:perfect equivalence}.
+\end{defn}
+
+\begin{lemma} \label{L:no subinvariants}
+For each positive integer $n$, we have
+$\ker(p^n \varphi-1: \tilde{\calR}^{[s,r]}_{L,A} \to \tilde{\calR}^{[s,r/p]}_{L,A}) = 0$. \end{lemma}
+\begin{proof}
+Again using \cite[Lemma~2.2.9(b)]{kedlaya-liu1}, we reduce to the case $A = \QQ_p$.
+Suppose that $x$ belongs to the kernel. The equality
+\[
+\left| x \right|_{t} = \left| \varphi(x) \right|_{t/p} = \left| p^{-n} x \right|_{t/p} 
+= p^n \left| x \right|_{t/p}
+\]
+holds initially for $t \in [s, r]$, then by induction for all $t \in (0, r]$.
+It follows that $\left| x \right|_t$ remains bounded as $t \to 0^+$, so by 
+\cite[Lemma~4.2.4]{kedlaya-liu1} we have $x \in \tilde{\calR}_{L,A}^{\times}$.
+However, by Lemma~\ref{L:units}, this means that $x$ has a well-defined valuation in $v(A)$, which is the same as the valuation of $\varphi(x)$; we must then have $n=0$, contradiction.
+\end{proof}
+
+\begin{defn}
+Suppose that $A$ is a field. For $\calF \in \VB_{L,A}$ nonzero, we say $\calF$ is \emph{stable} (resp. \emph{semistable}) if there does not exist a nonzero proper subobject $\calF'$ of $\calF$ such that $\mu(\calF') \geq \mu(\calF)$ (resp.\ $\mu(\calF') > \mu(\calF)$). 
+For example, by Lemma~\ref{L:no subinvariants}, any rank 1 bundle is semistable.
+We say $\calF$ is \emph{\'etale} if it is semistable of degree 0.
+
+For general $\calF \in \VB_{L,A}$, Lemma~\ref{L:no subinvariants} implies that the set of slopes of nonzero subbundles of $\calF$ is bounded above; consequently, there exists a canonical filtration
+\[
+0 = \calF_0 \subset \calF_1 \subset \cdots \subset \calF_m = \calF
+\]
+such that the successive quotients $\calF_i/\calF_{i-1}$ are stable and
+$\mu(\calF_1/\calF_0) > \cdots > \mu(\calF_m/\calF_{m-1})$. 
+This filtration is called the \emph{Harder-Narasimhan filtration}, or \emph{HN filtration}, of $\calF$. Note that $\calF_1$ is the maximal subbundle of $\calF$ achieving the maximal slope among nonzero subbundles of $\calF$. 
+The \emph{HN polygon} of $\calF$ is the Newton polygon of length $\rank(\calF)$ in which the slope $\mu(\calF_i/\calF_{i-1})$ occurs with multiplicity $\rank(\calF_i)$; the total height of this polygon is $\deg(\calF)$.
+\end{defn}
+
+\begin{theorem} \label{T:etale properties}
+Suppose that $A$ is a field.
+\begin{enumerate}
+\item[(a)] The tensor product of any two semistable bundles in $\VB_{L,A}$ is again semistable. In particular, the tensor product of two \'etale bundles is again \'etale.
+\item[(b)] The essential image of the full embedding $\Rep_A(G_L) \to \PhiMod_{L,A}$
+in Theorem~\ref{T:perfect embedding} consists precisely of the \'etale bundles.
+\end{enumerate}
+\end{theorem}
+
 \begin{remark}
-If $A$ is not a field, then the subcategory of $\PhiGamma_{K,A}$ consisting of \'etale objects may be strictly larger than the essential image of $\Rep_A(G_K)$; in fact, this already occurs for objects of rank 1, as noted in \cite[Remarque 4.2.10]{berger-colmez}.
+For general $A$, we may define the degree, rank, slope, and HN polygon of $\calF \in \VB_{L,A}$ as functions on $\Maxspec(A)$. Unfortunately, these functions do not extend well to the Berkovich space associated to $A$, because the theory of slopes behaves poorly when the degree map does not take discrete values.
+
+In addition, if $A$ is not a field, then the subcategory of $\PhiMod_{L,A}$ consisting of pointwise \'etale objects may be strictly larger than the essential image of $\Rep_A(G_L)$; in fact, this already occurs for objects of rank 1, as noted in \cite[Remarque 4.2.10]{berger-colmez}.
 For further discussion, see \cite{kedlaya-liu-families}.
 \end{remark}
 
 
+\begin{lemma} \label{L:bounded slopes}
+For $\calF \in \VB_{L,A}$, the HN polygon of $\calF$, as a function on $\Maxspec(A)$, is bounded above and below, and its height is constant on connected components of $A$.
+\end{lemma}
+\begin{proof}
+Using Lemma~\ref{L:enough phi-invariants},
+we see that $\calF$ admits a surjective morphism from $\calO(n)^{\oplus d}$ for some integers $n,d$. It follows that the HN polygon of $\calF$ has no slopes less than $n$.
+The same argument applies to the dual bundle shows that the HN polygon of $\calF$ also has slopes which are uniformly bounded above.
+\end{proof}
+ 
 
-\section{Alternate descriptions of \texorpdfstring{$(\varphi, \Gamma)$}{(phi, Gamma)}-modules}
+\section{From \texorpdfstring{$\varphi$}{phi}-modules to \texorpdfstring{$(\varphi, \Gamma)$}{(phi, Gamma)}-modules}
 \label{sec:alternate}
 
-We now give several alternate descriptions of the category $\PhiGamma_{K,A}$. In the process, we will establish Theorem~\ref{T:phi gamma embedding}; this will illustrate that cyclotomic extensions play a special role in the original construction, but not in some of
-the alternate descriptions.
+We now use $\varphi$-modules to give some alternate descriptions of the category $\PhiGamma_{K,A}$. In the process, we will establish Theorem~\ref{T:phi gamma embedding}; this will illustrate that cyclotomic extensions play a special role in the original construction, but this role can ultimately be supplanted by other towers.
 
 \begin{defn}
 Let $L$ be the completion of $K(\mu_{p^\infty})$; it is a perfectoid field by
@@ -444,26 +489,38 @@ Let $\PhiGammatilde_{K,A}$ denote the category of objects of $\PhiMod_{L,A}$ equ
 \end{defn}
 
 \begin{remark} \label{R:not connected2}
-Following up on Remark~\ref{R:not connected}, we observe that for $L$ be the completion of $K(\mu_{p^\infty})$, the connected components of $\calR_{K,A}$ and $\tilde{\calR}_{K,A}$ coincide. In particular, the connected components of $\calR_{K,\QQ_p}$ correspond canonically to the connected components of $K \otimes_F F(\mu_{p^\infty})$; the group $\Gamma$ acting on $\calR_{K,\QQ_p}$ may be canonically identified with $\Gal(F(\mu_{p^\infty})/F)$; and the stabilizer in $\Gamma$ of any connected component of $K \otimes_F F(\mu_{p^\infty})$ is
+Following up on Remark~\ref{R:not connected}, we observe that for $L$ the completion of $K(\mu_{p^\infty})$, the connected components of $\calR_{K,A}$ and $\tilde{\calR}_{K,A}$ coincide. In particular, the connected components of $\calR_{K,\QQ_p}$ correspond canonically to the connected components of $K \otimes_F F(\mu_{p^\infty})$; the group $\Gamma$ acting on $\calR_{K,\QQ_p}$ may be canonically identified with $\Gal(F(\mu_{p^\infty})/F)$; and the stabilizer in $\Gamma$ of any connected component of $K \otimes_F F(\mu_{p^\infty})$ is
 the open subgroup $\Gamma_K = \Gal(K(\mu_{p^\infty})/K)$ of $\Gamma$. In the prior literature (excluding \cite{kedlaya-new-phigamma}), it is customary to replace $\calR_{K,\QQ_p}$ with a connected component and then replace $\Gamma$ with $\Gamma_K$; this gives category of $(\varphi, \Gamma_K)$-modules equivalent to our category of $(\varphi, \Gamma)$-modules. See \cite[Remark~2.2.12]{kedlaya-new-phigamma} for further discussion.
 \end{remark}
 
 
-
-\textbf{some results}
-
-\begin{theorem}
-The categories $\PhiGamma_{K,A}, \PhiGammatilde_{K,A}, \BPair_{K,A}, \VB_{K,A}$ are canonically equivalent.
+\begin{theorem} \label{T:tilde no tilde}
+The categories $\PhiGamma_{K,A}$ and $\PhiGammatilde_{K,A}$ are canonically equivalent.
 \end{theorem}
 \begin{proof}
-By Theorem~\ref{T:perfect equivalence}, we need only exhibit the equivalence between
-$\PhiGamma_{K,A}$ and $\PhiGammatilde_{K,A}$. This will be given by the base extension functor $M \mapsto M \otimes_{\calR_{K,A}} \tilde{\calR}_{L,A}$.
+We first describe the functor. 
+Choose a coherent sequence $\zeta_p, \zeta_{p^2}, \dots$ of $p$-power roots of unity.
+As in Remark~\ref{R:not connected2},
+we may project $\calR_{K,A}$ onto a direct summand corresponding to a connected component of $K \otimes_{F} F(\mu_{p^\infty})$. The resulting ring then admits a unique $\varphi$-equivariant embedding into $\tilde{\calR}_{K,A}$
+taking $1+\pi$ to $[\epsilon]$ for $\epsilon \in (1,\zeta_p,\zeta_{p^2},\dots) \in L^{\flat}$. Base extension along this embedding gives rise to the desired functor.
+For the proof that it is an equivalence, we may imitate the proof in the case $A = \QQ_p$ given in \cite{kedlaya-liu2}.
 \end{proof}
 
 As a corollary, we may now establish Theorem~\ref{T:phi gamma embedding1}.
 \begin{proof}[Proof of Theorem~\ref{T:phi gamma embedding1}]
+By Theorem~\ref{T:tilde no tilde}, it suffices to exhibit a full embedding
+$\Rep_A(G_K) \to \PhiGammatilde_{K,A}$. We obtain this embedding from
+Theorem~\ref{T:perfect embedding} by adding $\Gamma_K$-descent data.
 \end{proof}
 
+
+\begin{remark}
+Let $L$ be any perfectoid field which is the completion of a Galois algebraic extension of $K$ with Galois group $G$.
+By Lemma~\ref{L:Witt module descend}, we may also characterize $\PhiGammatilde_{K,A}$ 
+as the category of objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $G$-actions. For example, we may take $L = \CC_K$ to be a completed algebraic closure of $K$;
+in this case, using Theorem~\ref{T:perfect equivalence} we get a description of
+$\PhiGamma_{K,A}$ as objects of $\BPair_{\CC_L,A}$ equipped with continuous semilinear $G_K$-actions. In the case $A = \QQ_p$, this description is due to Berger \cite{berger-b-pairs}.
+\end{remark}
 
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
 
@@ -662,6 +719,9 @@ We would like to indicate here a simpler proof using the Cartan-Serre method (i.
 \bibitem{beauville-laszlo}
 A. Beauville and Y. Laszlo, Un lemme de descente, \textit{C. R. Acad. Sci. Paris} \textbf{320} (1995), 335--340.
 
+\bibitem{berger-b-pairs}
+L. Berger, Construction de $(\phi, \Gamma)$-modules: repr\'esentations $p$-adiques et $B$-paires, \textit{Algebra Number Theory} \textbf{2} (2008), 91--120.
+
 \bibitem{berger-colmez}
 L. Berger and P. Colmez, Familles de repr\'esentations de de Rham et monodromie $p$-adique, \textit{Ast\'erisque} \textbf{319} (2008), 303--337.
 
@@ -686,11 +746,15 @@ arXiv.
 
 \bibitem{kedlaya-liu-families}
 K.S. Kedlaya and R. Liu, On families of $(\varphi, \Gamma)$-modules,
-\textit{Alg. and Number Theory} \textbf{4} (2010), 943--967.
+\textit{Algebra Number Theory} \textbf{4} (2010), 943--967.
 
 \bibitem{kedlaya-liu1}
 K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
 \textit{Ast\'erisque} \textbf{371} (2015), 239 pages. 
+
+\bibitem{kedlaya-liu2}
+K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory II: Imperfect period rings,
+in preparation.
 
 \bibitem{kpx}
 K.S. Kedlaya, J. Pottharst, and L. Xiao, Cohomology of arithmetic families of $(\varphi, \Gamma)$-modules, \textit{J. Amer. Math. Soc.}  \textbf{27} (2014), 1043--1115. 
