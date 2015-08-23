@@ -19,6 +19,7 @@
 
 \newcommand{\bA}{\mathbf{A}}
 \newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
 \newcommand{\be}{\mathbf{e}}
 \newcommand{\bv}{\mathbf{v}}
 
@@ -67,8 +68,8 @@
 
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
-\thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship).}
-\date{\textit{unstable draft}; version of August 17, 2015}
+\thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
+\date{\textit{unstable draft}; version of August 22, 2015}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -493,25 +494,25 @@ The same argument applies to the dual bundle shows that the HN polygon of $\calF
 \section{From \texorpdfstring{$\varphi$}{phi}-modules to \texorpdfstring{$(\varphi, \Gamma)$}{(phi, Gamma)}-modules}
 \label{sec:alternate}
 
-We now use $\varphi$-modules to give some alternate descriptions of the category $\PhiGamma_{K,A}$. In the process, we will establish Theorem~\ref{T:phi gamma embedding}; this will illustrate that cyclotomic extensions play a special role in the original construction, but this role can ultimately be supplanted by other towers.
+We now use $\varphi$-modules to give an alternate description of the category $\PhiGamma_{K,A}$ in the language of perfectoid fields. In the process, we will establish Theorem~\ref{T:phi gamma embedding}.
 
 \begin{defn}
-Let $L$ be the completion of $K(\mu_{p^\infty})$; it is a perfectoid field by
+Let $L_K$ be the completion of $K(\mu_{p^\infty})$; it is a perfectoid field by
 Example~\ref{exa:cyclotomic} and Theorem~\ref{T:perfectoid}.
-Let $\PhiGammatilde_{K,A}$ denote the category of objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $\Gamma_K$-actions, where $\Gamma_K = \Gal(K(\mu_{p^\infty})/K)$.
+Let $\PhiGammatilde_{K,A}$ denote the category of objects of $\PhiMod_{L_K,A}$ equipped with continuous semilinear $\Gamma_K$-actions, where $\Gamma_K = \Gal(K(\mu_{p^\infty})/K)$.
 \end{defn}
 
 We now complete the discussion initiated in Remark~\ref{R:not connected}.
 \begin{remark} \label{R:not connected2}
-Via the cyclotomic character, we may identify $\Gamma_F$ with $\Gamma$ and $\Gamma_K$ with an open subgroup of $\Gamma$. Put $\tilde{\calR}_{K,A} = \Ind_{\Gamma_K}^\Gamma \tilde{\calR}_{L,A}$; this is a direct sum of copies of $\tilde{\calR}_{L,A}$ indexed by the connected components of $K \otimes_F F(\mu_{p^\infty})$. 
+Via the cyclotomic character, we may identify $\Gamma_F$ with $\Gamma$ and $\Gamma_K$ with an open subgroup of $\Gamma$. Put $\tilde{\calR}_{K,A} = \Ind_{\Gamma_K}^\Gamma \tilde{\calR}_{L_K,A}$; this is a direct sum of copies of $\tilde{\calR}_{L_K,A}$ indexed by the connected components of $K \otimes_F F(\mu_{p^\infty})$. 
 We may then identify objects of $\PhiGammatilde_{K,A}$ with finite projective
 $\tilde{\calR}_{K,A}$-modules equipped with continuous semilinear $\Gamma$-actions.
 \end{remark}
 
 \begin{defn} \label{D:untilde to tilde map}
 Choose a coherent sequence $\zeta_p, \zeta_{p^2}, \dots$ of $p$-power roots of unity
-and let $\epsilon$ be the element $(1, \zeta_p, \zeta_{p^2}, \dots) \in L^{\flat}$.
-Then the map $W(k) \llbracket \pi \rrbracket \to W(L)$ taking $\pi$ to $[\epsilon]-1$
+and let $\epsilon$ be the element $(1, \zeta_p, \zeta_{p^2}, \dots) \in L_K^{\flat}$.
+Then the map $W(k) \llbracket \pi \rrbracket \to W(\frako_{L^\flat_K})$ taking $\pi$ to $[\epsilon]-1$
 is $(\varphi, \Gamma)$-equivariant; it thus extends to a $(\varphi, \Gamma)$-equivariant map $\calR_{K,A} \to \tilde{\calR}_{K,A}$.
 \end{defn}
 
@@ -530,31 +531,25 @@ $\Rep_A(G_K) \to \PhiGammatilde_{K,A}$. We obtain this embedding from
 Theorem~\ref{T:perfect embedding} by adding $\Gamma_K$-descent data.
 \end{proof}
 
-\begin{remark}
-Note that the embedding in Theorem~\ref{T:phi gamma embedding1} is not quite canonical: it depends on the coherent sequence of $p$-power roots of unity chosen in Definition~\ref{D:untilde to tilde map}.
-\end{remark}
-
-\begin{remark}
-Theorem~\ref{T:tilde no tilde} includes the Cherbonnier-Colmez theorem on the overconvergence of $p$-adic representations \cite{cherbonnier-colmez}. However, the proof we have in mind is closer in spirit to the one in \cite[\S 2]{kedlaya-new-phigamma}.
-\end{remark}
-
-\begin{remark} \label{R:general field}
-Let $L$ be any perfectoid field which is the completion of a Galois algebraic extension of $K$ with Galois group $G$.
-By Lemma~\ref{L:Witt module descend}, we may also characterize $\PhiGammatilde_{K,A}$ 
-as the category of objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $G$-actions. For example, we may take $L = \CC_K$ to be a completed algebraic closure of $K$;
-in this case, using Theorem~\ref{T:perfect equivalence} we get a description of
-$\PhiGamma_{K,A}$ as objects of $\BPair_{\CC_L,A}$ equipped with continuous semilinear $G_K$-actions. In the case $A = \QQ_p$, this description is due to Berger \cite{berger-b-pairs}.
-\end{remark}
-
 \begin{defn}
-We say that $M \in \PhiGamma_{K,A}$ is \emph{\'etale} if its image in $\PhiMod_{L,A}$ is \'etale.
-By Theorem~\ref{T:etale properties}, we may check this condition 
-with $L$ replaced by any field as in
-Remark~\ref{R:general field}.
-Moreover, if $A$ is a field, then 
-$M$ is \'etale if and only if it belongs
-to the essential image of the functor $\Rep_A(G_K)\to \PhiGamma_{K,A}$.
+We say that $M \in \PhiGamma_{K,A}$ is \emph{\'etale} if its image in $\PhiMod_{L_K,A}$ is \'etale. 
 \end{defn}
+
+\begin{theorem}
+Suppose that $A$ is a field. Then $M \in \PhiGamma_{K,A}$ is \'etale if and only if it belongs
+to the essential image of the functor $\Rep_A(G_K)\to \PhiGamma_{K,A}$.
+\end{theorem}
+\begin{proof}
+This is immediate from Theorem~\ref{T:etale properties}(c).
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{T:tilde no tilde}, when restricted to \'etale objects, reproduces the Cherbonnier-Colmez theorem on the overconvergence of $p$-adic representations \cite{cherbonnier-colmez}. However, the proof we have in mind is closer in spirit to the one in \cite[\S 2]{kedlaya-new-phigamma}.
+\end{remark}
+
+\begin{remark}
+Note that the embedding in Theorem~\ref{T:phi gamma embedding1} is not quite canonical: it depends on the coherent sequence of $p$-power roots of unity chosen in Definition~\ref{D:untilde to tilde map}. This suggests that in some sense, the embedding of $\Rep_{G_K}(A)$ into $\PhiGammatilde_{K,A}$  is more natural than the embedding into $\PhiGamma_{K,A}$. We will bear out this suspicion when we give alternate descriptions of the category $\PhiGammatilde_{K,A}$ in \S\ref{sec:more descriptions}.
+\end{remark}
 
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
 
@@ -581,7 +576,7 @@ The proof of \cite[Proposition~6.3.19]{kedlaya-liu1} in the case $A = \QQ_p$ ada
 
 \begin{defn}
 For $G$ a profinite group acting continuously on a topological abelian group $M$,
-let $C_G(M)$ denote the complex of inhomogeneous continuous cochains on $G$ with values in $M$.
+let $C_G(M)$ denote the complex of inhomogeneous continuous cochains on $G$ with values in $M$. Denote by $H^i_G(M)$ the cohomology gorups of this complex.
 
 For $M \in \PhiGamma_{K,A}$, let $C_{\varphi, \Gamma}(M)$ denote the total complex associated to the double complex
 \[
@@ -594,7 +589,7 @@ We make an analogous definition for $\tilde{M} \in \PhiGammatilde_{K,A}$.
 \begin{lemma} \label{L:perfect descend cohomology}
 Let $L$ be a perfectoid field.
 Let $L'$ be the completion of a (possibly infinite) Galois algebraic extension of $L$ with Galois group $G$. Then for $0 < s \leq r$, for $M$ a finite projective $\tilde{\calR}^{[s,r]}_{L,A}$-module, $M$ is $G$-acyclic, i.e.,
-the morphism $M \to C(G,M)$ is a quasi-isomorphism.
+the morphism $M \to C_G(M)$ is a quasi-isomorphism.
 \end{lemma}
 \begin{proof}
 Using a Schauder basis for $A$ over $\QQ_p$, we may reduce to the case $A = \QQ_p$,
@@ -643,9 +638,7 @@ See \cite[Proposition~2.3.7, Theorem~4.4.2, Theorem~4.4.3]{kpx}.
 \end{proof}
 
 \begin{remark}
-By Lemma~\ref{L:truncate cohomology} and Lemma~\ref{L:perfect descend cohomology},
-we may compute the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
-using another extension of $K$ as in Remark~\ref{R:general field}. In particular, it is in some sense an intrinsic invariant of $\tilde{M}$. However, while Theorem~\ref{T:compare phi Gamma cohomology} and Theorem~\ref{T:coherence cohomology} together assert that the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
+While Theorem~\ref{T:compare phi Gamma cohomology} and Theorem~\ref{T:coherence cohomology} together assert that the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
 are finite $A$-modules,
 the proof of this statement depends crucially on the interpretation of $\tilde{M}$ in terms of the category $\PhiGamma_{K,A}$. 
 To illustrate this, we sketch a proof of Theorem~\ref{T:coherence cohomology}(a) in the spirit of \cite{kpx} but technically somewhat simpler. (It is also slightly more general,
@@ -653,8 +646,8 @@ as we only need to assume that $A$ is a noetherian Banach algebra over $\QQ_p$.)
 
 By formal arguments (Shapiro's lemma), we may reduce to the case $K = \QQ_p$.
 Choose $r,s,r',s'$ with $0 < s < s' \leq r'/p \leq r/p$. 
-Let $\calR^{[s,r]}_{F,A}$ be the ring of rigid analytic functions 
-on the disc $p^{-rp/(p-1)} < \left| \pi \right| < p^{-sp/(p-1)}$. For $r$ sufficiently small, we may (by analogy with Lemma~\ref{L:phi modules bundles} and Lemma~\ref{L:truncate cohomology}) realize $M$ as a finite projective $\calR^{[s,r]}_{\QQ_p,A}$-module $M^{[s,r]}$
+Let $\calR^{[s,r]}_{\QQ_p,A}$ be the ring of rigid analytic functions 
+on the disc $p^{-rp/(p-1)} < \left| \pi \right| < p^{-sp/(p-1)}$ over $A$. For $r$ sufficiently small, we may (by analogy with Lemma~\ref{L:phi modules bundles} and Lemma~\ref{L:truncate cohomology}) realize $M$ as a finite projective $\calR^{[s,r]}_{\QQ_p,A}$-module $M^{[s,r]}$
 equipped with an isomorphism 
 \[
 \varphi^* M^{[s,r]} \otimes_{\calR^{[s/p,r/p]}_{\QQ_p,A}} \calR^{[s,r/p]}_{\QQ_p,A} 
@@ -672,9 +665,52 @@ We then have a diagram
 }
 \]
 in which the vertical arrows define a quasi-isomorphism of the total complexes associated to the rows. However, each vertical arrow is composed of maps which are  \emph{completely continuous} morphisms of Banach spaces over $A$, i.e., uniform limits of morphisms of finite rank. 
-(Here we need $[K:\QQ_p] < \infty$ to ensure that $F \widehat{\otimes}_{\QQ_p} A$ is itself a finite $A$-module, since $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear.)
+(Note that $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear; we thus need $[K:\QQ_p] < \infty$ in order to reduce to the case $K = F = \QQ_p$.)
 By the Cartan-Serre-Schwartz lemma (as in \cite[Satz~2.6]{kiehl-finiteness}), we deduce that the cohomology groups of the total complexes are finite $A$-modules.
 (By contrast, the maps $\tilde{\calR}^{[s,r]}_{\QQ_p,A} \to \tilde{\calR}^{[s',r']}_{\QQ_p,A}$ are not completely continuous.)
+\end{remark}
+
+\section{The cyclotomic deformation}
+
+We now consider a key example of an arithmetic deformation. The construction follows
+\cite[Definition~4.4.7]{kpx}, but we opt here for  more geometric language.
+
+\begin{defn}
+Let $X$ be a rigid analytic space over $\QQ_p$. 
+Define the sheaves $\calR_{K,X}, \tilde{\calR}^{[s,r]}_{K,X}, \tilde{\calR}^{r}_{K,X}$,
+$\tilde{\calR}_{K,X}$ on $X$ so that their values on the affinoid space $X = \Maxspec(A)$
+coincide with the previously defined rings $\calR_{K,A}, \tilde{\calR}^{[s,r]}_{K,A}, \tilde{\calR}^{r}_{K,A}, \tilde{\calR}_{K,X}$.
+Let $\PhiGamma_{K,X}, \PhiGammatilde_{K,X}$ be the categories of finite projective
+modules over the respective rings $\calR_{K,X}$, $\tilde{\calR}_{K,X}$ equipped with continuous commuting semilinear actions of $\varphi, \Gamma$. 
+We may construct such objects from descent data in either the analytic topology or the \'etale topology on $X$; in particular, Theorem~\ref{T:tilde no tilde} gives rise to an equivalence of categories $\PhiGamma_{K,X} \to \PhiGammatilde_{K,X}$.
+\end{defn}
+
+\begin{defn}
+Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $X_{\Gamma_K}$ over $\QQ_p$.
+The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\Lambda_K = \calO(X_{\Gamma_K})$ by (left) multiplication
+defines a a canonical one-dimensional Galois representation on $X_{\Gamma_K}$; let $\Dfm_{\Gamma_K}$ be the corresponding $(\varphi, \Gamma_K)$-module.
+
+For $X$ a rigid analytic space over $\QQ_p$ and $M \in \PhiGamma_{K,X}$,
+define the \emph{cyclotomic deformation} of $M$
+as the external tensor product $M \boxtimes \Dfm_{\Gamma_K} \in \PhiGamma_{K,X \times_{\Qp} X_{\Gamma_K}}$. We similarly define the cyclotomic deformation of $\tilde{M} \in \PhiGammatilde_{K,X}$ as an object of $\PhiGammatilde_{K,X \times_{\Qp} X_{\Gamma_K}}$.
+\end{defn}
+
+\begin{remark}
+For $M \in \PhiGamma_{K,A}$, we may view the cyclotomic deformation of $M$ as arising from the completed tensor product $M' = M \widehat{\otimes}_{A} \Lambda_K$. Since the action of $\Gamma_K$ on $M$ is locally analytic, the action map $M \times \Gamma \to M$ extends to a projection $M' \to M$ sectioning the inclusion $M \to M'$. From the existence of this projection, it follows (as in the proof of \cite[Theorem~4.4.8]{kpx}) that 
+\[
+(M')^{\Gamma_K} = 0, \qquad (M')_{\Gamma_K} \cong M.
+\]
+By contrast, for $\tilde{M} \in \PhiGammatilde_{K,A}$, the action map
+$\tilde{M} \times \Gamma_K \to \tilde{M}$ is continuous, but does not define a bounded map
+$\tilde{M} \widehat{\otimes}_{\QQ_p} \Lambda_K \to \tilde{M}$.
+\end{remark}
+
+\begin{theorem}
+Suppose that $M \in \PhiGamma_{K,X}$, $\tilde{M} \in \PhiGammatilde_{K,X}$ correspond as in 
+Theorem~\ref{T:tilde no tilde}. Then \textbf{cokernel of $\Gamma$}
+\end{theorem}
+
+\begin{remark}
 \end{remark}
 
 \section{Iwasawa cohomology and the cyclotomic deformation}
@@ -725,21 +761,6 @@ define psi-cohomology and equivalence as in \cite[Definition~2.3.3]{kpx}.
 
 \section{The cyclotomic deformation}
 
-We define the \emph{cyclotomic deformation} of a $(\varphi, \Gamma)$-module following 
-\cite[Definition~4.4.7]{kpx}, but using more geometric language.
-\begin{defn}
-Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $X$ over $\QQ_p$.
-The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\calO(X)$ by (left) multiplication
-defines a a canonical one-dimensional Galois representation on $X$; let $\Dfm$ be the corresponding $(\varphi, \Gamma_K)$-module.
-
-For $M$ a $(\varphi, \Gamma)$-module, 
-\end{defn}
-
-\begin{remark}
-Beware that for $\tilde{M} \in \PhiGammatilde_{K,A}$, the action map
-$\tilde{M} \times \Gamma \to \tilde{M}$ is continuous, but does not define a bounded map
-$\tilde{M} \widehat{\otimes}_{\QQ_p} \Lambda \to \tilde{M}$.
-\end{remark}
 
 
 The following is \cite[Theorem~4.4.8]{kpx}.
@@ -749,6 +770,31 @@ Let $M$ be a $(\varphi, \Gamma_K)$-module over $\calR_{K,A}$. Then...
 
 
 \textbf{compare $M^{\psi=0}$ to the boundary of the cyclotomic deformation}
+
+\section{More descriptions of $(\varphi, \Gamma)$-modules}
+\label{sec:more descriptions}
+
+By Theorem~\ref{T:etale properties}, we may check this condition 
+with $L$ replaced by any field as in
+Remark~\ref{R:general field}.
+
+\begin{remark} \label{R:general field}
+Let $L$ be any perfectoid field which is the completion of a Galois algebraic extension of $K$ with Galois group $G$.
+By Lemma~\ref{L:Witt module descend}, we may also characterize $\PhiGammatilde_{K,A}$ 
+as the category of objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $G$-actions. For example, we may take $L = \CC_K$ to be a completed algebraic closure of $K$;
+in this case, using Theorem~\ref{T:perfect equivalence} we get a description of
+$\PhiGamma_{K,A}$ as objects of $\BPair_{\CC_K,A}$ equipped with continuous semilinear $G_K$-actions. In the case $A = \QQ_p$, this description is due to Berger \cite{berger-b-pairs}.
+\end{remark}
+
+\begin{remark}
+In the language of \cite{kedlaya-liu1}, we may view objects of $\PhiGammatilde_{K,A}$
+as sheaves on the pro-\'etale site of $K$ which are locally finite free modules over the ring sheaf $\bC_X \widehat{\otimes}_{\Qp} A$, equipped with an action of $\varphi$.
+\end{remark}
+
+By Lemma~\ref{L:truncate cohomology} and Lemma~\ref{L:perfect descend cohomology},
+we may compute the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
+using another extension of $K$ as in Remark~\ref{R:general field}. In particular, it is in some sense an intrinsic invariant of $\tilde{M}$. However, ...
+
 
 \appendix
 
