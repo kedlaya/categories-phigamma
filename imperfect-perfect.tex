@@ -297,7 +297,7 @@ For any $r,s$ with $0 < s \leq r/p$, the following categories are canonically eq
 \item[(a)]
 the category $\PhiMod_{L,A}$;
 \item[(b)]
-the category of finite projective $\tilde{\calR}^r_{L,A}$-modules equipped with isomorphisms 
+the category of finite projective $\tilde{\calR}^r_{L,A}$-modules $M$ equipped with isomorphisms 
 \[
 \varphi^* M  \cong 
 M \otimes_{\tilde{\calR}^r_{L,A}} \tilde{\calR}^{r/p}_{L,A};
@@ -711,22 +711,18 @@ Define the ring $\breve{\calR}_{K,A} = \bigcup_{n=0}^\infty \varphi^{-n}(\calR_{
 We may then define the category $\PhiGammabreve_{K,A}$ of $(\varphi, \Gamma)$-modules over $\breve{\calR}_{K,A}$. The base extension functor $\PhiGamma_{K,A} \to \PhiGammabreve_{K,A}$ is obviously surjective; by Theorem~\ref{T:tilde no tilde} it is also fully faithful, and hence an equivalence.
 \end{defn}
 
-\begin{theorem}
-Suppose that $M \in \PhiGamma_{K,X}$, $\tilde{M} \in \PhiGammatilde_{K,X}$ correspond as in 
-Theorem~\ref{T:tilde no tilde}. Then $C_{\Gamma_K}(\tilde{M} \boxtimes \Dfm_{K})$ 
-is canonically quasi-isomorphic to...
-\end{theorem}
-
-\begin{remark}
-\end{remark}
-
 \section{Iwasawa cohomology and the cyclotomic deformation}
 
 The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
 
 \begin{defn}
 Define the map $\psi: \calR_K \to \calR_K$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $(\varphi, \Gamma)$-module $M$,
-we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$. Consequently, we obtain an exact sequence
+we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$;
+concretely, the action of $\psi$ on $M$ is characterized by additivity and the identity
+\[
+\psi(r \varphi(\bv)) = \psi(r) \bv.
+\]
+We have an exact sequence
 \begin{equation} \label{eq:psi sequence}
 0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
 \end{equation}
@@ -765,6 +761,22 @@ One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of 
 \begin{prop}
 define psi-cohomology and equivalence as in \cite[Definition~2.3.3]{kpx}.
 \end{prop}
+
+\begin{theorem}
+Suppose that $M \in \PhiGamma_{K,X}$, $\tilde{M} \in \PhiGammatilde_{K,X}$ correspond as in 
+Theorem~\ref{T:tilde no tilde}. Then the canonical morphism
+\[
+C_{\psi}(M) \cong C_{\varphi,\Gamma}(\tilde{M} \boxtimes \Dfm_{K}).
+\]
+\end{theorem}
+\begin{proof}
+It suffices to exhibit 
+\end{proof}
+
+\begin{remark}
+\end{remark}
+
+
 
 \section{The cyclotomic deformation}
 
