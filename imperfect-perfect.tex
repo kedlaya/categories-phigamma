@@ -52,6 +52,7 @@
 \DeclareMathOperator{\Maxspec}{Maxspec}
 \DeclareMathOperator{\perf}{perf}
 \DeclareMathOperator{\PhiGamma}{\mathbf{\Phi \Gamma}}
+\DeclareMathOperator{\PhiGammabreve}{\breve{\mathbf{\Phi \Gamma}}}
 \DeclareMathOperator{\PhiGammatilde}{\widetilde{\mathbf{\Phi \Gamma}}}
 \DeclareMathOperator{\PhiMod}{\mathbf{\Phi Mod}}
 \DeclareMathOperator{\Pic}{Pic}
@@ -69,7 +70,7 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
-\date{\textit{unstable draft}; version of August 22, 2015}
+\date{\textit{unstable draft}; version of November 8, 2015}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -576,7 +577,7 @@ The proof of \cite[Proposition~6.3.19]{kedlaya-liu1} in the case $A = \QQ_p$ ada
 
 \begin{defn}
 For $G$ a profinite group acting continuously on a topological abelian group $M$,
-let $C_G(M)$ denote the complex of inhomogeneous continuous cochains on $G$ with values in $M$. Denote by $H^i_G(M)$ the cohomology gorups of this complex.
+let $C_G(M)$ denote the complex of inhomogeneous continuous cochains on $G$ with values in $M$. Denote by $H^i_G(M)$ the cohomology groups of this complex.
 
 For $M \in \PhiGamma_{K,A}$, let $C_{\varphi, \Gamma}(M)$ denote the total complex associated to the double complex
 \[
@@ -686,13 +687,13 @@ We may construct such objects from descent data in either the analytic topology 
 \end{defn}
 
 \begin{defn}
-Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $X_{\Gamma_K}$ over $\QQ_p$.
-The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\Lambda_K = \calO(X_{\Gamma_K})$ by (left) multiplication
-defines a a canonical one-dimensional Galois representation on $X_{\Gamma_K}$; let $\Dfm_{\Gamma_K}$ be the corresponding $(\varphi, \Gamma_K)$-module.
+Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $W_K$ over $\QQ_p$ (the \emph{weight space} of $\Gamma_K$).
+The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\Lambda_K = \calO(W_K)$ by (left) multiplication
+defines a a canonical one-dimensional Galois representation on $W_K$; let $\Dfm_{K}$ be the corresponding $(\varphi, \Gamma_K)$-module.
 
 For $X$ a rigid analytic space over $\QQ_p$ and $M \in \PhiGamma_{K,X}$,
 define the \emph{cyclotomic deformation} of $M$
-as the external tensor product $M \boxtimes \Dfm_{\Gamma_K} \in \PhiGamma_{K,X \times_{\Qp} X_{\Gamma_K}}$. We similarly define the cyclotomic deformation of $\tilde{M} \in \PhiGammatilde_{K,X}$ as an object of $\PhiGammatilde_{K,X \times_{\Qp} X_{\Gamma_K}}$.
+as the external tensor product $M \boxtimes \Dfm_{K} \in \PhiGamma_{K,X \times_{\Qp} W_K}$. We similarly define the cyclotomic deformation of $\tilde{M} \in \PhiGammatilde_{K,X}$ as an object $\tilde{M} \boxtimes \Dfm_{K}$ of $\PhiGammatilde_{K,X \times_{\Qp} W_K}$.
 \end{defn}
 
 \begin{remark}
@@ -705,9 +706,15 @@ $\tilde{M} \times \Gamma_K \to \tilde{M}$ is continuous, but does not define a b
 $\tilde{M} \widehat{\otimes}_{\QQ_p} \Lambda_K \to \tilde{M}$.
 \end{remark}
 
+\begin{defn}
+Define the ring $\breve{\calR}_{K,A} = \bigcup_{n=0}^\infty \varphi^{-n}(\calR_{K,A})$.
+We may then define the category $\PhiGammabreve_{K,A}$ of $(\varphi, \Gamma)$-modules over $\breve{\calR}_{K,A}$. The base extension functor $\PhiGamma_{K,A} \to \PhiGammabreve_{K,A}$ is obviously surjective; by Theorem~\ref{T:tilde no tilde} it is also fully faithful, and hence an equivalence.
+\end{defn}
+
 \begin{theorem}
 Suppose that $M \in \PhiGamma_{K,X}$, $\tilde{M} \in \PhiGammatilde_{K,X}$ correspond as in 
-Theorem~\ref{T:tilde no tilde}. Then \textbf{cokernel of $\Gamma$}
+Theorem~\ref{T:tilde no tilde}. Then $C_{\Gamma_K}(\tilde{M} \boxtimes \Dfm_{K})$ 
+is canonically quasi-isomorphic to...
 \end{theorem}
 
 \begin{remark}
