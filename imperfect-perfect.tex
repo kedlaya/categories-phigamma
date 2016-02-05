@@ -70,7 +70,7 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
-\date{\textit{unstable draft}; version of November 8, 2015}
+\date{\textit{unstable draft}; version of February 5, 2016}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -87,7 +87,7 @@ It is thus natural to ask to what extent constructions made in the language of $
 Before concluding this introduction, we set a few running notations. Our primary model for these and other notations is \cite{kpx}.
 \setcounter{theorem}{0}
 \begin{hypothesis}
-Throughout this paper, as in this introduction, let $K$ be a complete discretely valued field of mixed characteristics with perfect residue field $k$; we do not assume $k$ is finite (i.e., that $K$ is a finite extension of $\QQ_p$) unless explicitly specified.
+Throughout this paper, as in this introduction, let $K$ be a complete discretely valued field of mixed characteristics with perfect residue field $k$ and absolute Galois group $G_K$; we do not assume $k$ is finite (i.e., that $K$ is a finite extension of $\QQ_p$) unless explicitly specified.
 Put $F = W(k)[1/p]$ for $W(k)$ the ring of Witt vectors over $k$, so that $K/F$ is a finite totally ramified extension.
 Let $A$ be an affinoid algebra over $\QQ_p$ in the sense of Tate, rather than the more expansive sense of Berkovich. 
 \end{hypothesis}
@@ -100,7 +100,7 @@ into which the category of continuous representations of $G_K$ on finite-dimensi
 In preparation for our later discussion, we escalate the level of generality to accommodate representations valued in affinoid algebras.
 
 \begin{defn}
-Let $\Rep_A(G_K)$ denote the category of representations of $G_K$ (the absolute Galois group of $K$) on finite projective $A$-modules.
+Let $\Rep_A(G_K)$ denote the category of continuous representations of $G_K$ on finite projective $A$-modules.
 \end{defn}
 
 \begin{defn}
@@ -125,7 +125,7 @@ Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions o
 \end{defn}
 
 \begin{defn}
-A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Here by a \emph{semilinear action} of $\varphi$ on a module $M$, we mean a semilinear map $M \to M$ induced by an isomorphism $\varphi^* M \to M$; note that the isomorphism property does not ensure that $\varphi$ acts bijectively on $M$, as this already fails for $M = \calR_{F,A}$.
+A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Here by a \emph{semilinear action} of $\varphi$ on a module $M$, we mean a semilinear map $M \to M$ induced by an isomorphism $\varphi^* M \to M$; note that the isomorphism property does not ensure that $\varphi$ acts bijectively on $M$, as this already fails for $M = \calR_{F,A}$ with the standard $\varphi$-action.
 
 Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \ZZ$ computing the rank of the underlying $\calR_{F,A}$-module.
 \end{defn}
@@ -522,7 +522,20 @@ is $(\varphi, \Gamma)$-equivariant; it thus extends to a $(\varphi, \Gamma)$-equ
 The categories $\PhiGamma_{K,A}$ and $\PhiGammatilde_{K,A}$ are equivalent via base extension along $\calR_{K,A} \to \tilde{\calR}_{K,A}$.
 \end{theorem}
 \begin{proof}
-The case $A = \QQ_p$ is treated in \cite{kedlaya-liu2}; the general case may be treated similarly.
+In the case $A = \QQ_p$, this is proved in \cite[Theorem~6.1.7]{kedlaya-liu2}.
+It can also be deduced from prior results; for example, for $L$ a completed algebraic closure of $K$, Berger \cite[Th\'eor\`eme~A]{berger-b-pairs} constructed an equivalence between $\Phi\Gamma_{K,A}$ and the category of objects of $\BPair_{L,A}$ equipped with continuous semilinear $G_K$-actions. By Theorem~\ref{T:perfect equivalence}, these can be interpreted as objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $G_K$-actions;
+using Lemma~\ref{L:Witt module descend} and Lemma~\ref{L:phi modules bundles}, these can in turn be identified with objects of $\PhiGammatilde_{K,A}$.
+
+To obtain full faithfulness in the general case, note that since both categories admit internal Homs in a compatible way, we reduce to checking that for $M \in \PhiGamma_{K,A}$, every $(\varphi, \Gamma)$-stable element $\bv \in M \otimes_{\calR_{K,A}} \tilde{\calR}_{K,A}$ belongs to $M$ itself. Using a Schauder basis for $A$ over $\QQ_p$ (see the proof of Lemma~\ref{L:Witt module descend}), we may construct a family of bounded $\QQ_p$-linear morphisms
+$A \to \QQ_p$ whose kernels have zero intersection; by tensoring along these, we reduce the claim that $\bv \in M$ to a family of corresponding assertions in the previously treated case $A = \QQ_p$.
+
+To obtain essential surjectivity, one may emulate the proof of \cite[Theorem~6.1.7]{kedlaya-liu2}; we only give a brief sketch here, as details will be given in upcoming work of Chojecki and Gaisin. By full faithfulness, we may reduce to the case $K = F$.
+By Lemma~\ref{L:phi modules bundles}, we may start with a finite projective $\tilde{\calR}^{[s,r]}_{L_F,A}$-module $\tilde{M}$ equipped with an isomorphism of the base extensions of $\varphi^* \tilde{M}$ and $\tilde{M}$ to $\tilde{\calR}^{[s,r/p]}_{L_F,A}$, plus a compatible semilinear $\Gamma$-action.
+Within $\tilde{\calR}^{[s,r]}_{L_F,A}$, we have a dense subring $\breve{\calR}^{[s,r]}_{F,A}$ consisting of the union of the closures of
+the subrings $\varphi^{-n}(F[\pi^{\pm}])$ for $n \geq 0$; it will suffice to descend $\tilde{M}$ to a finite projective $\breve{\calR}^{[s,r]}_{F,A}$-module $\breve{M}$
+on which $\varphi$ and $\Gamma$ continue to act. Using the density of
+$\breve{\calR}^{[s,r]}_{F,A}$ in $\tilde{\calR}^{[s,r]}_{L_F,A}$, we may apply
+\cite[Lemma 5.6.8]{kedlaya-liu2} to descend the underlying module of $\tilde{M}$, but the resulting descended module will typically not be $\Gamma$-stable; this may corrected using a sequence of successive approximations as in \cite[Lemma 5.6.9]{kedlaya-liu2}. We thus obtain a $\Gamma$-stable descended module, which is then easily shown to be also $\varphi$-stable.
 \end{proof}
 
 As a corollary, we may now establish Theorem~\ref{T:phi gamma embedding1}.
@@ -577,11 +590,11 @@ The proof of \cite[Proposition~6.3.19]{kedlaya-liu1} in the case $A = \QQ_p$ ada
 
 \begin{defn}
 For $G$ a profinite group acting continuously on a topological abelian group $M$,
-let $C_G(M)$ denote the complex of inhomogeneous continuous cochains on $G$ with values in $M$. Denote by $H^i_G(M)$ the cohomology groups of this complex.
+let $C(G,M)$ denote the complex of inhomogeneous continuous cochains on $G$ with values in $M$. Denote by $H^i(G,M)$ or $H^i_G(M)$ the cohomology groups of this complex.
 
 For $M \in \PhiGamma_{K,A}$, let $C_{\varphi, \Gamma}(M)$ denote the total complex associated to the double complex
 \[
-0 \to C(\Gamma,M) \stackrel{\varphi-1}{\to} C(\Gamma,M) \to 0.
+0 \to C(\Gamma, M) \stackrel{\varphi-1}{\to} C(\Gamma,M) \to 0.
 \]
 Denote by $H^i_{\varphi, \Gamma}(M)$ the cohomology groups of this complex.
 We make an analogous definition for $\tilde{M} \in \PhiGammatilde_{K,A}$.
@@ -590,7 +603,7 @@ We make an analogous definition for $\tilde{M} \in \PhiGammatilde_{K,A}$.
 \begin{lemma} \label{L:perfect descend cohomology}
 Let $L$ be a perfectoid field.
 Let $L'$ be the completion of a (possibly infinite) Galois algebraic extension of $L$ with Galois group $G$. Then for $0 < s \leq r$, for $M$ a finite projective $\tilde{\calR}^{[s,r]}_{L,A}$-module, $M$ is $G$-acyclic, i.e.,
-the morphism $M \to C_G(M)$ is a quasi-isomorphism.
+the morphism $M \to C(G,M)$ is a quasi-isomorphism.
 \end{lemma}
 \begin{proof}
 Using a Schauder basis for $A$ over $\QQ_p$, we may reduce to the case $A = \QQ_p$,
@@ -606,7 +619,7 @@ $H^i_{\varphi}(\tilde{M}) \cong H^i(X_{L,A}, \calF)$ for all $i \geq 0$.
 \begin{proof}
 Since $X_{L,A}$ is separated and is covered by two open affine subschemes, we have 
 $H^i(X_{L,A}, \calF) = 0$ for $i \geq 2$. The identification for $i=0,1$ arises directly
-from Theorem~\ref{T:perfect equivalence}, using in the case $i=1$ of the cohomology groups as Yoneda extension groups.
+from Theorem~\ref{T:perfect equivalence}, using in the case $i=1$ the interpretation of the cohomology groups as Yoneda extension groups.
 \end{proof}
 
 
@@ -614,7 +627,13 @@ from Theorem~\ref{T:perfect equivalence}, using in the case $i=1$ of the cohomol
 The morphisms $H^i_{\varphi, \Gamma}(M) \to H^i_{\varphi, \Gamma}(\tilde{M})$ are isomorphisms for all $i$.
 \end{theorem}
 \begin{proof}
-The proof given in \cite{kedlaya-liu2} for the case $A = \QQ_p$ adapts without change.
+As in Theorem~\ref{T:tilde no tilde},
+the case $A = \QQ_p$ is treated in \cite[Theorem~6.1.7]{kedlaya-liu2}, and we sketch
+an adaptation to the general case and refer to upcoming work of Chojecki and Gaisin for further details. We again reduce to the case $K = F$, and to calculating $(\varphi, \Gamma)$-cohomology for a pair of modules $\breve{M}, \tilde{M}$ in which 
+$\breve{M}$ is finite projective over $\breve{\calR}^{[s,r]}_{F,A}$
+and $\tilde{M}$ is the base extension to $\tilde{\calR}^{[s,r]}_{L_F,A}$.
+In this setting, we may already show that $H^i_{\Gamma}(\breve{M}) = H^i_{\Gamma}(\tilde{M})$ using the method of \cite[Lemma 5.6.6]{kedlaya-liu2}, i.e., by first making a direct calculation in the case where $\breve{M} = \breve{\calR}^{[s,r]}_{F,A}$,
+then using this case to make a series of successive approximations in the general case.
 \end{proof}
 
 \begin{theorem} \label{T:coherence cohomology}
@@ -630,7 +649,7 @@ C_{\varphi, \Gamma}(M) \otimes^{\mathbb{L}}_A B
 is a quasi-isomorphism.
 \item[(c)]
 If $M$ is the image of $V \in \Rep_A(G_K)$ under Theorem~\ref{T:phi gamma embedding1},
-then there is a canonical quasi-isomorphism $C_{G_K}(V) \cong C_{\varphi, \Gamma}(M)$.
+then there is a canonical quasi-isomorphism $C(G_K, V) \cong C_{\varphi, \Gamma}(M)$.
 In particular, the $A$-modules $H^i_{\varphi, \Gamma}(M)$ coincide with the Galois cohomology groups of $V$.
 \end{enumerate}
 \end{theorem}
