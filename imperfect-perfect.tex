@@ -48,6 +48,7 @@
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\Maxspec}{Maxspec}
 \DeclareMathOperator{\perf}{perf}
@@ -745,7 +746,7 @@ We have an exact sequence
 \begin{equation} \label{eq:psi sequence}
 0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
 \end{equation}
-The pairing $\{\bullet, \bullet \}$ satisfies
+The pairing $\{-, - \}$ satisfies
 \begin{equation} \label{eq:pairing phi psi}
 \{\varphi(x), y\} = \{x, \psi(y)\} \qquad (x \in M, y \in M^*).
 \end{equation}
@@ -753,11 +754,11 @@ The pairing $\{\bullet, \bullet \}$ satisfies
 
 The following is \cite[Proposition~3.3.2(1)]{kpx}.
 \begin{prop} \label{P:psi finite}
-For any $(\varphi, \Gamma)$-module $M$,
+For any $M \in \PhiGamma_{K,A}$,
 the $A$-module $M/(\psi-1)$ is finitely generated.
 \end{prop}
 \begin{cor}
-The pairing $\{-,-\}: M \times M^* \to A$ induces an isomorphism
+For any $M \in \PhiGamma_{K,A}$, the pairing $\{-,-\}: M \times M^* \to A$ induces an isomorphism
 \[
 M^{\varphi=1} \cong \Hom_A(M^*/(\psi-1), A).
 \]
@@ -771,19 +772,21 @@ for the Fr\'echet topology, so every element of $\Hom_A(M^*/(\psi-1), A)$ define
 any such map corresponds to an element of $M$.
 \end{proof}
 
-\begin{prop}[after Chenevier]
-Let $M$ be a $(\varphi, \Gamma)$-module.
-For any $\gamma \in \Gamma_K$ of infinite order, the map $\gamma-1$ on $M^{\psi=0}$ is bijective.
-\end{prop}
-\begin{proof}
-...
-\end{proof}
-
-One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of constructions that translate to other descriptions of the category of $(\varphi, \Gamma)$-modules. These translations must remove any mention of $\psi$, as this operator has no analogue in the other descriptions.
-
-\begin{prop}
-define psi-cohomology and equivalence as in \cite[Definition~2.3.3]{kpx}.
-\end{prop}
+\begin{defn}
+For $M \in \PhiGamma_{K,A}$, let $C_{\psi, \Gamma}(M)$ denote the total complex associated to the double complex
+\[
+0 \to C(\Gamma, M) \stackrel{\psi-1}{\to} C(\Gamma,M) \to 0.
+\]
+Denote by $H^i_{\psi, \Gamma}(M)$ the cohomology groups of this complex. The diagram
+\[
+\xymatrix{
+0 \ar[r] & C(\Gamma, M) \ar^{\varphi-1}[r] \ar^{\id}[d] & C(\Gamma,M) \ar^{-\psi}[d]\ar[r] & 0 \\
+0 \ar[r] & C(\Gamma, M) \ar^{\psi-1}[r] & C(\Gamma,M) \ar[r] & 0
+}
+\]
+induces a morphism $C_{\varphi, \Gamma}(M) \to C_{\psi, \Gamma}(M)$
+which is a quasi-isomorphism \cite[Proposition~2.3.6]{kpx}.
+\end{defn}
 
 \begin{theorem}
 Suppose that $M \in \PhiGamma_{K,X}$, $\tilde{M} \in \PhiGammatilde_{K,X}$ correspond as in 
@@ -798,6 +801,16 @@ It suffices to exhibit
 
 \begin{remark}
 \end{remark}
+
+\begin{prop}[after Chenevier]
+Let $M$ be a $(\varphi, \Gamma)$-module.
+For any $\gamma \in \Gamma_K$ of infinite order, the map $\gamma-1$ on $M^{\psi=0}$ is bijective.
+\end{prop}
+\begin{proof}
+...
+\end{proof}
+
+One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of constructions that translate to other descriptions of the category of $(\varphi, \Gamma)$-modules. These translations must remove any mention of $\psi$, as this operator has no analogue in the other descriptions.
 
 
 
