@@ -50,6 +50,7 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Iw}{Iw}
 \DeclareMathOperator{\Maxspec}{Maxspec}
 \DeclareMathOperator{\perf}{perf}
 \DeclareMathOperator{\PhiGamma}{\mathbf{\Phi \Gamma}}
@@ -788,19 +789,44 @@ induces a morphism $C_{\varphi, \Gamma}(M) \to C_{\psi, \Gamma}(M)$
 which is a quasi-isomorphism \cite[Proposition~2.3.6]{kpx}.
 \end{defn}
 
-\begin{theorem}
-Suppose that $M \in \PhiGamma_{K,X}$, $\tilde{M} \in \PhiGammatilde_{K,X}$ correspond as in 
-Theorem~\ref{T:tilde no tilde}. Then the canonical morphism
+\begin{theorem} \label{T:psi to deformation}
+Suppose that $M \in \PhiGamma_{K,A}$, $\tilde{M} \in \PhiGammatilde_{K,A}$ correspond as in 
+Theorem~\ref{T:tilde no tilde}. Then there is a canonical morphism of complexes
 \[
-C_{\psi}(M) \cong C_{\varphi,\Gamma}(\tilde{M} \boxtimes \Dfm_{K}).
+C_{\psi,\Gamma}(M \boxtimes \Dfm_{K}) \to C_{\psi}(M)
 \]
+which is a quasi-isomorphism; consequently, the complexes
+\[
+C_{\psi}(M), C_{\psi,\Gamma}(M \boxtimes \Dfm_{K}), 
+C_{\varphi,\Gamma}(M \boxtimes \Dfm_{K}),
+C_{\varphi,\Gamma}(\tilde{M} \boxtimes \Dfm_{K})
+\]
+are all quasi-isomorphic.
 \end{theorem}
 \begin{proof}
-It suffices to exhibit 
+Apply \cite[Theorem~4.4.8]{kpx}.
 \end{proof}
 
-\begin{remark}
-\end{remark}
+This statement applies to Iwasawa cohomology as follows.
+\begin{cor}
+For $V \in \Rep_A(G_K)$ corresponding to $M \in \PhiGamma_{K,A}$ via 
+Theorem~\ref{T:phi gamma embedding},
+write
+\[
+H^i_{\Iw}(G_K, V) = \left( \lim_{n \to \infty} H^i(G_{K(\mu_{p^n})}, T) \right) \otimes_{\ZZ} \QQ
+\]
+for $T \subseteq V$ the unit ball for some Galois-invariant Banach module norm on $V$
+(the construction does not depend on the choice), with the transition maps being the corestriction maps. Then for each $i$, we have functorial isomorphisms
+\[
+H^i_{\Iw}(G_K, V) \widehat{\otimes}_{\ZZ_p\llbracket \Gamma_K \rrbracket} \Lambda_K \cong H^i_\psi(M) \cong H^i_{\phi, \Gamma}(\tilde{M} \boxtimes \Dfm_K)
+\]
+of $\Lambda_K$-modules compatible with base change.
+\end{cor}
+\begin{proof}
+Combine Theorem~\ref{T:psi to deformation} with \cite[Corollary~4.4.11]{kpx}.
+\end{proof}
+
+\textbf{next, psi=0}
 
 \begin{prop}[after Chenevier]
 Let $M$ be a $(\varphi, \Gamma)$-module.
@@ -809,19 +835,6 @@ For any $\gamma \in \Gamma_K$ of infinite order, the map $\gamma-1$ on $M^{\psi=
 \begin{proof}
 ...
 \end{proof}
-
-One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of constructions that translate to other descriptions of the category of $(\varphi, \Gamma)$-modules. These translations must remove any mention of $\psi$, as this operator has no analogue in the other descriptions.
-
-
-
-\section{The cyclotomic deformation}
-
-
-
-The following is \cite[Theorem~4.4.8]{kpx}.
-\begin{theorem}
-Let $M$ be a $(\varphi, \Gamma_K)$-module over $\calR_{K,A}$. Then...
-\end{theorem}
 
 
 \textbf{compare $M^{\psi=0}$ to the boundary of the cyclotomic deformation}
