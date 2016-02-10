@@ -735,7 +735,7 @@ We may then define the category $\PhiGammabreve_{K,A}$ of $(\varphi, \Gamma)$-mo
 The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
 
 \begin{defn}
-Define the map $\psi: \calR_K \to \calR_K$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $(\varphi, \Gamma)$-module $M$,
+Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
 we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$;
 concretely, the action of $\psi$ on $M$ is characterized by additivity and the identity
 \[
@@ -745,7 +745,7 @@ We have an exact sequence
 \begin{equation} \label{eq:psi sequence}
 0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
 \end{equation}
-The pairing $\{, \}$ satisfies
+The pairing $\{\bullet, \bullet \}$ satisfies
 \begin{equation} \label{eq:pairing phi psi}
 \{\varphi(x), y\} = \{x, \psi(y)\} \qquad (x \in M, y \in M^*).
 \end{equation}
@@ -767,13 +767,17 @@ In particular, $M^{\varphi=1}$ is a finite $A$-module.
 The nondegeneracy of the pairing defines an injection $M \to \Hom_A(M^*, A)$;
 the identity \eqref{eq:pairing phi psi} shows that the image of this map is contained in
 $\Hom_A(M^*/(\psi-1), A)$. In the other direction, note that Proposition~\ref{P:psi finite} and the open mapping theorem imply that $(\psi-1)M^*$ is a closed subspace of $M^*$
-\textbf{for what topology??}
+for the Fr\'echet topology, so every element of $\Hom_A(M^*/(\psi-1), A)$ defines a continuous $A$-linear map $M^* \to A$. By the perfectness of the pairing,
+any such map corresponds to an element of $M$.
 \end{proof}
 
 \begin{prop}[after Chenevier]
 Let $M$ be a $(\varphi, \Gamma)$-module.
 For any $\gamma \in \Gamma_K$ of infinite order, the map $\gamma-1$ on $M^{\psi=0}$ is bijective.
 \end{prop}
+\begin{proof}
+...
+\end{proof}
 
 One of our goals is to express the terms of \eqref{eq:psi sequence} in terms of constructions that translate to other descriptions of the category of $(\varphi, \Gamma)$-modules. These translations must remove any mention of $\psi$, as this operator has no analogue in the other descriptions.
 
