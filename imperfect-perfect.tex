@@ -778,6 +778,12 @@ for the Fr\'echet topology, so every element of $\Hom_A(M^*/(\psi-1), A)$ define
 any such map corresponds to an element of $M$.
 \end{proof}
 
+\begin{remark} \label{R:berger explicit}
+For $M \in \PhiGamma_{K,A}$, the objects $M^{\psi=1}$ and $M^{\psi=0}$ both appear
+prominently in explicit descriptions given by Berger of key constructions from Iwasawa theory: namely, $M^{\psi=1}$ arises in the construction of the Bloch-Kato exponential map \cite[\S II.2]{berger-explicit} while $M^{\psi=0}$ is used to express the Perrin-Riou explicit reciprocity formula \cite[\S II.6]{berger-explicit}.
+We will therefore focus on giving descriptions of these objects in terms of the corresponding object $\tilde{M}\in \PhiGammatilde_{K,A}$.
+\end{remark}
+
 \begin{defn} \label{D:psi cohomology}
 For $M \in \PhiGamma_{K,A}$, 
 let $C_\psi(M)$ denote the complex
@@ -839,7 +845,7 @@ we have canonical isomorphisms
 \end{cor}
 
 This statement applies to Iwasawa cohomology as follows.
-\begin{cor}
+\begin{cor} \label{C:Iwasawa}
 For $V \in \Rep_A(G_K)$ corresponding to $M \in \PhiGamma_{K,A}$,
 $\tilde{M} \in \PhiGammatilde_{K,A}$ via 
 Theorem~\ref{T:phi gamma embedding}
@@ -859,7 +865,12 @@ of $\Lambda_K$-modules compatible with base change.
 Combine Theorem~\ref{T:psi to deformation} with \cite[Corollary~4.4.11]{kpx}.
 \end{proof}
 
-For additional applications in Iwasawa theory, one needs also the following characterization of the kernel of $\psi$.
+\begin{remark}
+Corollary~\ref{C:Iwasawa} is a variant of a statement made by Fontaine in his original language of $(\varphi, \Gamma)$-modules; see \cite[\S II.1]{cherbonnier-colmez}
+or \cite[Theorem~II.8]{berger-explicit}.
+\end{remark}
+
+We now treat the kernel of $\psi$. Although Theorem~\ref{T:psi kernel} is ultimately an easy consequence of previous results, its statement is in fact new.
 \begin{defn}
 Since $W_K$ is a quasi-Stein space, we may write it as the union of an ascending sequence $\{W_{K,n}\}$ of admissible affinoid subspaces. Given an affinoid space $X$ and a coherent sheaf $\calF$ on $X \times_K W_K$, define the \emph{module of boundary sections} of $\calF$ 
 as 
@@ -869,7 +880,7 @@ as
 \]
 \end{defn}
 
-\begin{theorem}
+\begin{theorem} \label{T:psi kernel}
 Suppose that $M \in \PhiGamma_{K,A}$,
 $\tilde{M} \in \PhiGammatilde_{K,A}$ correspond as in
 Theorem~\ref{T:tilde no tilde}.
@@ -888,16 +899,9 @@ use Liu's extension of Tate's Euler characteristic formula \cite{liu-herr} (see 
 to see that the left side is a finite projective module over $A \widehat{\otimes}_K \Lambda_K$; we may then use \cite[Proposition~4.3.8]{kpx}, applied pointwise on $X$, to see that the right side is also a finite projective module of the same rank and that the map is an isomorphism.
 \end{proof}
 
-\begin{remark}
-\textbf{insert some remark about $M^{\psi=0}$ and its relevance}
-\end{remark}
+\section{Coda: beyond the cyclotomic tower}
 
-\section{More descriptions of $(\varphi, \Gamma)$-modules}
-\label{sec:more descriptions}
-
-By Theorem~\ref{T:etale properties}, we may check this condition 
-with $L$ replaced by any field as in
-Remark~\ref{R:general field}.
+To conclude, we put the previous discussion of the cyclotomic deformation into a context which we find suggestive for future work.
 
 \begin{remark} \label{R:general field}
 Let $L$ be any perfectoid field which is the completion of a Galois algebraic extension of $K$ with Galois group $G$.
@@ -912,22 +916,39 @@ In the language of \cite{kedlaya-liu1}, we may view objects of $\PhiGammatilde_{
 as sheaves on the pro-\'etale site of $K$ which are locally finite free modules over the ring sheaf $\bC_X \widehat{\otimes}_{\Qp} A$, equipped with an action of $\varphi$.
 \end{remark}
 
-By Lemma~\ref{L:truncate cohomology} and Lemma~\ref{L:perfect descend cohomology},
-we may compute the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
-using another extension of $K$ as in Remark~\ref{R:general field}. In particular, it is in some sense an intrinsic invariant of $\tilde{M}$. However, ...
+\begin{remark}
+For $M \in \PhiGamma_{K,A}$, we have stated descriptions of the objects $M^{\psi=1}$ 
+(in Corollary~\ref{C:psi to deformation})
+and $M^{\psi=0}$
+(in Theorem~\ref{T:psi kernel}) of cyclotomic Iwasawa theory
+in terms of the corresponding $\tilde{M} \in \PhiGammatilde_{K,A}$.
+In light of the previous discussion, the object $\tilde{M}$ can be constructed, and computations can be made with it, without any direct reference to the cyclotomic extension of $\QQ_p$; the only appearance of the cyclotomic extension in the formulas is via the cyclotomic deformation $\Dfm_K$ on the weight space $W_K$.
 
-
+Consequently, for a general $p$-adic Lie extension $L$ of $K$ with group $\Gamma$,
+one may hope to get something meaningful by forming a suitable character variety $W_K$, using the homomorphism $G_K \to \Gal(L/K) \cong \Gamma$ to define an object of $\Rep_{W_K}(G_K)$, passing to the associated object in $\PhiGammatilde_{K,W_K}$,
+taking the external tensor product with $\tilde{M}$,
+and considering the cohomology of the result. For starters, in the case where $\Gamma$ is again a one-dimensional $p$-adic Lie group, it would be worth comparing this process to other constructions proposed as analogues of \cite{berger-explicit}, e.g.,
+those of Berger--Fourquaux \cite{berger-fourquaux} and Schneider--Venjakob
+\cite{schneider-venjakob}.
+\end{remark}
 
 \begin{thebibliography}{99}
 
 \bibitem{beauville-laszlo}
 A. Beauville and Y. Laszlo, Un lemme de descente, \textit{C. R. Acad. Sci. Paris} \textbf{320} (1995), 335--340.
 
+\bibitem{berger-explicit}
+L. Berger, Bloch and Kato's exponential map: three explicit formulas,
+\textit{Doc. Math.} Extra Volume Kato (2003), 99--129.
+
 \bibitem{berger-b-pairs}
 L. Berger, Construction de $(\phi, \Gamma)$-modules: repr\'esentations $p$-adiques et $B$-paires, \textit{Algebra Number Theory} \textbf{2} (2008), 91--120.
 
 \bibitem{berger-colmez}
 L. Berger and P. Colmez, Familles de repr\'esentations de de Rham et monodromie $p$-adique, \textit{Ast\'erisque} \textbf{319} (2008), 303--337.
+
+\bibitem{berger-fourquaux}
+L. Berger and L. Fourquaux, Iwawasa theory and $F$-analytic Lubin-Tate $(\varphi, \Gamma)$-modules, arXiv:1512.03383v1 (2015).
 
 \bibitem{chenevier}
 G. Chenevier, Sur la densit\'e des repr\'esentations cristallines de
@@ -942,14 +963,15 @@ K.S. Kedlaya, Some new directions in $p$-adic Hodge theory, \textit{J. Th\'eorie
 
 \bibitem{kedlaya-new-phigamma}
 K.S. Kedlaya, New methods for $(\varphi, \Gamma)$-modules,
-to appear in \textit{Res. Math. Sci.}
+\textit{Res. Math. Sci.} \textbf{2:20} (2015).
 
 \bibitem{kedlaya-noetherian}
 K.S. Kedlaya, Noetherian properties of Fargues-Fontaine curves,
 \textit{Int. Math. Res. Notices} (2015), article ID rnv227. 
 
 \bibitem{kedlaya-adic}
-K.S. Kedlaya, Reified valuations and adic spaces, to appear in \textit{Res. Number Theory}.
+K.S. Kedlaya, Reified valuations and adic spaces, \textit{Res. Number Theory}
+\textbf{1:20} (2015).
 
 \bibitem{kedlaya-liu-families}
 K.S. Kedlaya and R. Liu, On families of $(\varphi, \Gamma)$-modules,
@@ -961,7 +983,7 @@ K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
 
 \bibitem{kedlaya-liu2}
 K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory II: Imperfect period rings,
-in preparation.
+arXiv:1612.?????v1 (2016).
 
 \bibitem{kpx}
 K.S. Kedlaya, J. Pottharst, and L. Xiao, Cohomology of arithmetic families of $(\varphi, \Gamma)$-modules, \textit{J. Amer. Math. Soc.}  \textbf{27} (2014), 1043--1115. 
@@ -974,6 +996,9 @@ in der nichtarchimedischen Funktionentheorie,
 \bibitem{liu-herr}
 R. Liu, Cohomology and duality for $(\varphi, \Gamma)$-modules over the Robba ring,
 \textit{Int. Math. Res. Notices} \textbf{3} (2008), article ID rnm150.
+
+\bibitem{schneider-venjakob}
+P. Schneider and O. Venjakob, Coates-Wiles homomorphisms and Iwasawa cohomology for Lubin-Tate extensions, arXiv:1511.04922v1 (2015).
 
 \bibitem{scholze1}
 P. Scholze, Perfectoid spaces, \textit{Publ. Math. IH\'ES} \textbf{116} (2012), 245--313.
