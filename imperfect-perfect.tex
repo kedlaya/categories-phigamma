@@ -829,7 +829,7 @@ which is a quasi-isomorphism.
 \begin{proof}
 Apply \cite[Theorem~4.4.8]{kpx}.
 \end{proof}
-\begin{cor}
+\begin{cor} \label{C:psi to deformation}
 Suppose that $M \in \PhiGamma_{K,A}$, $\tilde{M} \in \PhiGammatilde_{K,A}$ correspond as in 
 Theorem~\ref{T:tilde no tilde}. Then for $X = \Maxspec(A)$,
 we have canonical isomorphisms
@@ -881,6 +881,11 @@ we have canonical isomorphisms
 \]
 \end{theorem}
 \begin{proof}
+The vanishing for $i=0$ is apparent from Corollary~\ref{C:psi to deformation}
+(because on a quasi-Stein space, a coherent sheaf is determined by its module of global sections); the vanishing for $i=2$ follows from the same considerations plus 
+Proposition~\ref{P:psi finite}. For $i=1$, the morphism from the left side to the right side is induced by the map $\varphi-1$ in \eqref{eq:psi sequence}; to check that it is an isomorphism, we may reduce to the case where $A$ is reduced. In this case, we may
+use Liu's extension of Tate's Euler characteristic formula \cite{liu-herr} (see also \cite[Theorem~2.3.11]{kpx}), applied pointwise on $X \times_K W_K$,
+to see that the left side is a finite projective module over $A \widehat{\otimes}_K \Lambda_K$; we may then use \cite[Proposition~4.3.8]{kpx}, applied pointwise on $X$, to see that the right side is also a finite projective module of the same rank and that the map is an isomorphism.
 \end{proof}
 
 \begin{remark}
@@ -965,6 +970,10 @@ K.S. Kedlaya, J. Pottharst, and L. Xiao, Cohomology of arithmetic families of $(
 R. Kiehl, Der Endlichkeitsatz f\"ur eigentliche Abbildungen
 in der nichtarchimedischen Funktionentheorie,
 \textit{Invent. Math.} \textbf{2} (1967), 191--214.
+
+\bibitem{liu-herr}
+R. Liu, Cohomology and duality for $(\varphi, \Gamma)$-modules over the Robba ring,
+\textit{Int. Math. Res. Notices} \textbf{3} (2008), article ID rnm150.
 
 \bibitem{scholze1}
 P. Scholze, Perfectoid spaces, \textit{Publ. Math. IH\'ES} \textbf{116} (2012), 245--313.
