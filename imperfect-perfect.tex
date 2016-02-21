@@ -31,6 +31,7 @@
 \newcommand{\Zp}{\mathbb{Z}_p}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\calF}{\mathcal{F}}
+\newcommand{\calH}{\mathcal{H}}
 \newcommand{\calL}{\mathcal{L}}
 \newcommand{\calO}{\mathcal{O}}
 \newcommand{\calR}{\mathcal{R}}
@@ -40,6 +41,7 @@
 
 \newcommand{\dual}{\vee}
 
+\DeclareMathOperator{\bd}{bd}
 \DeclareMathOperator{\BPair}{\mathbf{BPair}}
 \DeclareMathOperator{\Dfm}{\mathbf{Dfm}}
 \DeclareMathOperator{\dR}{dR}
@@ -700,7 +702,7 @@ We now consider a key example of an arithmetic deformation. The construction fol
 \begin{defn}
 Let $X$ be a rigid analytic space over $\QQ_p$. 
 Define the sheaves $\calR_{K,X}, \tilde{\calR}^{[s,r]}_{K,X}, \tilde{\calR}^{r}_{K,X}$,
-$\tilde{\calR}_{K,X}$ on $X$ so that their values on the affinoid space $X = \Maxspec(A)$
+$\tilde{\calR}_{K,X}$ on $X$ so that their values on the affinoid space $\Maxspec(A)$
 coincide with the previously defined rings $\calR_{K,A}, \tilde{\calR}^{[s,r]}_{K,A}, \tilde{\calR}^{r}_{K,A}, \tilde{\calR}_{K,A}$.
 Let $\PhiGamma_{K,X}, \PhiGammatilde_{K,X}$ be the categories of finite projective
 modules over the respective ring sheaves $\calR_{K,X}$, $\tilde{\calR}_{K,X}$ equipped with continuous commuting semilinear actions of $\varphi, \Gamma$. 
@@ -717,7 +719,7 @@ define the \emph{cyclotomic deformation} of $M$
 as the external tensor product $M \boxtimes \Dfm_{K} \in \PhiGamma_{K,X \times_{\Qp} W_K}$. We similarly define the cyclotomic deformation of $\tilde{M} \in \PhiGammatilde_{K,X}$ as an object $\tilde{M} \boxtimes \Dfm_{K}$ of $\PhiGammatilde_{K,X \times_{\Qp} W_K}$.
 \end{defn}
 
-\begin{remark}
+\begin{remark} \label{R:Gamma acyclic}
 For $M \in \PhiGamma_{K,A}$, we may view the cyclotomic deformation of $M$ as arising from the completed tensor product $M' = M \widehat{\otimes}_{\Qp} \Lambda_K$. Since the action of $\Gamma_K$ on $M$ is locally analytic, the action map $M \times \Gamma_K \to M$ extends to a projection $M' \to M$ sectioning the inclusion $M \to M'$. From the existence of this projection, it follows (as in the proof of \cite[Theorem~4.4.8]{kpx}) that 
 \[
 (M')^{\Gamma_K} = 0, \qquad (M')_{\Gamma_K} \cong M.
@@ -753,11 +755,14 @@ The pairing $\{-, - \}$ satisfies
 \end{equation}
 \end{defn}
 
-The following is \cite[Proposition~3.3.2(1)]{kpx}.
 \begin{prop} \label{P:psi finite}
 For any $M \in \PhiGamma_{K,A}$,
 the $A$-module $M/(\psi-1)$ is finitely generated.
 \end{prop}
+\begin{proof}
+Apply \cite[Proposition~3.3.2(1)]{kpx}.
+\end{proof}
+
 \begin{cor}
 For any $M \in \PhiGamma_{K,A}$, the pairing $\{-,-\}: M \times M^* \to A$ induces an isomorphism
 \[
@@ -773,8 +778,16 @@ for the Fr\'echet topology, so every element of $\Hom_A(M^*/(\psi-1), A)$ define
 any such map corresponds to an element of $M$.
 \end{proof}
 
-\begin{defn}
-For $M \in \PhiGamma_{K,A}$, let $C_{\psi, \Gamma}(M)$ denote the total complex associated to the double complex
+\begin{defn} \label{D:psi cohomology}
+For $M \in \PhiGamma_{K,A}$, 
+let $C_\psi(M)$ denote the complex
+\[
+0 \to M \stackrel{\psi-1}{\to} M \to 0
+\]
+with the nonzero terms placed in degrees $1$ and $2$.
+Denote by $H^i_{\psi}(M)$ the cohomology groups of this complex.
+
+Let $C_{\psi, \Gamma}(M)$ denote the total complex associated to the double complex
 \[
 0 \to C(\Gamma, M) \stackrel{\psi-1}{\to} C(\Gamma,M) \to 0.
 \]
@@ -789,28 +802,48 @@ induces a morphism $C_{\varphi, \Gamma}(M) \to C_{\psi, \Gamma}(M)$
 which is a quasi-isomorphism \cite[Proposition~2.3.6]{kpx}.
 \end{defn}
 
+\begin{defn}
+For $M \in \PhiGamma_{K,X}, \tilde{M} \in \PhiGammatilde_{K,X}$ corresponding via
+Theorem~\ref{T:tilde no tilde},
+define the following sheaves on $X$:
+\begin{align*}
+\calH^i_{\psi, \Gamma}(M): \Maxspec(B)) &\mapsto H^i_{\psi, \Gamma}(M \otimes \calR_{K,B}) \\
+\calH^i_{\varphi, \Gamma}(M): \Maxspec(B) &\mapsto H^i_{\varphi, \Gamma}(M \otimes \calR_{K,B}) \\
+\calH^i_{\varphi, \Gamma}(\tilde{M}): \Maxspec(B) &\mapsto H^i_{\varphi, \Gamma}(\tilde{M} \otimes \tilde{\calR}_{K,B}).
+\end{align*}
+By Theorem~\ref{T:compare phi Gamma cohomology} and
+Definition~\ref{D:psi cohomology}, the sheaves $\calH^i_{\psi, \Gamma}(M),
+\calH^i_{\varphi,\Gamma}(M), \calH^i_{\varphi,\Gamma}(\tilde{M})$
+are canonically isomorphic; by 
+\cite[Theorem~4.4.3, Remark~4.4.4]{kpx}, they are coherent.
+\end{defn}
+
 \begin{theorem} \label{T:psi to deformation}
-Suppose that $M \in \PhiGamma_{K,A}$, $\tilde{M} \in \PhiGammatilde_{K,A}$ correspond as in 
-Theorem~\ref{T:tilde no tilde}. Then there is a canonical morphism of complexes
+For $M \in \Phi\Gamma_{K,A}$, with notation as in Remark~\ref{R:Gamma acyclic},
+there is a canonical morphism of complexes
 \[
-C_{\psi,\Gamma}(M \boxtimes \Dfm_{K}) \to C_{\psi}(M)
+C_{\psi, \Gamma}(M') \to C_{\psi}(M)
 \]
-which is a quasi-isomorphism; consequently, the complexes
-\[
-C_{\psi}(M), C_{\psi,\Gamma}(M \boxtimes \Dfm_{K}), 
-C_{\varphi,\Gamma}(M \boxtimes \Dfm_{K}),
-C_{\varphi,\Gamma}(\tilde{M} \boxtimes \Dfm_{K})
-\]
-are all quasi-isomorphic.
+which is a quasi-isomorphism.
 \end{theorem}
 \begin{proof}
 Apply \cite[Theorem~4.4.8]{kpx}.
 \end{proof}
+\begin{cor}
+Suppose that $M \in \PhiGamma_{K,A}$, $\tilde{M} \in \PhiGammatilde_{K,A}$ correspond as in 
+Theorem~\ref{T:tilde no tilde}. Then for $X = \Maxspec(A)$,
+we have canonical isomorphisms
+\[
+\Gamma(X \times_K W_K, \calH^i_{\psi, \Gamma}(\tilde{M} \boxtimes \Dfm_K)) \cong H^i_\psi(M).
+\]
+\end{cor}
 
 This statement applies to Iwasawa cohomology as follows.
 \begin{cor}
-For $V \in \Rep_A(G_K)$ corresponding to $M \in \PhiGamma_{K,A}$ via 
-Theorem~\ref{T:phi gamma embedding},
+For $V \in \Rep_A(G_K)$ corresponding to $M \in \PhiGamma_{K,A}$,
+$\tilde{M} \in \PhiGammatilde_{K,A}$ via 
+Theorem~\ref{T:phi gamma embedding}
+and Theorem~\ref{T:tilde no tilde},
 write
 \[
 H^i_{\Iw}(G_K, V) = \left( \lim_{n \to \infty} H^i(G_{K(\mu_{p^n})}, T) \right) \otimes_{\ZZ} \QQ
@@ -818,7 +851,7 @@ H^i_{\Iw}(G_K, V) = \left( \lim_{n \to \infty} H^i(G_{K(\mu_{p^n})}, T) \right) 
 for $T \subseteq V$ the unit ball for some Galois-invariant Banach module norm on $V$
 (the construction does not depend on the choice), with the transition maps being the corestriction maps. Then for each $i$, we have functorial isomorphisms
 \[
-H^i_{\Iw}(G_K, V) \widehat{\otimes}_{\ZZ_p\llbracket \Gamma_K \rrbracket} \Lambda_K \cong H^i_\psi(M) \cong H^i_{\phi, \Gamma}(\tilde{M} \boxtimes \Dfm_K)
+H^i_{\Iw}(G_K, V) \widehat{\otimes}_{\ZZ_p\llbracket \Gamma_K \rrbracket} \Lambda_K \cong H^i_\psi(M) \cong H^i_{\varphi, \Gamma}(\tilde{M} \boxtimes \Dfm_K)
 \]
 of $\Lambda_K$-modules compatible with base change.
 \end{cor}
@@ -826,18 +859,33 @@ of $\Lambda_K$-modules compatible with base change.
 Combine Theorem~\ref{T:psi to deformation} with \cite[Corollary~4.4.11]{kpx}.
 \end{proof}
 
-\textbf{next, psi=0}
+For additional applications in Iwasawa theory, one needs also the following characterization of the kernel of $\psi$.
+\begin{defn}
+Since $W_K$ is a quasi-Stein space, we may write it as the union of an ascending sequence $\{W_{K,n}\}$ of admissible affinoid subspaces. Given an affinoid space $X$ and a coherent sheaf $\calF$ on $X \times_K W_K$, define the \emph{module of boundary sections} of $\calF$ 
+as 
+\[
+\Gamma^{\bd}(\calF) = 
+\varinjlim_{n \to \infty} \Gamma(X \times_K (W_K \setminus W_{K,n}), \calF).
+\]
+\end{defn}
 
-\begin{prop}[after Chenevier]
-Let $M$ be a $(\varphi, \Gamma)$-module.
-For any $\gamma \in \Gamma_K$ of infinite order, the map $\gamma-1$ on $M^{\psi=0}$ is bijective.
-\end{prop}
+\begin{theorem}
+Suppose that $M \in \PhiGamma_{K,A}$,
+$\tilde{M} \in \PhiGammatilde_{K,A}$ correspond as in
+Theorem~\ref{T:tilde no tilde}.
+Then for $X = \Maxspec(A)$,
+we have canonical isomorphisms
+\[
+\Gamma^{\bd}(\calH^i_{\varphi,\Gamma}(\tilde{M} \boxtimes \Dfm_K)) \cong \begin{cases} M^{\psi=0} & i=1 \\ 0 & i \neq 1.
+\end{cases}
+\]
+\end{theorem}
 \begin{proof}
-...
 \end{proof}
 
-
-\textbf{compare $M^{\psi=0}$ to the boundary of the cyclotomic deformation}
+\begin{remark}
+\textbf{insert some remark about $M^{\psi=0}$ and its relevance}
+\end{remark}
 
 \section{More descriptions of $(\varphi, \Gamma)$-modules}
 \label{sec:more descriptions}
