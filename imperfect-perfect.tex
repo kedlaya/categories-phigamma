@@ -770,10 +770,6 @@ We have an exact sequence
 \begin{equation} \label{eq:psi sequence}
 0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
 \end{equation}
-The pairing $\{-, - \}$ satisfies
-\begin{equation} \label{eq:pairing phi psi}
-\{\varphi(x), y\} = \{x, \psi(y)\} \qquad (x \in M, y \in M^*).
-\end{equation}
 \end{defn}
 
 \begin{prop} \label{P:psi finite}
@@ -781,18 +777,28 @@ For any $M \in \PhiGamma_{K,A}$,
 the $A$-module $M/(\psi-1)$ is finitely generated.
 \end{prop}
 \begin{proof}
-Apply \cite[Proposition~3.3.2(1)]{kpx}.
+It suffices to treat the case $K = F$.
+The case $F = \QQ_p$ is treated in \cite[Proposition~3.3.2(1)]{kpx}; the same argument applies in general.
 \end{proof}
 
 \begin{cor}
-For any $M \in \PhiGamma_{K,A}$, the pairing $\{-,-\}: M \times M^* \to A$ induces an isomorphism
+For any $M \in \PhiGamma_{K,A}$, the $A$-module $M^{\varphi=1}$ is finitely generated.
+\end{cor}
+\begin{proof}
+It suffices to treat the case $K = F$.
+In this case, as in \cite[Notation~2.3.13]{kpx}, we define a
+nondegenerate pairing $\{-, - \}: M \times M^* \to A$ such that for all $x \in M$, $y \in M^*$,
+\begin{align}
+\{\varphi(x), \varphi(y)\} &= \{x, y\} \\
+\{\gamma(x), \gamma(y)\} &= \{x, y\} \\
+ \label{eq:pairing phi psi}
+\{\varphi(x), y\} &= \{x, \psi(y)\}.
+\end{align}
+The claim will follow from Proposition~\ref{P:psi finite} upon showing that the pairing $\{-,-\}$ induces an isomorphism
 \[
 M^{\varphi=1} \cong \Hom_A(M^*/(\psi-1), A).
 \]
-In particular, $M^{\varphi=1}$ is a finite $A$-module.
-\end{cor}
-\begin{proof}
-The nondegeneracy of the pairing defines an injection $M \to \Hom_A(M^*, A)$;
+To begin with, the nondegeneracy of the pairing defines an injection $M \to \Hom_A(M^*, A)$;
 the identity \eqref{eq:pairing phi psi} shows that the image of this map is contained in
 $\Hom_A(M^*/(\psi-1), A)$. In the other direction, note that Proposition~\ref{P:psi finite} and the open mapping theorem imply that $(\psi-1)M^*$ is a closed subspace of $M^*$
 for the Fr\'echet topology, so every element of $\Hom_A(M^*/(\psi-1), A)$ defines a continuous $A$-linear map $M^* \to A$. By the perfectness of the pairing,
