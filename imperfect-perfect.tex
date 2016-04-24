@@ -132,7 +132,7 @@ Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions o
 \begin{defn}
 A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Here by a \emph{semilinear action} of $\varphi$ on a module $M$, we mean a semilinear map $\varphi_M: M \to M$ induced by an isomorphism $\varphi^* M \to M$; note that the isomorphism property does not ensure that $\varphi_M$ acts bijectively on $M$, as this already fails for $M = \calR_{F,A}$ with the standard $\varphi$-action.
 
-Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \Cont(\Spec A,\ZZ)$ computing the rank of the underlying $\calR_{F,A}$-module.
+Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \Cont(\Maxspec A,\ZZ)$ computing the rank of the underlying $\calR_{F,A}$-module.
 \end{defn}
 
 We will establish the following result in \S\ref{sec:alternate}.
@@ -167,7 +167,7 @@ There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with 
 \end{theorem}
 
 \begin{remark} \label{R:not connected}
-The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not with most older references. The reason is that even if $\Spec A$ is connected, in general $\Spec \calR_{K,A}$ is not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
+The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not with most older references. The reason is that even if $\Maxspec A$ is connected, in general $\Maxspec \calR_{K,A}$ is not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
 See Remark~\ref{R:not connected2} and \cite[Remark~2.2.12]{kedlaya-new-phigamma} for further discussion.
 \end{remark}
 
@@ -493,7 +493,7 @@ For further discussion, see \cite{kedlaya-liu-families}.
 
 
 \begin{lemma} \label{L:bounded slopes}
-For $\calF \in \VB_{L,A}$, the HN polygon of $\calF$, as a function on $\Maxspec(A)$, is bounded above and below, and its height is constant on connected components of $\Spec A$.
+For $\calF \in \VB_{L,A}$, the HN polygon of $\calF$, as a function on $\Maxspec(A)$, is bounded above and below, and its height is constant on connected components of $\Maxspec A$.
 \end{lemma}
 \begin{proof}
 Using Lemma~\ref{L:enough phi-invariants},
