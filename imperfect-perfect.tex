@@ -54,6 +54,7 @@
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\Iw}{Iw}
 \DeclareMathOperator{\Maxspec}{Maxspec}
+\DeclareMathOperator{\Cont}{Cont}
 \DeclareMathOperator{\perf}{perf}
 \DeclareMathOperator{\PhiGamma}{\mathbf{\Phi \Gamma}}
 \DeclareMathOperator{\PhiGammabreve}{\breve{\mathbf{\Phi \Gamma}}}
@@ -129,9 +130,9 @@ Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions o
 \end{defn}
 
 \begin{defn}
-A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Here by a \emph{semilinear action} of $\varphi$ on a module $M$, we mean a semilinear map $M \to M$ induced by an isomorphism $\varphi^* M \to M$; note that the isomorphism property does not ensure that $\varphi$ acts bijectively on $M$, as this already fails for $M = \calR_{F,A}$ with the standard $\varphi$-action.
+A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Here by a \emph{semilinear action} of $\varphi$ on a module $M$, we mean a semilinear map $\varphi_M: M \to M$ induced by an isomorphism $\varphi^* M \to M$; note that the isomorphism property does not ensure that $\varphi_M$ acts bijectively on $M$, as this already fails for $M = \calR_{F,A}$ with the standard $\varphi$-action.
 
-Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \ZZ$ computing the rank of the underlying $\calR_{F,A}$-module.
+Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \Cont(\Maxspec A,\ZZ)$ computing the rank of the underlying $\calR_{F,A}$-module.
 \end{defn}
 
 We will establish the following result in \S\ref{sec:alternate}.
@@ -166,7 +167,7 @@ There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with 
 \end{theorem}
 
 \begin{remark} \label{R:not connected}
-The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not with most older references. The reason is that even if $A$ is connected, the ring $\calR_{K,A}$ is in general not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
+The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not with most older references. The reason is that even if $\Maxspec A$ is connected, in general $\Maxspec \calR_{K,A}$ is not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
 See Remark~\ref{R:not connected2} and \cite[Remark~2.2.12]{kedlaya-new-phigamma} for further discussion.
 \end{remark}
 
@@ -176,7 +177,7 @@ See Remark~\ref{R:not connected2} and \cite[Remark~2.2.12]{kedlaya-new-phigamma}
 In preparation for giving alternate descriptions of the category $\PhiGamma_{K,A}$, we introduce the basic theory of \emph{perfectoid fields}, which subsumes the earlier theory of \emph{norm fields} on which the classical theory of $(\varphi, \Gamma)$-modules is built; see \cite{kedlaya-new-phigamma} for more historical discussion. In the process, we must do a bit of extra work in order to accommodate the coefficient ring $A$.
 
 \begin{defn}
-Let $L$ be a field containing $K$ which is complete with respect to a nonarchimedean absolute value, denoted $\left| \bullet \right|$. Let $\frako_L$ denote the valuation subring of $L$ (i.e., elements of norm at most $1$). We say $L$ is \emph{perfectoid} if $L$ is not discretely valued and the Frobenius map on $\frako_L/(p)$ is surjective.
+Let $L$ be a field containing $K$ which is complete with respect to a nonarchimedean absolute value, denoted $\left| \cdot \right|$. Let $\frako_L$ denote the valuation subring of $L$ (i.e., elements of norm at most $1$). We say $L$ is \emph{perfectoid} if $L$ is not discretely valued and the Frobenius map on $\frako_L/(p)$ is surjective.
 \end{defn}
 
 \begin{example}  \label{exa:cyclotomic}
@@ -205,10 +206,15 @@ There is a unique way to promote $\frako_{L^{\flat}}$ and $L^{\flat}$ to rings
 in such a way that the maps $\frako_{L^{\flat}} \to L^{\flat}$ and $\frako_{L^{\flat}} \to \frako_L \to \frako_L/(p)$ become ring homomorphisms.
 \item[(b)]
 The ring $L^{\flat}$ is a perfect field. In addition,
-the function $L^{\flat} \to L \stackrel{\left| \bullet \right|}{\to} \RR$ is an absolute value with respect to which $L^{\flat}$ is complete with valuation subring $\frako_{L^{\flat}}$.
+the function $L^{\flat} \to L \stackrel{\left| \cdot \right|}{\to} \RR$ is an absolute value with respect to which $L^{\flat}$ is complete with valuation subring $\frako_{L^{\flat}}$.
+
+Assume in the following statements thatn $L$ is perfectoid.
+
 \item[(c)]
-Any finite extension of $L$, equipped with the unique extension of the absolute value, is again perfectoid.
+$L^\flat$ is also perfectoid.
 \item[(d)]
+Any finite extension of $L$, equipped with the unique extension of the absolute value, is again perfectoid.
+\item[(e)]
 The functor $L' \mapsto L^{\prime \flat}$ defines an equivalence of categories between finite extensions of $L$ and $L^{\flat}$, and thereby a canonical isomorphism $G_L \cong G_{L^{\flat}}$.
 \end{enumerate}
 \end{theorem}
@@ -221,13 +227,13 @@ Equip $L^\flat$ with the absolute value described in
 Theorem~\ref{T:perfectoid}(b). 
 For $r>0$, let $W^r(L)$ be the set of $x = \sum_{n=0}^\infty p^n [\overline{x}_n] \in W(L)$ such that $p^{-n} \left| \overline{x}_n \right|^r \to 0$ as $n \to \infty$.
 By \cite[Proposition~5.1.2]{kedlaya-liu1}, this set is a subring of $W(L)$ on which 
-the function $\left| \bullet \right|_r$ defined by
+the function $\left| \cdot \right|_r$ defined by
 \[
 \left| \sum_{n=0}^\infty p^n [\overline{x}_n]  \right|_r = \max_n \{p^{-n} \left| \overline{x}_n \right|^r\}
 \]
 is a complete multiplicative norm; this norm extends multiplicatively to $W^r(L)[p^{-1}]$.
 For $0 < s \leq r$, let $\tilde{\calR}^{[s,r]}_L$ be the completion of $W^r(L)[p^{-1}]$
-with respect to $\max\{\left| \bullet \right|_s, \left| \bullet \right|_r\}$,
+with respect to $\max\{\left| \cdot \right|_s, \left| \cdot \right|_r\}$,
 and put $\tilde{\calR}^{[s,r]}_{L,A} = \tilde{\calR}^{[s,r]}_L \widehat{\otimes}_{\QQ_p} A$.
 Let $\tilde{\calR}^r_{L,A}$ be the inverse limit of the $\tilde{\calR}^{[s,r]}_{L,A}$ over all $s \in (0,r)$, equipped with the Fr\'echet topology. Let $\tilde{\calR}_{L,A}$ be the direct  limit of the $\tilde{\calR}^r_{L,A}$ over all $r>0$, equipped with the locally convex direct limit topology (LF topology).
 \end{defn}
@@ -419,14 +425,14 @@ Throughout \S\ref{sec:slopes}, let $L$ be a perfectoid field.
 
 \begin{lemma} \label{L:units}
 Suppose that $A$ is a field.
-Then $\tilde{\calR}_{L,A}^{\times} = \bigcup_{r>0} (W^r(L)[p^{-1}] \otimes_{\QQ_p} A)$.
+Then $\tilde{\calR}_{L,A}^{\times} = \bigcup_{r>0} (W^r(L)[p^{-1}] \otimes_{\QQ_p} A)^\times$.
 \end{lemma}
 \begin{proof}
 See \cite[Corollary~4.2.5]{kedlaya-liu1}.
 \end{proof}
 
 \begin{defn}
-Suppose that $A$ is a field. Let $v(A)$ denote the valuation group of $A$, normalized so that $v(\QQ_p) = \ZZ$. By Lemma~\ref{L:units},
+Suppose that $A$ is a field. Let $v(A)$ denote the valuation group of $A$, normalized so that $v(\QQ_p^\times) = \ZZ$. By Lemma~\ref{L:units},
 we obtain a canonical homomorphism $\tilde{\calR}_{L,A}^{\times} \to v(A)$
 and thus a morphism $\deg: \Pic(X_{L,A}) \to v(A)$ called the \emph{degree} map.
 As usual, for $\calF \in \VB_{L,A}$ of arbitrary rank, we define the \emph{degree} of $\calF$ as the degree of its determinant $\wedge^{\rank(\calF)} \calF$, and (if $\calF \neq 0$) the \emph{slope} of $\calF$ as the ratio $\mu(\calF) = \deg(\calF)/\rank(\calF)$.
@@ -487,7 +493,7 @@ For further discussion, see \cite{kedlaya-liu-families}.
 
 
 \begin{lemma} \label{L:bounded slopes}
-For $\calF \in \VB_{L,A}$, the HN polygon of $\calF$, as a function on $\Maxspec(A)$, is bounded above and below, and its height is constant on connected components of $A$.
+For $\calF \in \VB_{L,A}$, the HN polygon of $\calF$, as a function on $\Maxspec(A)$, is bounded above and below, and its height is constant on connected components of $\Maxspec A$.
 \end{lemma}
 \begin{proof}
 Using Lemma~\ref{L:enough phi-invariants},
@@ -566,7 +572,7 @@ Theorem~\ref{T:tilde no tilde}, when restricted to \'etale objects, reproduces t
 \end{remark}
 
 \begin{remark}
-Note that the embedding in Theorem~\ref{T:phi gamma embedding1} is not quite canonical: it depends on the coherent sequence of $p$-power roots of unity chosen in Definition~\ref{D:untilde to tilde map}. This suggests that in some sense, the embedding of $\Rep_{G_K}(A)$ into $\PhiGammatilde_{K,A}$  is more natural than the embedding into $\PhiGamma_{K,A}$. We will bear out this suspicion when we give alternate descriptions of the category $\PhiGammatilde_{K,A}$ in \S\ref{sec:more descriptions}.
+Note that the embedding in Theorem~\ref{T:phi gamma embedding1} is not quite canonical: it depends on the coherent sequence of $p$-power roots of unity chosen in Definition~\ref{D:untilde to tilde map}. This suggests that in some sense, the embedding of $\Rep_{G_K}(A)$ into $\PhiGammatilde_{K,A}$  is more natural than the embedding into $\PhiGamma_{K,A}$.
 \end{remark}
 
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
@@ -813,7 +819,7 @@ For $M \in \PhiGamma_{K,X}, \tilde{M} \in \PhiGammatilde_{K,X}$ corresponding vi
 Theorem~\ref{T:tilde no tilde},
 define the following sheaves on $X$:
 \begin{align*}
-\calH^i_{\psi, \Gamma}(M): \Maxspec(B)) &\mapsto H^i_{\psi, \Gamma}(M \otimes \calR_{K,B}) \\
+\calH^i_{\psi, \Gamma}(M): \Maxspec(B) &\mapsto H^i_{\psi, \Gamma}(M \otimes \calR_{K,B}) \\
 \calH^i_{\varphi, \Gamma}(M): \Maxspec(B) &\mapsto H^i_{\varphi, \Gamma}(M \otimes \calR_{K,B}) \\
 \calH^i_{\varphi, \Gamma}(\tilde{M}): \Maxspec(B) &\mapsto H^i_{\varphi, \Gamma}(\tilde{M} \otimes \tilde{\calR}_{K,B}).
 \end{align*}
@@ -914,7 +920,7 @@ $\PhiGamma_{K,A}$ as objects of $\BPair_{\CC_K,A}$ equipped with continuous semi
 
 \begin{remark}
 In the language of \cite{kedlaya-liu1}, we may view objects of $\PhiGammatilde_{K,A}$
-as sheaves on the pro-\'etale site of $K$ which are locally finite free modules over the ring sheaf $\bC_X \widehat{\otimes}_{\Qp} A$, equipped with an action of $\varphi$.
+as sheaves on the pro-\'etale site of $K$ which are locally finite free modules over the ring sheaf $\CC_X \widehat{\otimes}_{\Qp} A$, equipped with an action of $\varphi$.
 \end{remark}
 
 \begin{remark}
