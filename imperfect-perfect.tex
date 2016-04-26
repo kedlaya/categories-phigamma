@@ -168,6 +168,23 @@ We may then formally promote Theorem~\ref{T:phi gamma embedding1} as follows.
 There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with induction and restriction on both sides.
 \end{theorem}
 
+\begin{defn}
+Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to the cyclotomic character in $\Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}.
+%There is then a canonical residue map
+%\[
+%\Res: H^2_{\varphi, \Gamma}(\calR_{K,A}(1)) \to A
+%\]
+%which when $[K: \QQ_p] < \infty$ corresponds to the residue map from Tate local duality.
+%
+For $M \in \PhiGamma_{K,A}$, define the \emph{Cartier dual}
+\[
+M^* = \Hom_{\calR_{K,A}}(M, \calR_{K,A}(1)) \in \PhiGamma_{K,A};
+\]
+for $M$ corresponding to $V \in \Rep_A(G_K)$, $M^*$ corresponds to the Cartier dual of $V$.
+\end{defn}
+
+
+
 \begin{remark} \label{R:not connected}
 The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not with most older references. The reason is that even if $\Maxspec A$ is connected, in general $\Maxspec \calR_{K,A}$ is not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
 See Remark~\ref{R:not connected2} and \cite[Remark~2.2.12]{kedlaya-new-phigamma} for further discussion.
@@ -699,21 +716,6 @@ in which the vertical arrows define a quasi-isomorphism of the total complexes a
 By the Cartan-Serre-Schwartz lemma (as in \cite[Satz~2.6]{kiehl-finiteness}), we deduce that the cohomology groups of the total complexes are finite $A$-modules.
 (By contrast, the maps $\tilde{\calR}^{[s,r]}_{\QQ_p,A} \to \tilde{\calR}^{[s',r']}_{\QQ_p,A}$ are not completely continuous.)
 \end{remark}
-
-\begin{defn}
-Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to the cyclotomic character in $\Rep_A(G_K)$.
-There is then a canonical residue map
-\[
-\Res: H^2_{\varphi, \Gamma}(\calR_{K,A}(1)) \to A
-\]
-which when $[K: \QQ_p] < \infty$ corresponds to the residue map from Tate local duality.
-
-For $M \in \PhiGamma_{K,A}$, define the \emph{Cartier dual}
-\[
-M^* = \Hom_{\calR_{K,A}}(M, \calR_{K,A}(1)) \in \PhiGamma_{K,A};
-\]
-for $M$ corresponding to $V \in \Rep_A(G_K)$, $M^*$ corresponds to the Cartier dual of $V$.
-\end{defn}
 
 \section{The cyclotomic deformation}
 
