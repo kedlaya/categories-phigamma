@@ -169,6 +169,10 @@ There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with 
 \end{theorem}
 
 \begin{defn}
+The category $\PhiGamma_{K,A}$ admits duals, and hence internal Homs: the dual of $M \in \PhiGamma_{K,A}$ is the module-theoretic dual $M^\dual = \Hom_{\calR_{K,A}}(M, \calR_{K,A})$
+with the actions of $\varphi, \Gamma$ constructed so that the canonical $\calR_{K,A}$-linear morphism $M \otimes_{\calR_{K,A}} M^\dual \to \calR_{K,A}$ is a morphism in $\PhiGamma_{K,A}$. (Note that the definition of the $\varphi$-action on $M^\dual$ depends on the fact that the action of $\varphi$ corresponds to an isomorphism $\varphi^*M \to M$, not just an arbitrary $\calR_{K,A}$-linear morphism.)
+For $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^\dual$ corresponds to the contragredient representation $V^\dual$.
+
 Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to the cyclotomic character in $\Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}.
 %There is then a canonical residue map
 %\[
@@ -178,9 +182,9 @@ Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to t
 %
 For $M \in \PhiGamma_{K,A}$, define the \emph{Cartier dual}
 \[
-M^* = \Hom_{\calR_{K,A}}(M, \calR_{K,A}(1)) \in \PhiGamma_{K,A};
+M^* := M^\dual(1) := M^\dual \otimes_{\calR_{K,A}} \calR_{K,A}(1) \in \PhiGamma_{K,A};
 \]
-for $M$ corresponding to $V \in \Rep_A(G_K)$, $M^*$ corresponds to the Cartier dual of $V$.
+for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^*$ corresponds to the Cartier dual of $V$.
 \end{defn}
 
 
