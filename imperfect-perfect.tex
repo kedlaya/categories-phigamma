@@ -174,15 +174,13 @@ with the actions of $\varphi, \Gamma$ constructed so that the canonical $\calR_{
 For $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^\dual$ corresponds to the contragredient representation $V^\dual$.
 
 Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to the cyclotomic character in $\Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}.
-%There is then a canonical residue map
-%\[
-%\Res: H^2_{\varphi, \Gamma}(\calR_{K,A}(1)) \to A
-%\]
-%which when $[K: \QQ_p] < \infty$ corresponds to the residue map from Tate local duality.
-%
+Concretely, $\calR_{K,A}(1)$ can be written as the free module of rank 1 on a generator $\varepsilon$ satisfying
+\[
+\varphi(\varepsilon) = \varepsilon, \qquad \gamma(\varepsilon) = (1 + \pi)^{-\gamma} \varepsilon \qquad (\gamma \in \Gamma).
+\]
 For $M \in \PhiGamma_{K,A}$, define the \emph{Cartier dual}
 \[
-M^* := M^\dual(1) := M^\dual \otimes_{\calR_{K,A}} \calR_{K,A}(1) \in \PhiGamma_{K,A};
+M^* = M^\dual(1) = M^\dual \otimes_{\calR_{K,A}} \calR_{K,A}(1) \in \PhiGamma_{K,A};
 \]
 for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^*$ corresponds to the Cartier dual of $V$.
 \end{defn}
@@ -764,6 +762,7 @@ We may then define the category $\PhiGammabreve_{K,A}$ of $(\varphi, \Gamma)$-mo
 \section{Iwasawa cohomology and the cyclotomic deformation}
 
 The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
+Assume hereafter that $[K:\QQ_p] < \infty$.
 
 \begin{defn}
 Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
@@ -783,28 +782,31 @@ For any $M \in \PhiGamma_{K,A}$,
 the $A$-module $M/(\psi-1)$ is finitely generated.
 \end{prop}
 \begin{proof}
-It suffices to treat the case $K = F$.
-The case $F = \QQ_p$ is treated in \cite[Proposition~3.3.2(1)]{kpx}; the same argument applies to general $F$.
+It suffices to treat the case $K = \QQ_p$, for which see \cite[Proposition~3.3.2(1)]{kpx}.
 \end{proof}
 
 \begin{cor}
-For any $M \in \PhiGamma_{K,A}$, the $A$-module $M^{\varphi=1}$ is finitely generated.
-\end{cor}
-\begin{proof}
-It suffices to treat the case $K = F$.
-In this case, as in \cite[Notation~2.3.13]{kpx}, we define a
-nondegenerate pairing $\{-, - \}: M \times M^* \to A$ such that for all $x \in M$, $y \in M^*$,
-\begin{align}
-\{\varphi(x), \varphi(y)\} &= \{x, y\} \\
-\{\gamma(x), \gamma(y)\} &= \{x, y\} \\
- \label{eq:pairing phi psi}
-\{\varphi(x), y\} &= \{x, \psi(y)\}.
-\end{align}
-The claim will follow from Proposition~\ref{P:psi finite} upon showing that the pairing $\{-,-\}$ induces an isomorphism
+For any $M \in \PhiGamma_{K,A}$, there is a canonical isomorphism
 \[
 M^{\varphi=1} \cong \Hom_A(M^*/(\psi-1), A).
 \]
-To begin with, the nondegeneracy of the pairing defines an injection $M \to \Hom_A(M^*, A)$;
+In particular, the $A$-module $M^{\varphi=1}$ is finitely generated.
+\end{cor}
+\begin{proof}
+It suffices to treat the case $K = \QQ_p$.
+In this case, using residues of power series, one constructs as in \cite[Notation~2.3.13]{kpx} a nondegenerate pairing $M \times M^* \to \calR_{K,A}(1)$ satisfying
+\[
+\{\varphi(x), \varphi(y)\} = \{x, y\} \qquad (x \in M, y \in M^*)
+\]
+and hence
+\begin{equation}
+ \label{eq:pairing phi psi}
+\{\varphi(x), y\}= \{x, \psi(y)\} \qquad (x \in M, y \in M^*).
+\end{equation}
+We will show that the map $M \to \Hom_A(M^*, A)$ arising from the pairing $\{-,-\}$ induces the desired isomorphism; this will then imply the finite generation of $M^{\varphi=1}$
+using Proposition~\ref{P:psi finite}.
+
+To begin with, the nondegeneracy of the pairing $\{-, -\}$ implies the injectivity of $M \to \Hom_A(M^*, A)$, and
 the identity \eqref{eq:pairing phi psi} shows that the image of this map is contained in
 $\Hom_A(M^*/(\psi-1), A)$. In the other direction, note that Proposition~\ref{P:psi finite} and the open mapping theorem imply that $(\psi-1)M^*$ is a closed subspace of $M^*$
 for the Fr\'echet topology, so every element of $\Hom_A(M^*/(\psi-1), A)$ defines a continuous $A$-linear map $M^* \to A$. By the perfectness of the pairing,
