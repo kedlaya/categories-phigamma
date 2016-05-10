@@ -75,15 +75,15 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
-\date{February 21, 2016}
+\date{April 24, 2016}
 
 \begin{abstract}
-Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into a larger category of \emph{$(\varphi, \Gamma)$-modules}; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
+Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into the larger category of $(\varphi, \Gamma)$-modules; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
 \end{abstract}
 
 \maketitle
 
-Throughout, let $p$ be a prime number and let $K$ be a \emph{$p$-adic field}, by which we mean a complete discretely valued field of mixed characteristics $(0,p)$ and perfect (but not necessarily finite) residue field. In $p$-adic Hodge theory, one studies the relationship between different cohomology theories associated to algebraic (and more recently analytic) varieties over $K$. One of these theories is \'etale cohomology with $\QQ_p$-coefficients, which naturally leads to a detailed study of continuous representations of $G_K$, the absolute Galois group of $K$, acting on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has been discovered that this category embeds naturally and usefully into a larger category of \emph{$(\varphi, \Gamma)$-modules}, in much the same way that the Narasimhan-Seshadri theorem embeds the category of irreducible unitary representations of the fundamental group of a compact Riemann surface into the category of vector bundles on that surface.
+Throughout, let $p$ be a prime number and let $K$ be a \emph{$p$-adic field}, by which we mean a complete discretely valued field of mixed characteristics $(0,p)$ and perfect (but not necessarily finite) residue field. In $p$-adic Hodge theory, one studies the relationship between different cohomology theories associated to algebraic (and more recently analytic) varieties over $K$. One of these theories is \'etale cohomology with $\QQ_p$-coefficients, which naturally leads to a detailed study of continuous representations of $G_K$, the absolute Galois group of $K$, acting on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has been discovered that this category embeds naturally and usefully into a larger category of \emph{$(\varphi, \Gamma)$-modules}, in much the same way that the Narasimhan-Seshadri theorem embeds the category of unitary representations of the fundamental group of a compact Riemann surface into the category of vector bundles on that surface.
 
 One indication of the naturality of the category of $(\varphi, \Gamma)$-modules is that it can be given several equivalent descriptions. The original description emerging out of the work of Fontaine, Colmez, Berger, and others involves modules over certain rings of convergent Laurent series. In this description, a privileged role is played by the infinite extension $K_\infty$ of $K$ obtained by adjoining all $p$-power roots of unity; for example, the base rings carry an action of the Galois group of $K_\infty$ over $K$ (the eponymous $\Gamma$). However, several other descriptions of the same category can now be given in which the cyclotomic tower plays no distinguished role; these include the description by Berger in the language of $B$-pairs and the description by Fargues--Fontaine in terms of vector bundles on certain one-dimensional noetherian schemes. The latter description arises very naturally within the geometric reinterpretation of $p$-adic Hodge theory in the language of \emph{perfectoid spaces}, as in the work of Scholze \cite{scholze1, scholze2, scholze-icm} and Kedlaya-Liu \cite{kedlaya-liu1, kedlaya-liu2}.
 
@@ -107,7 +107,7 @@ into which the category of continuous representations of $G_K$ on finite-dimensi
 In preparation for our later discussion, we escalate the level of generality to accommodate representations valued in affinoid algebras.
 
 \begin{defn}
-Let $\Rep_A(G_K)$ denote the category of continuous representations of $G_K$ on finite projective $A$-modules.
+Let $\Rep_A(G_K)$ denote the category of continuous representations of $G_K$ on finite projective $A$-modules. With more work, it would be possible to consider also representations on arbitrary finitely generated $A$-modules; we will not attempt this here.
 \end{defn}
 
 \begin{defn}
@@ -120,7 +120,7 @@ The group $\Gamma = \ZZ_p^\times$ also admits a continuous action on $\calR^\inf
 \begin{equation} \label{eq:gamma formula}
 \gamma \left( \sum_n c_n \pi^n \right) = \sum_n c_n ((1 + \pi)^\gamma-1)^n \qquad (\gamma \in \Gamma)
 \end{equation}
-interpreting $(1 + \pi)^\gamma$ as the binomial series 
+under the interpretation of $(1 + \pi)^\gamma$ as the binomial series 
 \[
 (1 + \pi)^\gamma = \sum_{n=0}^\infty \frac{\gamma(\gamma-1)\cdots (\gamma-n+1)}{n!} \pi^n.
 \]
@@ -160,13 +160,32 @@ We again view $\PhiGamma_{K,A}$ as an exact tensor category with rank function $
 Let $K'$ be a finite extension of $K$. Define the induction functor
 $\Ind: \PhiGamma_{K',A} \to \PhiGamma_{K,A}$ 
 and the restriction functor $\Res: \PhiGamma_{K,A} \to \PhiGamma_{K',A}$
-by restriction of scalars and extension of scalars, respectively (sic), along the natural map $\calR_{K,A}  \to \calR_{K',A}$.
+by restriction of scalars and extension of scalars, respectively, along the natural map $\calR_{K,A}  \to \calR_{K',A}$.
 \end{defn}
 
 We may then formally promote Theorem~\ref{T:phi gamma embedding1} as follows.
 \begin{theorem} \label{T:phi gamma embedding}
 There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with induction and restriction on both sides.
 \end{theorem}
+
+\begin{defn}
+The category $\PhiGamma_{K,A}$ admits duals, and hence internal Homs: the dual of $M \in \PhiGamma_{K,A}$ is the module-theoretic dual $M^\dual = \Hom_{\calR_{K,A}}(M, \calR_{K,A})$
+with the actions of $\varphi, \Gamma$ constructed so that the canonical $\calR_{K,A}$-linear morphism $M \otimes_{\calR_{K,A}} M^\dual \to \calR_{K,A}$ is a morphism in $\PhiGamma_{K,A}$. (Note that the definition of the $\varphi$-action on $M^\dual$ depends on the fact that the action of $\varphi$ corresponds to an isomorphism $\varphi^*M \to M$, not just an arbitrary $\calR_{K,A}$-linear morphism.)
+For $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^\dual$ corresponds to the contragredient representation $V^\dual$.
+
+Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to the cyclotomic character $\chi$ in $\Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}.
+Concretely, $\calR_{K,A}(1)$ can be written as the free module of rank 1 on a generator $\varepsilon$ satisfying
+\[
+\varphi(\varepsilon) = \varepsilon, \qquad \gamma(\varepsilon) = \chi(\gamma) \varepsilon \qquad (\gamma \in \Gamma).
+\]
+For $M \in \PhiGamma_{K,A}$, define the \emph{Cartier dual}
+\[
+M^* = M^\dual(1) = M^\dual \otimes_{\calR_{K,A}} \calR_{K,A}(1) \in \PhiGamma_{K,A};
+\]
+for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^*$ corresponds to the Cartier dual of $V$.
+\end{defn}
+
+
 
 \begin{remark} \label{R:not connected}
 The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not with most older references. The reason is that even if $\Maxspec A$ is connected, in general $\Maxspec \calR_{K,A}$ is not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
@@ -210,10 +229,8 @@ in such a way that the maps $\frako_{L^{\flat}} \to L^{\flat}$ and $\frako_{L^{\
 The ring $L^{\flat}$ is a perfect field. In addition,
 the function $L^{\flat} \to L \stackrel{\left| \cdot \right|}{\to} \RR$ is an absolute value with respect to which $L^{\flat}$ is complete with valuation subring $\frako_{L^{\flat}}$.
 
-Assume in the following statements thatn $L$ is perfectoid.
-
 \item[(c)]
-$L^\flat$ is also perfectoid.
+The field $L^\flat$ is also perfectoid.
 \item[(d)]
 Any finite extension of $L$, equipped with the unique extension of the absolute value, is again perfectoid.
 \item[(e)]
@@ -225,16 +242,16 @@ See \cite[\S 1]{kedlaya-new-phigamma} and references therein.
 \end{proof}
 
 \begin{defn}
-Equip $L^\flat$ with the absolute value described in 
+Define the field $L^\flat$ and equip it with an absolute value as per
 Theorem~\ref{T:perfectoid}(b). 
-For $r>0$, let $W^r(L)$ be the set of $x = \sum_{n=0}^\infty p^n [\overline{x}_n] \in W(L)$ such that $p^{-n} \left| \overline{x}_n \right|^r \to 0$ as $n \to \infty$.
-By \cite[Proposition~5.1.2]{kedlaya-liu1}, this set is a subring of $W(L)$ on which 
+For $r>0$, let $W^r(L^\flat)$ be the set of $x = \sum_{n=0}^\infty p^n [\overline{x}_n] \in W(L^\flat)$ such that $p^{-n} \left| \overline{x}_n \right|^r \to 0$ as $n \to \infty$.
+By \cite[Proposition~5.1.2]{kedlaya-liu1}, this set is a subring of $W(L^\flat)$ on which 
 the function $\left| \cdot \right|_r$ defined by
 \[
 \left| \sum_{n=0}^\infty p^n [\overline{x}_n]  \right|_r = \max_n \{p^{-n} \left| \overline{x}_n \right|^r\}
 \]
-is a complete multiplicative norm; this norm extends multiplicatively to $W^r(L)[p^{-1}]$.
-For $0 < s \leq r$, let $\tilde{\calR}^{[s,r]}_L$ be the completion of $W^r(L)[p^{-1}]$
+is a complete multiplicative norm; this norm extends multiplicatively to $W^r(L^\flat)[p^{-1}]$.
+For $0 < s \leq r$, let $\tilde{\calR}^{[s,r]}_L$ be the completion of $W^r(L^\flat)[p^{-1}]$
 with respect to $\max\{\left| \cdot \right|_s, \left| \cdot \right|_r\}$,
 and put $\tilde{\calR}^{[s,r]}_{L,A} = \tilde{\calR}^{[s,r]}_L \widehat{\otimes}_{\QQ_p} A$.
 Let $\tilde{\calR}^r_{L,A}$ be the inverse limit of the $\tilde{\calR}^{[s,r]}_{L,A}$ over all $s \in (0,r)$, equipped with the Fr\'echet topology. Let $\tilde{\calR}_{L,A}$ be the direct  limit of the $\tilde{\calR}^r_{L,A}$ over all $r>0$, equipped with the locally convex direct limit topology (LF topology).
@@ -745,6 +762,7 @@ We may then define the category $\PhiGammabreve_{K,A}$ of $(\varphi, \Gamma)$-mo
 \section{Iwasawa cohomology and the cyclotomic deformation}
 
 The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
+Assume hereafter that $[K:\QQ_p] < \infty$.
 
 \begin{defn}
 Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
@@ -757,10 +775,6 @@ We have an exact sequence
 \begin{equation} \label{eq:psi sequence}
 0 \to M^{\varphi=1} \to M^{\psi=1} \stackrel{\varphi-1}{\longrightarrow} M^{\psi=0}.
 \end{equation}
-The pairing $\{-, - \}$ satisfies
-\begin{equation} \label{eq:pairing phi psi}
-\{\varphi(x), y\} = \{x, \psi(y)\} \qquad (x \in M, y \in M^*).
-\end{equation}
 \end{defn}
 
 \begin{prop} \label{P:psi finite}
@@ -768,18 +782,31 @@ For any $M \in \PhiGamma_{K,A}$,
 the $A$-module $M/(\psi-1)$ is finitely generated.
 \end{prop}
 \begin{proof}
-Apply \cite[Proposition~3.3.2(1)]{kpx}.
+It suffices to treat the case $K = \QQ_p$, for which see \cite[Proposition~3.3.2(1)]{kpx}.
 \end{proof}
 
 \begin{cor}
-For any $M \in \PhiGamma_{K,A}$, the pairing $\{-,-\}: M \times M^* \to A$ induces an isomorphism
+For any $M \in \PhiGamma_{K,A}$, there is a canonical isomorphism
 \[
 M^{\varphi=1} \cong \Hom_A(M^*/(\psi-1), A).
 \]
-In particular, $M^{\varphi=1}$ is a finite $A$-module.
+In particular, the $A$-module $M^{\varphi=1}$ is finitely generated.
 \end{cor}
 \begin{proof}
-The nondegeneracy of the pairing defines an injection $M \to \Hom_A(M^*, A)$;
+It suffices to treat the case $K = \QQ_p$.
+In this case, using residues of power series, one constructs as in \cite[Notation~2.3.13]{kpx} a nondegenerate pairing $M \times M^* \to \calR_{K,A}(1)$ satisfying
+\[
+\{\varphi(x), \varphi(y)\} = \{x, y\} \qquad (x \in M, y \in M^*)
+\]
+and hence
+\begin{equation}
+ \label{eq:pairing phi psi}
+\{\varphi(x), y\}= \{x, \psi(y)\} \qquad (x \in M, y \in M^*).
+\end{equation}
+We will show that the map $M \to \Hom_A(M^*, A)$ arising from the pairing $\{-,-\}$ induces the desired isomorphism; this will then imply the finite generation of $M^{\varphi=1}$
+using Proposition~\ref{P:psi finite}.
+
+To begin with, the nondegeneracy of the pairing $\{-, -\}$ implies the injectivity of $M \to \Hom_A(M^*, A)$, and
 the identity \eqref{eq:pairing phi psi} shows that the image of this map is contained in
 $\Hom_A(M^*/(\psi-1), A)$. In the other direction, note that Proposition~\ref{P:psi finite} and the open mapping theorem imply that $(\psi-1)M^*$ is a closed subspace of $M^*$
 for the Fr\'echet topology, so every element of $\Hom_A(M^*/(\psi-1), A)$ defines a continuous $A$-linear map $M^* \to A$. By the perfectness of the pairing,
@@ -934,7 +961,7 @@ in terms of the corresponding $\tilde{M} \in \PhiGammatilde_{K,A}$.
 In light of the previous discussion, the object $\tilde{M}$ can be constructed, and computations can be made with it, without any direct reference to the cyclotomic extension of $\QQ_p$; the only appearance of the cyclotomic extension in the formulas is via the cyclotomic deformation $\Dfm_K$ on the weight space $W_K$.
 
 Consequently, for a general $p$-adic Lie extension $L$ of $K$ with group $\Gamma$,
-one may hope to get something meaningful by forming a suitable character variety $W_K$, using the homomorphism $G_K \to \Gal(L/K) \cong \Gamma$ to define an object of $\Rep_{W_K}(G_K)$, passing to the associated object in $\PhiGammatilde_{K,W_K}$,
+one may hope to get something meaningful by forming a suitable deformation space of representations $W_K$, using the homomorphism $G_K \to \Gal(L/K) \cong \Gamma$ to define an object of $\Rep_{W_K}(G_K)$, passing to the associated object in $\PhiGammatilde_{K,W_K}$,
 taking the external tensor product with $\tilde{M}$,
 and considering the cohomology of the result. For starters, in the case where $\Gamma$ is again a one-dimensional $p$-adic Lie group, it would be worth comparing this process to other constructions proposed as analogues of \cite{berger-explicit}, e.g.,
 those of Berger--Fourquaux \cite{berger-fourquaux} and Schneider--Venjakob
@@ -992,7 +1019,7 @@ K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
 
 \bibitem{kedlaya-liu2}
 K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory II: Imperfect period rings,
-arXiv:1612.?????v1 (2016).
+arXiv:1602.06899v1 (2016).
 
 \bibitem{kpx}
 K.S. Kedlaya, J. Pottharst, and L. Xiao, Cohomology of arithmetic families of $(\varphi, \Gamma)$-modules, \textit{J. Amer. Math. Soc.}  \textbf{27} (2014), 1043--1115. 
