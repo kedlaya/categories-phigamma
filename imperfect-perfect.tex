@@ -75,7 +75,7 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
-\date{April 24, 2016}
+\date{May 10, 2016}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into the larger category of $(\varphi, \Gamma)$-modules; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -148,7 +148,7 @@ Let $\calR_{K,A} \in \PhiGamma_{F,A}$ be the object of rank $[F:K]$ correspondin
 then correspond to an associative morphism $\mu_K: \calR_{K,A} \otimes \calR_{K,A} \to \calR_{K,A}$; this gives $\calR_{K,A}$ the structure of a finite flat $\calR_{F,A}$-algebra equipped with continuous actions of $\varphi$ and $\Gamma$.
 
 Let $\PhiGamma_{K,A}$ be the category of pairs $(M, \mu)$ for which $M \in \PhiGamma_{F,A}$
-and $\mu: \calR_{K,A} \otimes M \to M$ is a morphism which is associative with respect to $\mu_K$, i.e., the compositions
+and $\mu: \calR_{K,A} \otimes_{\calR_{F,A}} M \to M$ is a morphism which is associative with respect to $\mu_K$, i.e., the compositions
 \begin{gather*}
 \calR_{K,A} \otimes \calR_{K,A}  \otimes M \stackrel{\mu_K \otimes 1}{\to} M_K \otimes M \stackrel{\mu}{\to} M, \\
 \calR_{K,A} \otimes \calR_{K,A} \otimes M \stackrel{1 \otimes \mu}{\to} \calR_{K,A} \otimes  M \stackrel{\mu}{\to} M
@@ -170,7 +170,7 @@ There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with 
 
 \begin{defn}
 The category $\PhiGamma_{K,A}$ admits duals, and hence internal Homs: the dual of $M \in \PhiGamma_{K,A}$ is the module-theoretic dual $M^\dual = \Hom_{\calR_{K,A}}(M, \calR_{K,A})$
-with the actions of $\varphi, \Gamma$ constructed so that the canonical $\calR_{K,A}$-linear morphism $M \otimes_{\calR_{K,A}} M^\dual \to \calR_{K,A}$ is a morphism in $\PhiGamma_{K,A}$. (Note that the definition of the $\varphi$-action on $M^\dual$ depends on the fact that the action of $\varphi$ corresponds to an isomorphism $\varphi^*M \to M$, not just an arbitrary $\calR_{K,A}$-linear morphism.)
+with the actions of $\varphi, \Gamma$ constructed so that the canonical $\calR_{K,A}$-linear morphism $M^\dual \otimes_{\calR_{K,A}} M \to \calR_{K,A}$ is a morphism in $\PhiGamma_{K,A}$. (Note that the definition of the $\varphi$-action on $M^\dual$ depends on the fact that the action of $\varphi$ corresponds to an isomorphism $\varphi^*M \to M$, not just an arbitrary $\calR_{K,A}$-linear morphism.)
 For $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^\dual$ corresponds to the contragredient representation $V^\dual$.
 
 Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to the cyclotomic character $\chi$ in $\Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}.
