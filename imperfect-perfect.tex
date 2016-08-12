@@ -75,7 +75,7 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
-\date{April 24, 2016}
+\date{May 10, 2016}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into the larger category of $(\varphi, \Gamma)$-modules; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -88,8 +88,8 @@ Throughout, let $p$ be a prime number and let $K$ be a \emph{$p$-adic field}, by
 One indication of the naturality of the category of $(\varphi, \Gamma)$-modules is that it can be given several equivalent descriptions. The original description emerging out of the work of Fontaine, Colmez, Berger, and others involves modules over certain rings of convergent Laurent series. In this description, a privileged role is played by the infinite extension $K_\infty$ of $K$ obtained by adjoining all $p$-power roots of unity; for example, the base rings carry an action of the Galois group of $K_\infty$ over $K$ (the eponymous $\Gamma$). However, several other descriptions of the same category can now be given in which the cyclotomic tower plays no distinguished role; these include the description by Berger in the language of $B$-pairs and the description by Fargues--Fontaine in terms of vector bundles on certain one-dimensional noetherian schemes. The latter description arises very naturally within the geometric reinterpretation of $p$-adic Hodge theory in the language of \emph{perfectoid spaces}, as in the work of Scholze \cite{scholze1, scholze2, scholze-icm} and Kedlaya-Liu \cite{kedlaya-liu1, kedlaya-liu2}.
 
 It is thus natural to ask to what extent constructions made in the language of $(\varphi, \Gamma)$-modules, particularly those which have become relevant in Iwasawa theory, can be realized using these alternate descriptions. The purpose of this paper is to give some answers to this question, using the theory of arithmetic deformations of $(\varphi, \Gamma)$-modules developed in \cite{kpx}. The basic idea is to exchange the explicit use of the cyclotomic tower in the classical construction of $(\varphi, \Gamma)$-modules for an arithmetic deformation parametrizing cyclotomic twists. This makes it natural to consider other deformations corresponding to other $p$-adic Lie groups, including nonabelian ones, and to try to adapt explicit formulas from cyclotomic Iwasawa theory,
-as described by Berger \cite{berger-explicit}, to these other towers;
-see \S\ref{sec:coda} for further discussion.
+such as those described by Berger \cite{berger-explicit} for the Bloch--Kato exponential formula and the Perrin-Riou reciprocity map, to these other towers;
+see Remark~\ref{R:berger explicit} and \S\ref{sec:coda} for further discussion.
 
 Before concluding this introduction, we set a few running notations. Our primary model for these and other notations is \cite{kpx}.
 \setcounter{theorem}{0}
@@ -148,7 +148,7 @@ Let $\calR_{K,A} \in \PhiGamma_{F,A}$ be the object of rank $[F:K]$ correspondin
 then correspond to an associative morphism $\mu_K: \calR_{K,A} \otimes \calR_{K,A} \to \calR_{K,A}$; this gives $\calR_{K,A}$ the structure of a finite flat $\calR_{F,A}$-algebra equipped with continuous actions of $\varphi$ and $\Gamma$.
 
 Let $\PhiGamma_{K,A}$ be the category of pairs $(M, \mu)$ for which $M \in \PhiGamma_{F,A}$
-and $\mu: \calR_{K,A} \otimes M \to M$ is a morphism which is associative with respect to $\mu_K$, i.e., the compositions
+and $\mu: \calR_{K,A} \otimes_{\calR_{F,A}} M \to M$ is a morphism which is associative with respect to $\mu_K$, i.e., the compositions
 \begin{gather*}
 \calR_{K,A} \otimes \calR_{K,A}  \otimes M \stackrel{\mu_K \otimes 1}{\to} M_K \otimes M \stackrel{\mu}{\to} M, \\
 \calR_{K,A} \otimes \calR_{K,A} \otimes M \stackrel{1 \otimes \mu}{\to} \calR_{K,A} \otimes  M \stackrel{\mu}{\to} M
@@ -170,7 +170,7 @@ There exists a full embedding $\Rep_A(G_K) \to \PhiGamma_{K,A}$ compatible with 
 
 \begin{defn}
 The category $\PhiGamma_{K,A}$ admits duals, and hence internal Homs: the dual of $M \in \PhiGamma_{K,A}$ is the module-theoretic dual $M^\dual = \Hom_{\calR_{K,A}}(M, \calR_{K,A})$
-with the actions of $\varphi, \Gamma$ constructed so that the canonical $\calR_{K,A}$-linear morphism $M \otimes_{\calR_{K,A}} M^\dual \to \calR_{K,A}$ is a morphism in $\PhiGamma_{K,A}$. (Note that the definition of the $\varphi$-action on $M^\dual$ depends on the fact that the action of $\varphi$ corresponds to an isomorphism $\varphi^*M \to M$, not just an arbitrary $\calR_{K,A}$-linear morphism.)
+with the actions of $\varphi, \Gamma$ constructed so that the canonical $\calR_{K,A}$-linear morphism $M^\dual \otimes_{\calR_{K,A}} M \to \calR_{K,A}$ is a morphism in $\PhiGamma_{K,A}$. (Note that the definition of the $\varphi$-action on $M^\dual$ depends on the fact that the action of $\varphi$ corresponds to an isomorphism $\varphi^*M \to M$, not just an arbitrary $\calR_{K,A}$-linear morphism.)
 For $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^\dual$ corresponds to the contragredient representation $V^\dual$.
 
 Let $\calR_{K, A}(1)$ denote the object of $\PhiGamma_{K, A}$ corresponding to the cyclotomic character $\chi$ in $\Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}.
@@ -275,7 +275,7 @@ By writing $P$ as a direct summand of a finite free module, this reduces immedia
 (\tilde{\calR}^{[s,r]}_{L',A})^G = \tilde{\calR}^{[s,r]}_{L,A}.
 \]
 For $A = \QQ_p$, this equality is a consequence of \cite[Theorem~9.2.15]{kedlaya-liu1};
-we may deduce the general case from this by constructing a Schauder basis for $A$ over $\QQ_p$, as in \cite[Lemma~2.2.9(b)]{kedlaya-liu1}.
+we may deduce the general case from this by constructing a Schauder basis for $A$ over $\QQ_p$, as in \cite[Proposition~2.7.2/3]{bgr} or \cite[Lemma~2.2.9(b)]{kedlaya-liu1}.
 
 We next check essential surjectivity.
 Let $M'$ be a finite projective $\tilde{\calR}^{[s,r]}_{L',A}$-module equipped with a continuous semilinear $G$-action. The $G$-action may then be described in terms of an isomorphism $\iota$ between the two base extensions of $M$ to $\tilde{\calR}^{[s,r]}_{L',A} \widehat{\otimes}_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r]}_{L',A}$;
@@ -444,7 +444,8 @@ Throughout \S\ref{sec:slopes}, let $L$ be a perfectoid field.
 
 \begin{lemma} \label{L:units}
 Suppose that $A$ is a field.
-Then $\tilde{\calR}_{L,A}^{\times} = \bigcup_{r>0} (W^r(L)[p^{-1}] \otimes_{\QQ_p} A)^\times$.
+Then $\tilde{\calR}_{L,A}^{\times} = \bigcup_{r>0} (W^r(L)[p^{-1}] \widehat{\otimes}_{\QQ_p} A)^\times$.
+(This statement can be extended to the case where $A$ is reduced, but not more generally.)
 \end{lemma}
 \begin{proof}
 See \cite[Corollary~4.2.5]{kedlaya-liu1}.
@@ -561,7 +562,7 @@ $A \to \QQ_p$ whose kernels have zero intersection; by tensoring along these, we
 To obtain essential surjectivity, one may emulate the proof of \cite[Theorem~6.1.7]{kedlaya-liu2}; we only give a brief sketch here, as details will be given in upcoming work of Chojecki and Gaisin. By full faithfulness, we may reduce to the case $K = F$.
 By Lemma~\ref{L:phi modules bundles}, we may start with a finite projective $\tilde{\calR}^{[s,r]}_{L_F,A}$-module $\tilde{M}$ equipped with an isomorphism of the base extensions of $\varphi^* \tilde{M}$ and $\tilde{M}$ to $\tilde{\calR}^{[s,r/p]}_{L_F,A}$, plus a compatible semilinear $\Gamma$-action.
 Within $\tilde{\calR}^{[s,r]}_{L_F,A}$, we have a dense subring $\breve{\calR}^{[s,r]}_{F,A}$ consisting of the union of the closures of
-the subrings $\varphi^{-n}(F[\pi^{\pm}])$ for $n \geq 0$; it will suffice to descend $\tilde{M}$ to a finite projective $\breve{\calR}^{[s,r]}_{F,A}$-module $\breve{M}$
+the subrings $\varphi^{-n}((F \widehat{\otimes}_{\QQ_p} A)[\pi^{\pm}])$ for $n \geq 0$; it will suffice to descend $\tilde{M}$ to a finite projective $\breve{\calR}^{[s,r]}_{F,A}$-module $\breve{M}$
 on which $\varphi$ and $\Gamma$ continue to act. Using the density of
 $\breve{\calR}^{[s,r]}_{F,A}$ in $\tilde{\calR}^{[s,r]}_{L_F,A}$, we may apply
 \cite[Lemma 5.6.8]{kedlaya-liu2} to descend the underlying module of $\tilde{M}$, but the resulting descended module will typically not be $\Gamma$-stable; this may corrected using a sequence of successive approximations as in \cite[Lemma 5.6.9]{kedlaya-liu2}. We thus obtain a $\Gamma$-stable descended module, which is then easily shown to be also $\varphi$-stable.
@@ -635,7 +636,7 @@ Let $L'$ be the completion of a (possibly infinite) Galois algebraic extension o
 the morphism $M \to C(G,M)$ is a quasi-isomorphism.
 \end{lemma}
 \begin{proof}
-Using a Schauder basis for $A$ over $\QQ_p$, we may reduce to the case $A = \QQ_p$,
+Using a Schauder basis for $A$ over $\QQ_p$ (see the proof of Lemma~\ref{L:Witt module descend}), we may reduce to the case $A = \QQ_p$,
 for which we may apply \cite[Theorem~8.2.22]{kedlaya-liu1}.
 \end{proof}
 
@@ -737,7 +738,7 @@ These form stacks for both the analytic topology and the \'etale topology; in pa
 \begin{defn}
 Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $W_K$ over $\QQ_p$ (the \emph{weight space} of $\Gamma_K$).
 The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\Lambda_K = \calO(W_K)$ by (left) multiplication
-defines a a canonical one-dimensional Galois representation on $W_K$; let $\Dfm_{K}$ be the corresponding $(\varphi, \Gamma_K)$-module.
+defines a canonical one-dimensional Galois representation on $W_K$; let $\Dfm_{K}$ be the corresponding $(\varphi, \Gamma_K)$-module.
 
 For $X$ a rigid analytic space over $\QQ_p$ and $M \in \PhiGamma_{K,X}$,
 define the \emph{cyclotomic deformation} of $M$
@@ -814,9 +815,15 @@ any such map corresponds to an element of $M$.
 \end{proof}
 
 \begin{remark} \label{R:berger explicit}
-For $M \in \PhiGamma_{K,A}$, the objects $M^{\psi=1}$ and $M^{\psi=0}$ both appear
-prominently in explicit descriptions given by Berger of key constructions from Iwasawa theory: namely, $M^{\psi=1}$ arises in the construction of the Bloch-Kato exponential map \cite[\S II.2]{berger-explicit} while $M^{\psi=0}$ is used to express the Perrin-Riou explicit reciprocity formula \cite[\S II.6]{berger-explicit}.
-We will therefore focus on giving descriptions of these objects in terms of the corresponding object $\tilde{M}\in \PhiGammatilde_{K,A}$.
+When $K/\QQ_p$ is unramified, $A$ is finite over $\QQ_p$, and $M \in \PhiGamma_{K,A}$ is crystalline, the object $M^{\psi=1}$ is related to the Galois
+cohomology $H^1$ of each of the twists of $M$ in its cyclotomic
+deformation (as indicated below), and $M^{\psi=0}$ is related to the $D_{\mathrm{crys}}$ of the same twists
+of $M$.  As shown by Berger \cite{berger-explicit} (and generalized by Nakamura \cite{nakamura}),
+explicit formulas for Bloch--Kato's and Perrin-Riou's exponential maps,
+and the ``$\delta(M)$'' formula for the determinant of the latter,
+follow from a study of the relationship between these two objects.  We
+will therefore focus on describing corresponding
+objects made from $\tilde{M}$ in $\PhiGammatilde_{K,A}$ for general $K,A,M$.
 \end{remark}
 
 \begin{defn} \label{D:psi cohomology}
@@ -986,6 +993,11 @@ L. Berger and P. Colmez, Familles de repr\'esentations de de Rham et monodromie 
 \bibitem{berger-fourquaux}
 L. Berger and L. Fourquaux, Iwawasa theory and $F$-analytic Lubin-Tate $(\varphi, \Gamma)$-modules, arXiv:1512.03383v1 (2015).
 
+\bibitem{bgr}
+S. Bosch, U. G\"untzer, and R. Remmert,
+\textit{Non-Archimedean Analysis},
+Grundlehren der Math. Wiss. 261, Springer-Verlag, Berlin, 1984.
+
 \bibitem{chenevier}
 G. Chenevier, Sur la densit\'e des repr\'esentations cristallines de
 $\Gal(\overline{\QQ}_p/\QQ_p)$, \textit{Math. Ann.} \textbf{355} (2013), 1469--1525.
@@ -1032,6 +1044,10 @@ in der nichtarchimedischen Funktionentheorie,
 \bibitem{liu-herr}
 R. Liu, Cohomology and duality for $(\varphi, \Gamma)$-modules over the Robba ring,
 \textit{Int. Math. Res. Notices} \textbf{3} (2008), article ID rnm150.
+
+\bibitem{nakamura}
+K. Nakamura, Iwasawa theory of de Rham $(\varphi, \Gamma)$-modules over the Robba ring,
+\textit{J. Inst. Math. Jussieu} \textbf{13} (2014), 65--118. 
 
 \bibitem{schneider-venjakob}
 P. Schneider and O. Venjakob, Coates-Wiles homomorphisms and Iwasawa cohomology for Lubin-Tate extensions, arXiv:1511.04922v1 (2015).
