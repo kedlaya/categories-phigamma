@@ -74,7 +74,7 @@
 
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
-\thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
+\thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015). Thanks to Ofer Gabber for helpful feedback.}
 \date{May 10, 2016}
 
 \begin{abstract}
@@ -209,6 +209,7 @@ Then
 \frako_L/(p) &\cong k[T_1, T_2, \dots]/(1+T_1 + \cdots + T_1^{p-1}, T_1 - T_2^p, T_2 - T_3^p, \dots),
 \end{align*}
 so $L$ is perfectoid.
+For some more general results that subsume this example, see Remark~\ref{R:deeply ramified} and Lemma~\ref{L:deeply ramified is perfectoid}.
 \end{example}
 
 \begin{hypothesis}
@@ -946,6 +947,56 @@ to see that the left side is a finite projective module over $A \widehat{\otimes
 
 To conclude, we put the previous discussion of the cyclotomic deformation into a context which we find suggestive for future work.
 
+\begin{remark} \label{R:deeply ramified}
+Coates--Greenberg \cite{coates-greenberg} define an algebraic extension $L/K$ to be
+\emph{deeply ramified} if for every finite extension $L'$ of $L$, the trace map
+$\Trace: \frakm_{L'} \to \frakm_L$ is surjective. This holds in particular if $L/K$ is 
+\emph{arithmetically profinite} in the sense of Fontaine--Wintenberger
+\cite{fontaine-wintenberger} (see \cite[Corollary~1.5]{fesenko} for a detailed proof);
+the latter holds in turn if $L/K$ is a not totally unramified Galois extension whose Galois group is a $p$-adic Lie group, by a theorem of Sen \cite{sen-lie}.
+\end{remark}
+
+\begin{lemma} \label{L:deeply ramified is perfectoid}
+An algebraic extension $L/K$ is deeply ramified if and only if the completion $\widehat{L}$ of $L$ is a perfectoid field.
+\end{lemma}
+\begin{proof}
+Suppose first that $L/K$ is deeply ramified. It is clear that the value group of $L$ must be $p$-divisible (so in particular $L$ is not discretely valued) 
+and the residue field of $L$ must be perfect. To prove that $\widehat{L}$ is perfectoid, it then suffices to choose some $\lambda \in \frakm_L$ such that $\lambda^p$ divides $p$ in $\frako_L$, then check that
+the Frobenius map from $\frako_L/(\lambda)$ to $\frako_L/(\lambda^p)$ is surjective.
+To this end, choose $x \in \frako_L$. Since the set of $p$-th powers in $\frako_L$ is closed,
+the minimum of $\left| x - y^p \right|$ over all $y \in \frako_L$ is achieved by some element $y_0$. 
+If $\left| x - y_0^p \right| > \left| \lambda^p \right|$, 
+we may choose $\mu \in L$ with $\left| \mu^p \right| = \left| x - y_0^p \right|$
+and write the integral closure of $\frako_L$ in $L(x^{1/p})$ as the set of elements of the form
+\[
+\sum_{i=0}^{p-1} z_i \left( \frac{x^{1/p} - y_0}{\mu} \right)^{i} 
+\qquad (z_0,\dots,z_{p-1} \in \frako_L).
+\]
+The trace of such an element is $\sum_{i=0}^{p-1} pz_i (-y_0/\mu)^i$, which is necessarily divisible by $p/\mu^{p-1}$; this contradicts the assumption that $L/K$ is deeply ramified.
+We thus conclude that $\widehat{L}$ is perfectoid.
+
+Conversely, suppose that $\widehat{L}/K$ is perfectoid.
+For any finite extension $L'$ of $L$, by Theorem~\ref{T:perfectoid}
+the completion $\widehat{L}'$ of $L'$ is again perfectoid. 
+Using the existence of a commutative diagram
+\[
+\xymatrix{
+W(\frako_{\widehat{L}^\flat}) \ar[r] \ar[d] & \frako_{\widehat{L}} \ar[d] \\
+W(\frako_{\widehat{L}^{\prime \flat}}) \ar[r] & \frako_{\widehat{L}'} 
+}
+\]
+in which the horizontal arrows are surjective (these are the \emph{theta maps} of $p$-adic Hodge theory; see \cite[Lemma~1.3.3(c)]{kedlaya-new-phigamma}), the surjectivity
+of $\Trace: \frakm_{L'} \to \frakm_{L}$ reduces to the surjectivity of
+$\Trace: \frakm_{\widehat{L}^{\prime \flat}} \to \frakm_{\widehat{L}^{\flat}}$,
+or equivalently the fact that the cokernel of the latter map
+is annihilated by all of $\frakm_{\widehat{L}^{\flat}}$.
+This holds because the annihilator of the cokernel is nonzero
+(because $\widehat{L}^{\prime \flat}/\widehat{L}^{\flat}$ is a finite separable extension)
+and closed under taking $p$-th roots.
+(This argument is a special case of the \emph{almost purity theorem} for perfectoid rings;
+see \cite[Theorem~5.5.9]{kedlaya-liu1} and \cite[Theorem~7.9]{scholze1}.)
+\end{proof}
+
 \begin{remark} \label{R:general field}
 Let $L$ be any perfectoid field which is the completion of a Galois algebraic extension of $K$ with Galois group $G$.
 By Lemma~\ref{L:Witt module descend}, we may also characterize $\PhiGammatilde_{K,A}$ 
@@ -1006,6 +1057,20 @@ $\Gal(\overline{\QQ}_p/\QQ_p)$, \textit{Math. Ann.} \textbf{355} (2013), 1469--1
 F. Cherbonnier and P. Colmez, Repr\'esentations $p$-adiques surconvergentes,
 \textit{Invent. Math.} \textbf{133} (1998), 581--611.
 
+\bibitem{coates-greenberg}
+J. Coates and R. Greenberg, Kummer theory for abelian varieties over local fields,
+\textit{Invent. Math.} \textbf{124} (1996), 129--174.
+
+\bibitem{fesenko}
+I.B. Fesenko, On deeply ramified extensions,
+\textit{J. London Math. Soc.} \textbf{57} 1998), 325--335.
+
+\bibitem{fontaine-wintenberger}
+J.-M. Fontaine and J.-P. Wintenberger,
+Le ``corps des normes'' de certaines extensions alg\'ebriques
+de corps locaux,
+\textit{C.R. Acad. Sci. Paris S\'er. A-B} \textbf{288} (1979), A367--A370.
+
 \bibitem{kedlaya-bordeaux}
 K.S. Kedlaya, Some new directions in $p$-adic Hodge theory, \textit{J. Th\'eorie Nombres Bordeaux} \textbf{21} (2009), 285--300.
 
@@ -1061,6 +1126,10 @@ P. Scholze, $p$-adic Hodge theory for rigid analytic varieties, \textit{Forum Ma
 \bibitem{scholze-icm}
 P. Scholze, Perfectoid spaces and their applications, in \textit{Proceedings of the
 International Congress of Mathematicians, Seoul, 2014}.
+
+\bibitem{sen-lie}
+S. Sen, Ramification in $p$-adic Lie extensions,
+\textit{Inv. Math.} \textbf{17} (1972), 44--50.
 
 \end{thebibliography}
 
