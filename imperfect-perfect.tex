@@ -383,7 +383,7 @@ V \cong (M \otimes_{\tilde{\calR}_{L,A}} \tilde{\calR}_{\CC_L,A})^{\varphi};
 from this we see that the functor $V \mapsto M$ is fully faithful.
 \end{proof}
 
-\begin{defn}
+\begin{defn} \label{D:theta}
 There is a canonical surjection $\theta: W(\frako_{L^\flat}) \to \frako_L$ whose kernel is a principal ideal; see
 \cite[\S 1]{kedlaya-new-phigamma} for the construction.
 By \cite[Lemma~5.5.5]{kedlaya-liu1}, for any interval $[s,r]$ containing 1,
@@ -767,7 +767,9 @@ The goal of this section is to describe various constructions in the classical l
 Assume hereafter that $[K:\QQ_p] < \infty$.
 
 \begin{defn}
-Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
+Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$, i.e.,
+as $p^{-1} \varphi^{-1} \circ \Trace(\calR_{K,A} \to \varphi(\calR_{K,A}))$;
+by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
 we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$;
 concretely, the action of $\psi$ on $M$ is characterized by additivity and the identity
 \[
@@ -816,6 +818,23 @@ any such map corresponds to an element of $M$.
 \end{proof}
 
 \begin{remark} \label{R:berger explicit}
+One of the key constructions in $p$-adic Hodge theory is Fontaine's \emph{crystalline period functor}, which takes a representation $V \in \Rep_A(G_K)$ to the finite $A$-module
+\[
+D_{\mathrm{crys}}(V) = (V \otimes_{\QQ_p} \bB_{\mathrm{crys}})^{G_K}
+\]
+where $\bB_{\mathrm{crys}}$ is a certain topological $\QQ_p$-algebra (the \emph{ring of crystalline periods}). For example, when $A = \QQ_p$ and $V$ is the $p$-adic \'etale cohomology of a smooth proper scheme over $\frako_K$, the \emph{crystalline comparison theorem} defines a functorial isomorphism of $D_{\mathrm{crys}}(V)$ with the rational crystalline cohomology of the same scheme; see \cite{bhatt-morrow-scholze} for a thoroughly modern take on the construction.
+
+The functor $D_{\mathrm{crys}}$ factors naturally through $\PhiGamma_{K,A}$
+and $\PhiGammatilde_{K,A}$: for example, for $M = \PhiGamma_{K,A}$,
+$\tilde{M} \in \PhiGammatilde_{K,A}$
+corresponding to $V \in \Rep_A(G_K)$, we have a canonical isomorphism
+\[
+D_{\mathrm{crys}}(V) \cong M[t^{-1}]^\Gamma \cong \tilde{M}[t^{-1}]^{\Gamma}, \qquad
+t = \log(1+\pi).
+\]
+In the case of $\tilde{M}$, all we are using about $t$ is that it belongs to $P_{L_K, A, n}$
+for some $n>0$ and that its zero locus on $X_{L,A}$ is precisely $Z_{L,A}$; this interpretation can be used to avoid specific references to the cyclotomic tower.
+
 When $K/\QQ_p$ is unramified, $A$ is finite over $\QQ_p$, and $M \in \PhiGamma_{K,A}$ is crystalline, the object $M^{\psi=1}$ is related to the Galois
 cohomology $H^1$ of each of the twists of $M$ in its cyclotomic
 deformation (see Corollary~\ref{C:Iwasawa} below), and $M^{\psi=0}$ is related to the $D_{\mathrm{crys}}$ of the same twists
@@ -985,7 +1004,7 @@ W(\frako_{\widehat{L}^\flat}) \ar[r] \ar[d] & \frako_{\widehat{L}} \ar[d] \\
 W(\frako_{\widehat{L}^{\prime \flat}}) \ar[r] & \frako_{\widehat{L}'} 
 }
 \]
-in which the horizontal arrows are surjective (these are the \emph{theta maps} of $p$-adic Hodge theory; see \cite[Lemma~1.3.3(c)]{kedlaya-new-phigamma}), the surjectivity
+in which the horizontal arrows are surjective (see Definition~\ref{D:theta}), the surjectivity
 of $\Trace: \frakm_{L'} \to \frakm_{L}$ reduces to the surjectivity of
 $\Trace: \frakm_{\widehat{L}^{\prime \flat}} \to \frakm_{\widehat{L}^{\flat}}$,
 or equivalently the fact that the cokernel of the latter map
@@ -1043,6 +1062,10 @@ L. Berger and P. Colmez, Familles de repr\'esentations de de Rham et monodromie 
 
 \bibitem{berger-fourquaux}
 L. Berger and L. Fourquaux, Iwawasa theory and $F$-analytic Lubin-Tate $(\varphi, \Gamma)$-modules, arXiv:1512.03383v1 (2015).
+
+\bibitem{bhatt-morrow-scholze}
+B. Bhatt, M. Morrow, and P. Scholze,
+Integral $p$-adic Hodge theory, arXiv:1602.03148v1 (2016).
 
 \bibitem{bgr}
 S. Bosch, U. G\"untzer, and R. Remmert,
