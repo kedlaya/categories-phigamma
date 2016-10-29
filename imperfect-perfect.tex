@@ -393,6 +393,8 @@ this map extends to a surjection
 $\theta: \tilde{\calR}^{[s,r]}_{L,A} \to L \widehat{\otimes}_{\QQ_p} A$.
 \end{defn}
 
+We now introduce a geometric construction developed in great detail by Fargues and Fontaine
+\cite{fargues-fontaine}; see \cite{fargues, fargues-fontaine-durham} for expository treatments.
 \begin{defn}
 Define the graded ring
 \[
@@ -510,9 +512,18 @@ See \cite[Corollary~4.2.5]{kedlaya-liu1}.
 \end{proof}
 
 \begin{defn}
-Suppose that $A$ is a field. Let $v(A)$ denote the valuation group of $A$, normalized so that $v(\QQ_p^\times) = \ZZ$. By Lemma~\ref{L:units},
-we obtain a canonical homomorphism $\tilde{\calR}_{L,A}^{\times} \to v(A)$
-and thus a morphism $\deg: \Pic(X_{L,A}) \to v(A)$ called the \emph{degree} map.
+Suppose that $A$ is a field. Let $v(A)$ denote the valuation group of $A$, normalized so that $v(\QQ_p^\times) = \ZZ$. 
+Let $k$ be the largest finite extension of $\mathbb{F}_p$ which embeds into both $L$ and the residue field of $A$, and let $A_0$ be the unramified extension of $\QQ_p$ with residue field $k$; then $W(L) \widehat{\otimes}_{\QQ_p} A = W(L) \otimes_{\QQ_p} A$ splits into copies of the integral domain $W(L) \otimes_{A_0} A$ indexed by choices of the embedding $k \to L$.
+The $p$-adic valuation on $W(L)$ extends to a valuation
+$W(L) \otimes_{A_0} A$ with values in $v(A)$; summing across components gives a map
+$W(L) \otimes_{\QQ_p} A \to v(A) \cup \{+\infty\}$.
+By Lemma~\ref{L:units},
+we obtain a homomorphism $\tilde{\calR}_{L,A}^{\times} \to v(A)$; note that this map is invariant under $\varphi$-pullback.
+
+By Theorem~\ref{T:perfect equivalence}, line bundles on $X_{L,A}$ correspond to $\varphi$-modules over $\tilde{\calR}_{L,A}$ whose underlying modules are projective of rank 1.
+By taking determinants of these modules and using the $\varphi$-invariance of the map 
+$\tilde{\calR}_{L,A}^{\times} \to v(A)$, we obtain a morphism $\deg: \Pic(X_{L,A}) \to v(A)$ called the \emph{degree map}.
+(This map can also be given an interpretation in terms of rational sections of line bundles, in parallel with the usual construction of the degree map for line bundles on an algebraic curve; see \cite{fargues-fontaine} for this viewpoint.)
 As usual, for $\calF \in \VB_{L,A}$ of arbitrary rank, we define the \emph{degree} of $\calF$ as the degree of its determinant $\wedge^{\rank(\calF)} \calF$, and (if $\calF \neq 0$) the \emph{slope} of $\calF$ as the ratio $\mu(\calF) = \deg(\calF)/\rank(\calF)$.
 We may transfer these definitions to $\PhiMod_{L,A}$ using Theorem~\ref{T:perfect equivalence}.
 \end{defn}
@@ -527,7 +538,10 @@ Suppose that $x$ belongs to the kernel. The equality
 \left| x \right|_{t} = \left| \varphi(x) \right|_{t/p} = \left| p^{-n} x \right|_{t/p} 
 = p^n \left| x \right|_{t/p}
 \]
-holds initially for $t \in [s, r]$, then by induction for all $t \in (0, r]$.
+holds initially for $t \in [s, r]$, then by induction for 
+$t \in [p^{-m} s, r]$ for each nonnegative integer $m$,
+and hence for
+all $t \in (0, r]$.
 It follows that $\left| x \right|_t$ remains bounded as $t \to 0^+$, so by 
 \cite[Lemma~4.2.4]{kedlaya-liu1} we have $x \in \tilde{\calR}_{L,A}^{\times}$.
 However, by Lemma~\ref{L:units}, this means that $x$ has a well-defined $p$-adic valuation, which is the same as the valuation of $\varphi(x)$; we must then have $n=0$, contradiction.
@@ -1126,6 +1140,20 @@ J. Coates and R. Greenberg, Kummer theory for abelian varieties over local field
 \bibitem{dejong-crys}
 A.J. de Jong, Crystalline Dieudonn\'e theory via formal and rigid geometry,
 \textit{Publ. Math. IH\'ES} \textbf{82} (1995), 5--96.
+
+\bibitem{fargues}
+L. Fargues, Quelques r\'esultats et conjectures concernant la courbe,
+\textit{Ast\'erisque} \textbf{369} (2015), 325--374.
+
+\bibitem{fargues-fontaine-durham}
+L. Fargues and J.-M. Fontaine, Vector bundles on curves and $p$-adic Hodge theory,
+in \textit{Automorphic Forms and Galois Representations, Volume 1},
+London Math. Soc. Lect. Note Ser. 414, Cambridge Univ. Press, 2014.
+
+\bibitem{fargues-fontaine}
+L. Fargues and J.-M. Fontaine, Courbes et fibr\'es vectoriels en th\'eorie de Hodge
+$p$-adique, in preparation; draft (September 2015) available at
+\url{http://webusers.imj-prg.fr/~laurent.fargues/}.
 
 \bibitem{fesenko}
 I.B. Fesenko, On deeply ramified extensions,
