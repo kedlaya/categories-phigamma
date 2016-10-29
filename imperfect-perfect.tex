@@ -607,13 +607,15 @@ For $\tilde{M} \in \PhiMod_{L,A}$, let $H^0_{\varphi}(\tilde{M}), H^1_{\varphi}(
 \begin{lemma} \label{L:truncate cohomology}
 Choose $r,s$ with $0 < s \leq r/p$. Let $\tilde{M}, \tilde{M}^r, \tilde{M}^{[s,r]}$
 be corresponding objects in the categories (a),(b),(c) of Lemma~\ref{L:phi modules bundles}.
-Then the complexes
-\begin{gather*}
-0 \to \tilde{M} \stackrel{\varphi-1}{\to} \tilde{M} \to 0 \\
-0 \to \tilde{M}^r \stackrel{\varphi-1}{\to} \tilde{M}^r \otimes_{\tilde{\calR}^r_{L,A}} \tilde{\calR}^{r/p}_{L,A} \to 0 \\
-0 \to \tilde{M}^{[s,r]} \stackrel{\varphi-1}{\to} \tilde{M}^{[s,r]} \otimes_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r/p]}_{L,A} \to 0
-\end{gather*}
-are quasi-isomorphic via the base extension functors.
+Then the vertical arrows in the diagram
+\[
+\xymatrix@C=2cm{
+0 \ar[r] & \tilde{M} \ar^(.4){\varphi-1}[r] & \tilde{M} \ar[r] &  0 \\
+0 \ar[r] & \tilde{M}^r \ar^(.4){\varphi-1}[r] \ar[u] \ar[d] & \tilde{M}^r \otimes_{\tilde{\calR}^r_{L,A}} \tilde{\calR}^{r/p}_{L,A} \ar[r] \ar[d] \ar[u] & 0 \\
+0 \ar[r] & \tilde{M}^{[s,r]} \ar^(.4){\varphi-1}[r] & \tilde{M}^{[s,r]} \otimes_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r/p]}_{L,A} \ar[r] & 0
+}
+\]
+constitute quasi-isomorphisms of the horizontal complexes.
 \end{lemma}
 \begin{proof}
 The proof of \cite[Proposition~6.3.19]{kedlaya-liu1} in the case $A = \QQ_p$ adapts without change.
@@ -655,7 +657,8 @@ from Theorem~\ref{T:perfect equivalence}, using in the case $i=1$ the interpreta
 
 
 \begin{theorem} \label{T:compare phi Gamma cohomology}
-The morphisms $H^i_{\varphi, \Gamma}(M) \to H^i_{\varphi, \Gamma}(\tilde{M})$ are isomorphisms for all $i$.
+For $M \in \PhiGamma_{K,A}$, $\tilde{M} \in \PhiGammatilde_{K,A}$ corresponding via Theorem~\ref{T:tilde no tilde}, 
+the morphisms $H^i_{\varphi, \Gamma}(M) \to H^i_{\varphi, \Gamma}(\tilde{M})$ are isomorphisms for all $i$.
 \end{theorem}
 \begin{proof}
 As in Theorem~\ref{T:tilde no tilde},
@@ -688,15 +691,23 @@ In particular, the $A$-modules $H^i_{\varphi, \Gamma}(M)$ coincide with the Galo
 See \cite[Proposition~2.3.7, Theorem~4.4.2, Theorem~4.4.3]{kpx}.
 \end{proof}
 
-\begin{remark}
+\begin{remark} \label{R:Cartan-Serre}
 While Theorem~\ref{T:compare phi Gamma cohomology} and Theorem~\ref{T:coherence cohomology} together assert that the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
 are finite $A$-modules,
 the proof of this statement depends crucially on the interpretation of $\tilde{M}$ in terms of the category $\PhiGamma_{K,A}$. 
 To illustrate this, we sketch a proof of Theorem~\ref{T:coherence cohomology}(a) in the spirit of \cite{kpx} but technically somewhat simpler. (It is also slightly more general,
 as we only need to assume that $A$ is a noetherian Banach algebra over $\QQ_p$.)
 
-By formal arguments (Shapiro's lemma), we may reduce to the case $K = \QQ_p$.
-Choose $r,s,r',s'$ with $0 < s < s' \leq r'/p \leq r/p$. 
+We first reduce to the case $K = \QQ_p$ using the $(\varphi,\Gamma)$-module-theoretic counterpart of Shapiro's lemma described in \cite[Theorem~3.2]{liu-herr}
+(compare also Remark~\ref{R:not connected2}).
+For $M \in \PhiGamma_{A,K}$, Shapiro's lemma as usual implies that
+$H^i_{\varphi,\Gamma_K}(M) \cong H^i_{\varphi,\Gamma}(\Ind^{\Gamma}_{\Gamma_K} M)$;
+since the definition of the latter does not explicitly reference the module structure,
+we may view $\Ind^\Gamma_{\Gamma_K} M$ as a module over
+$\Ind^{\Gamma}_{\Gamma_K} \calR_{K,A}$ and then restrict scalars to $\calR_{\QQ_p,A}$
+without changing the cohomology.
+
+Now assuming $K = \QQ_p$, choose $r,s,r',s'$ with $0 < s < s' \leq r'/p \leq r/p$. 
 Let $\calR^{[s,r]}_{\QQ_p,A}$ be the ring of rigid analytic functions 
 on the disc $p^{-rp/(p-1)} < \left| \pi \right| < p^{-sp/(p-1)}$ over $A$. For $r$ sufficiently small, we may (by analogy with Lemma~\ref{L:phi modules bundles} and Lemma~\ref{L:truncate cohomology}) realize $M$ as a finite projective $\calR^{[s,r]}_{\QQ_p,A}$-module $M^{[s,r]}$
 equipped with an isomorphism 
@@ -716,9 +727,16 @@ We then have a diagram
 }
 \]
 in which the vertical arrows define a quasi-isomorphism of the total complexes associated to the rows. However, each vertical arrow is composed of maps which are  \emph{completely continuous} morphisms of Banach spaces over $A$, i.e., uniform limits of morphisms of finite rank. 
-(Note that $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear; we thus need $[K:\QQ_p] < \infty$ in order to reduce to the case $K = F = \QQ_p$.)
-By the Cartan-Serre-Schwartz lemma (as in \cite[Satz~2.6]{kiehl-finiteness}), we deduce that the cohomology groups of the total complexes are finite $A$-modules.
+By the Cartan-Serre-Schwartz lemma as applied in \cite[\S 3]{kedlaya-liu-finiteness}
+(compare \cite[Satz~2.6]{kiehl-finiteness}),
+we deduce that the cohomology groups of the total complexes are finite $A$-modules.
 (By contrast, the maps $\tilde{\calR}^{[s,r]}_{\QQ_p,A} \to \tilde{\calR}^{[s',r']}_{\QQ_p,A}$ are not completely continuous.)
+\end{remark}
+
+\begin{remark}
+In Remark~\ref{R:Cartan-Serre}, 
+note that $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear; we thus need $[K:\QQ_p] < \infty$ in order to reduce to the case $K = F = \QQ_p$.
+If we relax the hypothesis on $K$ to allow it to be a more general local field, the vanishing of $H^i_{\varphi, \Gamma}(M)$ for $i>2$ remains valid, but the finite generation of $H^i_{\varphi,\Gamma}$ for $i=0,1,2$ can fail.
 \end{remark}
 
 \section{The cyclotomic deformation}
@@ -1130,6 +1148,10 @@ K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
 \bibitem{kedlaya-liu2}
 K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory II: Imperfect period rings,
 arXiv:1602.06899v1 (2016).
+
+\bibitem{kedlaya-liu-finiteness}
+K.S. Kedlaya and R. Liu, Finiteness of cohomology of local systems on rigid analytic spaces,
+in preparation.
 
 \bibitem{kpx}
 K.S. Kedlaya, J. Pottharst, and L. Xiao, Cohomology of arithmetic families of $(\varphi, \Gamma)$-modules, \textit{J. Amer. Math. Soc.}  \textbf{27} (2014), 1043--1115. 
