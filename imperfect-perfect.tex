@@ -728,19 +728,25 @@ We now consider a key example of an arithmetic deformation. The construction fol
 
 \begin{defn}
 Let $X$ be a rigid analytic space over $\QQ_p$. 
-Define the sheaves $\calR_{K,X}, \tilde{\calR}^{[s,r]}_{K,X}, \tilde{\calR}^{r}_{K,X}$,
-$\tilde{\calR}_{K,X}$ on $X$ so that their values on the affinoid space $\Maxspec(A)$
-coincide with the previously defined rings $\calR_{K,A}, \tilde{\calR}^{[s,r]}_{K,A}, \tilde{\calR}^{r}_{K,A}, \tilde{\calR}_{K,A}$.
+The rings $\calR_{K,A}, \tilde{\calR}^{[s,r]}_{K,A}, \tilde{\calR}^{r}_{K,A}, \tilde{\calR}_{K,A}$ all satisfy the sheaf axiom and Tate acyclicity with respect to finite coverings by affinoid subdomains: for example, the \v{C}ech sequence for $\tilde{\calR}_{K,A}$
+with respect to a given covering is obtained from the corresponding sequence for the structure sheaf by the exact operation of 
+taking the completed tensor product over $\QQ_p$ with $\tilde{\calR}_{K,\QQ_p}$.
+(The exactness of completed tensor products over $\QQ_p$ does involve a nontrivial argument using Schauder bases; see for example \cite[Lemma~2.2.9]{kedlaya-liu1}.)
+These constructions thus give rise to ring sheaves $\calR_{K,X}, \tilde{\calR}^{[s,r]}_{K,X}, \tilde{\calR}^{r}_{K,X}, \tilde{\calR}_{K,A}$ on the affinoid space $\Maxspec(A)$ which are acyclic on affinoid subspaces.
+
 Let $\PhiGamma_{K,X}, \PhiGammatilde_{K,X}$ be the categories of finite projective
 modules over the respective ring sheaves $\calR_{K,X}$, $\tilde{\calR}_{K,X}$ equipped with continuous commuting semilinear actions of $\varphi, \Gamma$. 
 These form stacks for both the analytic topology and the \'etale topology; in particular, Theorem~\ref{T:tilde no tilde} gives rise to an equivalence of categories $\PhiGamma_{K,X} \to \PhiGammatilde_{K,X}$.
 \end{defn}
 
 \begin{defn}
-Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $W_K$ over $\QQ_p$ (the \emph{weight space} of $\Gamma_K$).
+Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra.
+Since this ring is formally of finite type over $\ZZ_p$, we may apply Berthelot's generic fiber construction (see for example \cite[\S 7]{dejong-crys})
+to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $W_K$ over $\QQ_p$ (the \emph{weight space} of $\Gamma_K$).
+More precisely, in case $\Gamma_K \cong \ZZ_p$, the space $W_K$ is an open unit disc admitting $\gamma-1$ as a coordinate for any topological generator $\gamma \in \Gamma_K$; in the general case, $W_K$ is a finite disjoint union of such discs.
+
 The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\Lambda_K = \calO(W_K)$ by (left) multiplication
 defines a canonical one-dimensional Galois representation on $W_K$; let $\Dfm_{K}$ be the corresponding $(\varphi, \Gamma_K)$-module.
-
 For $X$ a rigid analytic space over $\QQ_p$ and $M \in \PhiGamma_{K,X}$,
 define the \emph{cyclotomic deformation} of $M$
 as the external tensor product $M \boxtimes \Dfm_{K} \in \PhiGamma_{K,X \times_{\Qp} W_K}$. We similarly define the cyclotomic deformation of $\tilde{M} \in \PhiGammatilde_{K,X}$ as an object $\tilde{M} \boxtimes \Dfm_{K}$ of $\PhiGammatilde_{K,X \times_{\Qp} W_K}$.
@@ -1083,6 +1089,10 @@ F. Cherbonnier and P. Colmez, Repr\'esentations $p$-adiques surconvergentes,
 \bibitem{coates-greenberg}
 J. Coates and R. Greenberg, Kummer theory for abelian varieties over local fields,
 \textit{Invent. Math.} \textbf{124} (1996), 129--174.
+
+\bibitem{dejong-crys}
+A.J. de Jong, Crystalline Dieudonn\'e theory via formal and rigid geometry,
+\textit{Publ. Math. IH\'ES} \textbf{82} (1995), 5--96.
 
 \bibitem{fesenko}
 I.B. Fesenko, On deeply ramified extensions,
