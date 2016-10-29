@@ -195,7 +195,9 @@ See Remark~\ref{R:not connected2} and \cite[Remark~2.2.12]{kedlaya-new-phigamma}
 \section{Interlude on perfectoid fields}
 \label{sec:perfectoid}
 
-In preparation for giving alternate descriptions of the category $\PhiGamma_{K,A}$, we introduce the basic theory of \emph{perfectoid fields}, which subsumes the earlier theory of \emph{norm fields} on which the classical theory of $(\varphi, \Gamma)$-modules is built; see \cite{kedlaya-new-phigamma} for more historical discussion. In the process, we must do a bit of extra work in order to accommodate the coefficient ring $A$.
+In preparation for giving alternate descriptions of the category $\PhiGamma_{K,A}$, we introduce the basic theory of \emph{perfectoid fields}, which subsumes the earlier theory of \emph{norm fields} on which the classical theory of $(\varphi, \Gamma)$-modules is built; 
+we briefly discuss the relationship with the older theory in 
+Remark~\ref{R:deeply ramified}, deferring to \cite{kedlaya-new-phigamma} for more historical discussion. In the process, we must do a bit of extra work in order to accommodate the coefficient ring $A$.
 
 \begin{defn}
 Let $L$ be a field containing $K$ which is complete with respect to a nonarchimedean absolute value, denoted $\left| \cdot \right|$. Let $\frako_L$ denote the valuation subring of $L$ (i.e., elements of norm at most $1$). We say $L$ is \emph{perfectoid} if $L$ is not discretely valued and the Frobenius map on $\frako_L/(p)$ is surjective.
@@ -434,6 +436,61 @@ $\bigoplus_{n=0}^\infty M(n)^{\varphi}$ as a graded module over $P_{L,A}$, and t
 Using Lemma~\ref{L:enough phi-invariants}, this follows as in the proof of \cite[Theorem~6.3.12]{kedlaya-liu1}.
 \end{proof}
 
+\begin{remark} \label{R:deeply ramified}
+Let $F/K$ be an algebraic extension. In the case where $F = \QQ_p(\mu_{p^\infty})$, we have seen already (Example~\ref{exa:cyclotomic}) that the completion of $F$ is a perfectoid field. 
+This property turns to be closely related to ramification of local fields; let us now recall the precise nature of this relationship.
+
+Coates--Greenberg \cite{coates-greenberg} define $F/K$ to be
+\emph{deeply ramified} if for every finite extension $F'$ of $F$, the trace map
+$\Trace: \frakm_{F'} \to \frakm_F$ is surjective. This holds in particular if $F/K$ is 
+\emph{arithmetically profinite} in the sense of Fontaine--Wintenberger
+\cite{fontaine-wintenberger} (see \cite[Corollary~1.5]{fesenko} for a detailed proof);
+the latter holds in turn if $F/K$ is a not totally unramified Galois extension whose Galois group is a $p$-adic Lie group, by a theorem of Sen \cite{sen-lie}.
+\end{remark}
+
+\begin{lemma} \label{L:deeply ramified is perfectoid}
+Let $F/K$ be an algebraic extension with completion $L$. Then $F/K$ is deeply ramified if and only if $L$ is a perfectoid field.
+\end{lemma}
+\begin{proof}
+Suppose first that $F/K$ is deeply ramified. It is clear that the value group of $L$ must be $p$-divisible (so in particular $L$ is not discretely valued) 
+and the residue field of $L$ must be perfect. To prove that $L$ is perfectoid, it then suffices to choose some $\lambda \in \frakm_F$ such that $\lambda^p$ divides $p$ in $\frako_F$, then check that
+the Frobenius map from $\frako_F/(\lambda)$ to $\frako_F/(\lambda^p)$ is surjective.
+To this end, choose $x \in \frako_F$. Since the set of $p$-th powers in $\frako_F$ is closed,
+the minimum of $\left| x - y^p \right|$ over all $y \in \frako_F$ is achieved by some element $y_0$. 
+If $\left| x - y_0^p \right| > \left| \lambda^p \right|$, 
+we may choose $\mu \in L$ with $\left| \mu^p \right| = \left| x - y_0^p \right|$
+and write the integral closure of $\frako_F$ in $F(x^{1/p})$ as the set of elements of the form
+\[
+\sum_{i=0}^{p-1} z_i \left( \frac{x^{1/p} - y_0}{\mu} \right)^{i} 
+\qquad (z_0,\dots,z_{p-1} \in \frako_F).
+\]
+The trace of such an element is $\sum_{i=0}^{p-1} pz_i (-y_0/\mu)^i$, which is necessarily divisible by $p/\mu^{p-1}$; this contradicts the assumption that $F/K$ is deeply ramified.
+We thus conclude that $L$ is perfectoid.
+
+Conversely, suppose that $L$ is perfectoid.
+For any finite extension $F'$ of $F$, by Theorem~\ref{T:perfectoid}
+the completion $L'$ of $F'$ is again perfectoid. 
+Using the existence of a commutative diagram
+\[
+\xymatrix{
+W(\frako_{L^\flat}) \ar[r] \ar[d] & \frako_{L} \ar[d] \\
+W(\frako_{L^{\prime \flat}}) \ar[r] & \frako_{L'} 
+}
+\]
+in which the horizontal arrows are surjective (see Definition~\ref{D:theta}), the surjectivity
+of $\Trace: \frakm_{F'} \to \frakm_{F}$ reduces to the surjectivity of
+$\Trace: \frakm_{L^{\prime \flat}} \to \frakm_{L^{\flat}}$,
+or equivalently the fact that the cokernel of the latter map
+is annihilated by all of $\frakm_{L^{\flat}}$.
+This holds because the annihilator of the cokernel is nonzero
+(because $L^{\prime \flat}/L^{\flat}$ is a finite separable extension)
+and closed under taking $p$-th roots.
+(This argument is a special case of the \emph{almost purity theorem} for perfectoid rings;
+see \cite[Theorem~5.5.9]{kedlaya-liu1} and \cite[Theorem~7.9]{scholze1}.)
+\end{proof}
+
+
+
 \section{Slopes of \texorpdfstring{$\varphi$}{phi}-modules}
 \label{sec:slopes}
 
@@ -594,6 +651,14 @@ Theorem~\ref{T:tilde no tilde}, when restricted to \'etale objects, reproduces t
 
 \begin{remark}
 Note that the embedding in Theorem~\ref{T:phi gamma embedding1} is not quite canonical: it depends on the coherent sequence of $p$-power roots of unity chosen in Definition~\ref{D:untilde to tilde map}. This suggests that in some sense, the embedding of $\Rep_{G_K}(A)$ into $\PhiGammatilde_{K,A}$  is more natural than the embedding into $\PhiGamma_{K,A}$.
+\end{remark}
+
+\begin{remark}
+Let $F/K$ be a deeply ramified Galois algebraic extension, so that by Lemma~\ref{L:deeply ramified is perfectoid} the completion $L$ of $F$ is a perfectoid field. 
+Using Lemma~\ref{L:Witt module descend}, we may describe the category
+$\PhiGammatilde_{K,A}$ as the category of objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $\Gal(F/K)$-actions; in particular, we again obtain a full embedding
+of $\Rep_A(G_K)$ into this category. However, in general there is no natural analogue of the category $\PhiGamma_{K,A}$ because the ring $\tilde{\calR}_{L,A}$ cannot be obtained in a natural way from a ring of Laurent series. For this reason, we are driven to reformulate known constructions involving $\PhiGamma_{K,A}$ using $\PhiGammatilde_{K,A}$ with the eye towards generalizing to towers other the cyclotomic tower; we will pick up on this theme
+in \S\ref{sec:coda}.
 \end{remark}
 
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
@@ -989,56 +1054,6 @@ to see that the left side is a finite projective module over $A \widehat{\otimes
 \label{sec:coda}
 
 To conclude, we put the previous discussion of the cyclotomic deformation into a context which we find suggestive for future work.
-
-\begin{remark} \label{R:deeply ramified}
-Coates--Greenberg \cite{coates-greenberg} define an algebraic extension $L/K$ to be
-\emph{deeply ramified} if for every finite extension $L'$ of $L$, the trace map
-$\Trace: \frakm_{L'} \to \frakm_L$ is surjective. This holds in particular if $L/K$ is 
-\emph{arithmetically profinite} in the sense of Fontaine--Wintenberger
-\cite{fontaine-wintenberger} (see \cite[Corollary~1.5]{fesenko} for a detailed proof);
-the latter holds in turn if $L/K$ is a not totally unramified Galois extension whose Galois group is a $p$-adic Lie group, by a theorem of Sen \cite{sen-lie}.
-\end{remark}
-
-\begin{lemma} \label{L:deeply ramified is perfectoid}
-An algebraic extension $L/K$ is deeply ramified if and only if the completion $\widehat{L}$ of $L$ is a perfectoid field.
-\end{lemma}
-\begin{proof}
-Suppose first that $L/K$ is deeply ramified. It is clear that the value group of $L$ must be $p$-divisible (so in particular $L$ is not discretely valued) 
-and the residue field of $L$ must be perfect. To prove that $\widehat{L}$ is perfectoid, it then suffices to choose some $\lambda \in \frakm_L$ such that $\lambda^p$ divides $p$ in $\frako_L$, then check that
-the Frobenius map from $\frako_L/(\lambda)$ to $\frako_L/(\lambda^p)$ is surjective.
-To this end, choose $x \in \frako_L$. Since the set of $p$-th powers in $\frako_L$ is closed,
-the minimum of $\left| x - y^p \right|$ over all $y \in \frako_L$ is achieved by some element $y_0$. 
-If $\left| x - y_0^p \right| > \left| \lambda^p \right|$, 
-we may choose $\mu \in L$ with $\left| \mu^p \right| = \left| x - y_0^p \right|$
-and write the integral closure of $\frako_L$ in $L(x^{1/p})$ as the set of elements of the form
-\[
-\sum_{i=0}^{p-1} z_i \left( \frac{x^{1/p} - y_0}{\mu} \right)^{i} 
-\qquad (z_0,\dots,z_{p-1} \in \frako_L).
-\]
-The trace of such an element is $\sum_{i=0}^{p-1} pz_i (-y_0/\mu)^i$, which is necessarily divisible by $p/\mu^{p-1}$; this contradicts the assumption that $L/K$ is deeply ramified.
-We thus conclude that $\widehat{L}$ is perfectoid.
-
-Conversely, suppose that $\widehat{L}/K$ is perfectoid.
-For any finite extension $L'$ of $L$, by Theorem~\ref{T:perfectoid}
-the completion $\widehat{L}'$ of $L'$ is again perfectoid. 
-Using the existence of a commutative diagram
-\[
-\xymatrix{
-W(\frako_{\widehat{L}^\flat}) \ar[r] \ar[d] & \frako_{\widehat{L}} \ar[d] \\
-W(\frako_{\widehat{L}^{\prime \flat}}) \ar[r] & \frako_{\widehat{L}'} 
-}
-\]
-in which the horizontal arrows are surjective (see Definition~\ref{D:theta}), the surjectivity
-of $\Trace: \frakm_{L'} \to \frakm_{L}$ reduces to the surjectivity of
-$\Trace: \frakm_{\widehat{L}^{\prime \flat}} \to \frakm_{\widehat{L}^{\flat}}$,
-or equivalently the fact that the cokernel of the latter map
-is annihilated by all of $\frakm_{\widehat{L}^{\flat}}$.
-This holds because the annihilator of the cokernel is nonzero
-(because $\widehat{L}^{\prime \flat}/\widehat{L}^{\flat}$ is a finite separable extension)
-and closed under taking $p$-th roots.
-(This argument is a special case of the \emph{almost purity theorem} for perfectoid rings;
-see \cite[Theorem~5.5.9]{kedlaya-liu1} and \cite[Theorem~7.9]{scholze1}.)
-\end{proof}
 
 \begin{remark} \label{R:general field}
 Let $L$ be any perfectoid field which is the completion of a Galois algebraic extension of $K$ with Galois group $G$.
