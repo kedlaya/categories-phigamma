@@ -128,13 +128,14 @@ Note that the actions of $\varphi$ and $\Gamma$ commute.
 \end{defn}
 
 \begin{defn}
-Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions on the annuli $* < \left| \pi \right| < 1$ over $F \widehat{\otimes}_{\QQ_p} A$. This ring is complete for the locally convex direct limit topology induced by the topologies of uniform convergence on quasicompact subspaces (the \emph{LF topology}). We extend the actions of $\varphi$ and $\Gamma$ on $\calR^\infty_{F,A}$ to continuous actions on $\calR_{F,A}$ using the same formulas \eqref{eq:phi formula}, \eqref{eq:gamma formula}.
+Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions on the annuli $* < \left| \pi \right| < 1$ over $F \widehat{\otimes}_{\QQ_p} A$. This ring is complete for the direct limit topology (in the category of locally convex topological $\QQ_p$-vector spaces) induced by the topologies of uniform convergence on quasicompact subspaces (the \emph{LF topology}). We extend the actions of $\varphi$ and $\Gamma$ on $\calR^\infty_{F,A}$ to continuous actions on $\calR_{F,A}$ using the same formulas \eqref{eq:phi formula}, \eqref{eq:gamma formula}.
+Note that $\calR_{F,A}$ is connected whenever $A$ is.
 \end{defn}
 
 \begin{defn}
 A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Here by a \emph{semilinear action} of $\varphi$ on a module $M$, we mean a semilinear map $\varphi_M: M \to M$ induced by an isomorphism $\varphi^* M \to M$; note that the isomorphism property does not ensure that $\varphi_M$ acts bijectively on $M$, as this already fails for $M = \calR_{F,A}$ with the standard $\varphi$-action.
 
-Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \Cont(\Maxspec A,\ZZ)$ computing the rank of the underlying $\calR_{F,A}$-module.
+Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \Cont(\Spec A,\ZZ)$ computing the rank of the underlying $\calR_{F,A}$-module.
 \end{defn}
 
 We will establish the following result in \S\ref{sec:alternate}.
@@ -144,7 +145,7 @@ There exists a full embedding $\Rep_A(G_F) \to \PhiGamma_{F,A}$.
 In the interim, let us see how this result can be used to define a corresponding category with $F$ replaced by $K$.
 
 \begin{defn}
-Let $\calR_{K,A} \in \PhiGamma_{F,A}$ be the object of rank $[F:K]$ corresponding to $\Ind^{G_F}_{G_K} \rho_{\triv}$ via Theorem~\ref{T:phi gamma embedding}. The canonical isomorphisms $\rho_{\triv} \otimes \rho_{\triv} \cong \rho_{\triv}^\dual \otimes \rho_{\triv} \cong \rho_{\triv}$
+Let $\calR_{K,A} \in \PhiGamma_{F,A}$ be the object of rank $[K:F]$ corresponding to $\Ind^{G_F}_{G_K} \rho_{\triv}$ via Theorem~\ref{T:phi gamma embedding}. The canonical isomorphisms $\rho_{\triv} \otimes \rho_{\triv} \cong \rho_{\triv}^\dual \otimes \rho_{\triv} \cong \rho_{\triv}$
 then correspond to an associative morphism $\mu_K: \calR_{K,A} \otimes \calR_{K,A} \to \calR_{K,A}$; this gives $\calR_{K,A}$ the structure of a finite flat $\calR_{F,A}$-algebra equipped with continuous actions of $\varphi$ and $\Gamma$.
 
 Let $\PhiGamma_{K,A}$ be the category of pairs $(M, \mu)$ for which $M \in \PhiGamma_{F,A}$
@@ -182,7 +183,7 @@ For $M \in \PhiGamma_{K,A}$, define the \emph{Cartier dual}
 \[
 M^* = M^\dual(1) = M^\dual \otimes_{\calR_{K,A}} \calR_{K,A}(1) \in \PhiGamma_{K,A};
 \]
-for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^*$ corresponds to the Cartier dual of $V$.
+for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^*$ corresponds to the Cartier dual of $V$ (i.e., the contragredient of $V$ twisted by the cyclotomic character).
 \end{defn}
 
 
