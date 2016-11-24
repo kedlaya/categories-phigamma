@@ -75,7 +75,7 @@
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
 \thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015). Thanks to Ofer Gabber for helpful feedback.}
-\date{May 10, 2016}
+\date{November 24, 2016}
 
 \begin{abstract}
 Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ with perfect residue field. One of the central objects of study in $p$-adic Hodge theory is the cate\-gory of continuous representations of the absolute Galois group of $K$ on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has become clear that this category can be studied more effectively by embedding it into the larger category of $(\varphi, \Gamma)$-modules; this larger category plays a role analogous to that played by the category of vector bundles on a compact Riemann surface in the Narasimhan-Seshadri theorem on unitary representations of the fundamental group of said surface. This category turns out to have a number of distinct natural descriptions, which on one hand suggests the naturality of the construction, but on the other hand forces one to use different descriptions for different applications. We provide several of these descriptions and indicate how to translate certain key constructions, which were originally given in the context of modules over power series rings, to the more modern context of perfectoid algebras and spaces.
@@ -83,13 +83,50 @@ Let $K$ be a complete discretely valued field of mixed characteristics $(0,p)$ w
 
 \maketitle
 
-Throughout, let $p$ be a prime number and let $K$ be a \emph{$p$-adic field}, by which we mean a complete discretely valued field of mixed characteristics $(0,p)$ and perfect (but not necessarily finite) residue field. In $p$-adic Hodge theory, one studies the relationship between different cohomology theories associated to algebraic (and more recently analytic) varieties over $K$. One of these theories is \'etale cohomology with $\QQ_p$-coefficients, which naturally leads to a detailed study of continuous representations of $G_K$, the absolute Galois group of $K$, acting on finite-dimensional $\QQ_p$-vector spaces. In recent years, it has been discovered that this category embeds naturally and usefully into a larger category of \emph{$(\varphi, \Gamma)$-modules}, in much the same way that the Narasimhan-Seshadri theorem embeds the category of unitary representations of the fundamental group of a compact Riemann surface into the category of vector bundles on that surface.
+Throughout, let $p$ be a prime number and let $K$ be a \emph{$p$-adic field}, by which we mean a complete discretely valued field of mixed characteristics $(0,p)$ and perfect residue field. For instance, $K$ may be a finite extension of $\QQ_p$, but we do not restrict to this case unless otherwise specified.
 
-One indication of the naturality of the category of $(\varphi, \Gamma)$-modules is that it can be given several equivalent descriptions. The original description emerging out of the work of Fontaine, Colmez, Berger, and others involves modules over certain rings of convergent Laurent series. In this description, a privileged role is played by the infinite extension $K_\infty$ of $K$ obtained by adjoining all $p$-power roots of unity; for example, the base rings carry an action of the Galois group of $K_\infty$ over $K$ (the eponymous $\Gamma$). However, several other descriptions of the same category can now be given in which the cyclotomic tower plays no distinguished role; these include the description by Berger in the language of $B$-pairs and the description by Fargues--Fontaine in terms of vector bundles on certain one-dimensional noetherian schemes. The latter description arises very naturally within the geometric reinterpretation of $p$-adic Hodge theory in the language of \emph{perfectoid spaces}, as in the work of Scholze \cite{scholze1, scholze2, scholze-icm} and Kedlaya-Liu \cite{kedlaya-liu1, kedlaya-liu2}.
+In $p$-adic Hodge theory, one studies the relationship between different cohomology theories associated to algebraic (and more recently analytic) varieties over $K$. For example, by analogy with the comparison between the Betti and de Rham cohomologies associated to a complex algebraic variety, one has a \emph{$p$-adic comparison isomorphism} comparing the $p$-adic \'etale and algebraic de Rham cohomologies of a variety over $K$. (This result has a long, rich, and continuing history which we do not wish to review here; see the introductions of \cite{scholze2} and \cite{bhatt-morrow-scholze} for up-to-date synopses.) 
 
-It is thus natural to ask to what extent constructions made in the language of $(\varphi, \Gamma)$-modules, particularly those which have become relevant in Iwasawa theory, can be realized using these alternate descriptions. The purpose of this paper is to give some answers to this question, using the theory of arithmetic deformations of $(\varphi, \Gamma)$-modules developed in \cite{kpx}. The basic idea is to exchange the explicit use of the cyclotomic tower in the classical construction of $(\varphi, \Gamma)$-modules for an arithmetic deformation parametrizing cyclotomic twists. This makes it natural to consider other deformations corresponding to other $p$-adic Lie groups, including nonabelian ones, and to try to adapt explicit formulas from cyclotomic Iwasawa theory,
-such as those described by Berger \cite{berger-explicit} for the Bloch--Kato exponential formula and the Perrin-Riou reciprocity map, to these other towers;
-see Remark~\ref{R:berger explicit} and \S\ref{sec:coda} for further discussion.
+Continuing with this analogy, just as one encapsulates the Betti--de Rham comparison isomorphism in the construction of a \emph{Hodge structure} associated to a complex algebraic variety, one would like to encode the $p$-adic comparison isomorphism into an object associated to a $K$-variety that ``remembers'' certain cohomology groups and their associated structures. One reason to do this is to study situations where one has putative instances of the comparison isomorphism corresponding to varieties which are expected to exist but not yet constructed; this situation occurs naturally in the study of Shimura varieties \cite{liu-zhu}.
+
+A first approximation to such a package is Fontaine's definition of a
+\emph{$(\varphi, \Gamma)$-module} \cite{fontaine-phigamma}. To a continuous representation of $G_K$ on a finite-dimensional $\QQ_p$-vector space, Fontaine associates a module over a certain commutative ring (described explicitly in terms of formal Laurent series; see \S\ref{sec:categories}) equipped with semilinear actions of certain endomorphisms of the base ring (the eponymous $\varphi$ and
+$\Gamma$). The fact that the representation can be recovered from this module rests on two pivotal observations: first, one can describe representations of Galois groups of fields of characteristic $p$ on finitely generated $\ZZ_p$-modules in a manner reminiscent of Artin--Schreier theory,
+as shown by Katz
+\cite[4.1.1]{katz-modular};
+second, the infinite cyclotomic extension $K(\mu_{p^\infty})$ has the same Galois group as the field of Laurent series over the residue field of $K(\mu_{p^\infty})$,
+as shown by Fontaine--Wintenberger \cite{fontaine-wintenberger}.
+
+Given a smooth proper $K$-variety, its $p$-adic \'etale cohomology admits a continuous $G_K$-action and thus may be fed into Fontaine's $(\varphi, \Gamma)$-module functor. Fontaine had already established
+how to pass functorially from $p$-adic \'etale cohomology to de Rham cohomology, so in principle the same information is captured in the $(\varphi, \Gamma)$-module; however, there is no obvious way to convert the $(\varphi, \Gamma)$-module into de Rham cohomology without first passing back to \'etale cohomology.
+
+This defect was subsequently remedied by work of Cherbonnier--Colmez \cite{cherbonnier-colmez} and Berger \cite{berger}, which shows that Fontaine's construction may be modified to use a different base ring in which formal Laurent series are replaced by rigid analytic functions on suitable annuli (again see \S\ref{sec:categories} for precise definitions).
+This has the crucial advantage of making ``evaluation at a point'' make enough sense so that Fontaine's \'etale--de Rham construction factors through the $(\varphi, \Gamma)$-module. Among the various applications of this refinement, we single out one which will be relevant later in our story: one can use $(\varphi, \Gamma)$-modules in this sense to give explicit formulas in Iwasawa theory, such as for the Bloch--Kato exponential formula and the Perrin-Riou reciprocity map \cite{berger-explicit}.
+
+Here we arrive at the point of departure for this paper: the Iwasawa theory we just alluded to is nowadays retronymically called \emph{cyclotomic} Iwasawa theory, because similar considerations have subsequently been applied to towers of number fields whose Galois groups are various (not necessarily commutative) $p$-adic Lie groups.
+However, the construction of $(\varphi, \Gamma)$-modules described above gives a privileged role to the cyclotomic towers, so it is not immediately evident that they can be used to study Iwasawa theory beyond the cyclotomic case. While some initial work in this direction does exist \cite{berger-fourquaux, berger-schneider-xie, schneider-venjakob}, our aim here is not to address this issue directly, but to instead work at a more foundational level: we describe $(\varphi, \Gamma)$-modules, and the constructions used in Berger's explicit formulas, in terms that do not distinguish the cyclotomic tower from other $p$-adic Lie towers.
+
+Before saying more about this, it is important to emphasize the fact that the functor from 
+$p$-adic representations of $G_K$ to $(\varphi, \Gamma)$-modules in the sense of Berger is only a full embedding, not an equivalence of categories.
+Using work of the first author \cite{kedlaya-annals}, one may characterize the essential image of the functor (the so-called \emph{\'etale $(\varphi, \Gamma)$-modules}) as the \emph{semistable} objects for a suitable degree function; this immediately suggests an analogy with the Narasimhan--Seshadri theorem \cite{narasimhan-seshadri} identifying unitary representations of the fundamental group of a compact Riemann surface with polystable bundles.
+The computation of (continuous) Galois cohomology of representations in terms of $(\varphi, \Gamma)$-modules, worked out in Fontaine's setting by Herr \cite{herr, herr-tate},
+adapts to Berger's setting and extends to non-\'etale objects by work of R. Liu \cite{liu-herr}. These developments have led to several new applications of $p$-adic Hodge theory, such as the construction of a $p$-adic local Langlands correspondence for $\mathrm{GL}_2(\mathbb{Q}_p)$ with good interpolation properties
+\cite{colmez-langlands} and the study of the geometry of eigenvarieties via triangulations
+of $(\varphi, \Gamma)$-modules \cite{kpx, bergdall, breuil-hellmann-schraen, breuil-hellmann-schraen2}; this paper may have some relevance to such applications also, but we refrain from speculating on this point here.
+
+A first step towards realizing our goal of getting the cyclotomic tower out of the theory of $(\varphi, \Gamma)$-modules is to describe the category in a more agnostic fashion.
+We introduce two of these: one by Berger in the language of \emph{$B$-pairs} and one by Fargues--Fontaine in terms of vector bundles on certain one-dimensional noetherian schemes
+(sometimes called \emph{Fargues--Fontaine curves}). 
+The latter description arises very naturally within the geometric reinterpretation of $p$-adic Hodge theory in the language of \emph{perfectoid spaces}, as in the work of Scholze \cite{scholze1, scholze2, scholze-icm} and Kedlaya--Liu \cite{kedlaya-liu1, kedlaya-liu2}.
+
+However, these descriptions alone do not suffice to expunge the cyclotomic tower from
+the theory of $(\varphi, \Gamma)$-modules from the point of view of applications to Iwasawa theory. This is because Berger's explicit formulas depend crucially on a certain construction
+involving reduced traces in the cyclotomic tower, which ultimately manifests as an operator on the power series used in the definition of the base ring of $(\varphi, \Gamma)$-modules (the $\psi$ map; see Definition~\ref{D:psi}). To eliminate this construction, we make crucial use of 
+the theory of \emph{arithmetic deformations} of $(\varphi, \Gamma)$-modules, as developed with L. Xiao in \cite{kpx}; this allows us to exchange the explicit use of the cyclotomic tower in the classical construction of $(\varphi, \Gamma)$-modules for an arithmetic deformation parametrizing cyclotomic twists.
+This makes it natural to consider other deformations corresponding to other $p$-adic Lie groups, including nonabelian ones. A natural next step would be to try to interpret results from any of \cite{berger-fourquaux, berger-schneider-xie, schneider-venjakob} in this framework, but we stop short of this point; 
+see Remark~\ref{R:berger explicit} and \S\ref{sec:coda} for a brief discussion.
+
+
 
 Before concluding this introduction, we set a few running notations. Our primary model for these and other notations is \cite{kpx}.
 \setcounter{theorem}{0}
@@ -191,6 +228,12 @@ for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedd
 \begin{remark} \label{R:not connected}
 The description of $\PhiGamma_{K,A}$ given above is consistent with \cite{kedlaya-new-phigamma} but not with most older references. The reason is that even if $\Maxspec A$ is connected, in general $\Maxspec \calR_{K,A}$ is not connected; it is more typical to replace it with one of its connected components, and to replace $\Gamma$ with the stabilizer of that component.
 See Remark~\ref{R:not connected2} and \cite[Remark~2.2.12]{kedlaya-new-phigamma} for further discussion.
+\end{remark}
+
+\begin{remark}
+The base ring in Fontaine's original theory of $(\varphi, \Gamma)$-modules was not the ring $\calR_{K, \QQ_p}$, but rather the completion of the subring of elements of $\calR_{K, \QQ_p}$
+which are bounded (meaning equivalently that their coefficients or their values are bounded).
+This ring cannot naturally be interpreted in terms of functions on a rigid analytic space.
 \end{remark}
 
 \section{Interlude on perfectoid fields}
@@ -887,7 +930,7 @@ We may then define the category $\PhiGammabreve_{K,A}$ of $(\varphi, \Gamma)$-mo
 The goal of this section is to describe various constructions in the classical language of $(\varphi, \Gamma)$-modules which play a role in Iwasawa theory, then translate these into the other categories so as to isolate the role of the cyclotomic extension.
 Assume hereafter that $[K:\QQ_p] < \infty$.
 
-\begin{defn}
+\begin{defn} \label{D:psi}
 Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$, i.e.,
 as $p^{-1} \varphi^{-1} \circ \Trace(\calR_{K,A} \to \varphi(\calR_{K,A}))$;
 by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
@@ -1121,6 +1164,14 @@ those of Berger--Fourquaux \cite{berger-fourquaux} and Schneider--Venjakob
 \bibitem{beauville-laszlo}
 A. Beauville and Y. Laszlo, Un lemme de descente, \textit{C. R. Acad. Sci. Paris} \textbf{320} (1995), 335--340.
 
+\bibitem{bergdall}
+J. Bergdall, Paraboline variation of $p$-adic families of $(\varphi,\Gamma)$-modules,
+arXiv:1410.3412v2 (2016).
+
+\bibitem{berger}
+L. Berger, Repr\'esentations $p$-adiques et \'equations diff\'erentielles,
+\textit{Invent. Math.} \textbf{148} (2002), 219--284.
+
 \bibitem{berger-explicit}
 L. Berger, Bloch and Kato's exponential map: three explicit formulas,
 \textit{Doc. Math.} Extra Volume Kato (2003), 99--129.
@@ -1134,6 +1185,10 @@ L. Berger and P. Colmez, Familles de repr\'esentations de de Rham et monodromie 
 \bibitem{berger-fourquaux}
 L. Berger and L. Fourquaux, Iwawasa theory and $F$-analytic Lubin-Tate $(\varphi, \Gamma)$-modules, arXiv:1512.03383v1 (2015).
 
+\bibitem{berger-schneider-xie}
+L. Berger, P. Schneider, and B. Xie, Rigid character varieties, Lubin-Tate theory,
+and $(\varphi, \Gamma)$-modules,  arXiv:1511.01819v1 (2015).
+
 \bibitem{bhatt-morrow-scholze}
 B. Bhatt, M. Morrow, and P. Scholze,
 Integral $p$-adic Hodge theory, arXiv:1602.03148v1 (2016).
@@ -1142,6 +1197,16 @@ Integral $p$-adic Hodge theory, arXiv:1602.03148v1 (2016).
 S. Bosch, U. G\"untzer, and R. Remmert,
 \textit{Non-Archimedean Analysis},
 Grundlehren der Math. Wiss. 261, Springer-Verlag, Berlin, 1984.
+
+\bibitem{breuil-hellmann-schraen}
+C. Breuil, E. Hellmann, and B. Schraen,
+Une interpr\'etation modulaire de la vari\'et\'e trianguline
+arXiv:1411.7260v2 (2015).
+
+\bibitem{breuil-hellmann-schraen2}
+C. Breuil, E. Hellmann, and B. Schraen,
+Smoothness and classicality of eigenvarieties,
+arXiv:1510.01222v1 (2015).
 
 \bibitem{chenevier}
 G. Chenevier, Sur la densit\'e des repr\'esentations cristallines de
@@ -1155,6 +1220,11 @@ F. Cherbonnier and P. Colmez, Repr\'esentations $p$-adiques surconvergentes,
 J. Coates and R. Greenberg, Kummer theory for abelian varieties over local fields,
 \textit{Invent. Math.} \textbf{124} (1996), 129--174.
 
+\bibitem{colmez-langlands}
+P. Colmez,
+ Repr\'esentations de $\mathrm{GL}_2(\mathbf{Q}_p)$ et $(\varphi, \Gamma)$-modules,
+ \textit{Ast\'erisque} \textbf{330} (2010), 281--509.
+ 
 \bibitem{dejong-crys}
 A.J. de Jong, Crystalline Dieudonn\'e theory via formal and rigid geometry,
 \textit{Publ. Math. IH\'ES} \textbf{82} (1995), 5--96.
@@ -1183,9 +1253,30 @@ Le ``corps des normes'' de certaines extensions alg\'ebriques
 de corps locaux,
 \textit{C.R. Acad. Sci. Paris S\'er. A-B} \textbf{288} (1979), A367--A370.
 
+\bibitem{fontaine-phigamma}
+J.-M. Fontaine, Repr\'esentations $p$-adiques des corps locaux, I,
+in \textit{The Grothendieck Festschrift, Vol. II},
+Progr. Math. 87, Birkh\"auser Boston, Boston, 1990, 249--309.
+
+\bibitem{herr}
+L. Herr, Sur la cohomologie galoisienne des corps $p$-adiques, \textit{Bull. Soc. Math. France} \textbf{126} (1998), 563--600.
+
+\bibitem{herr-tate}
+L. Herr, Une approche nouvelle de la dualit\'e locale de Tate,
+\textit{Math. Ann.} \textbf{320} (2001), 307--337.
+
 \bibitem{joyal-tierney}
 A. Joyal and M. Tierney, An extension of the Galois theory of Grothendieck,
 \textit{Mem. Amer. Math. Soc.} \textbf{309} (1984).
+
+\bibitem{katz-modular}
+N.M. Katz, $p$-adic properties of modular schemes and modular forms,
+in \textit{Modular functions of one variable, III}, Lecture Notes in Math.\ 350,
+Springer--Verlag, 1973, 69--190. 
+
+\bibitem{kedlaya-annals}
+K.S. Kedlaya, A $p$-adic local monodromy theorem, 
+\textit{Annals of Math.} \textbf{160} (2004), 93--184.
 
 \bibitem{kedlaya-revisited}
 K.S. Kedlaya, Slope filtrations revisited,
@@ -1240,9 +1331,16 @@ in der nichtarchimedischen Funktionentheorie,
 R. Liu, Cohomology and duality for $(\varphi, \Gamma)$-modules over the Robba ring,
 \textit{Int. Math. Res. Notices} \textbf{3} (2008), article ID rnm150.
 
+\bibitem{liu-zhu}
+R. Liu and X. Zhu, Rigidity and a Riemann-Hilbert correspondence for $p$-adic local systems,
+arXiv:1602.06282v3 (2016).
+
 \bibitem{nakamura}
 K. Nakamura, Iwasawa theory of de Rham $(\varphi, \Gamma)$-modules over the Robba ring,
 \textit{J. Inst. Math. Jussieu} \textbf{13} (2014), 65--118. 
+
+\bibitem{narasimhan-seshadri}
+M.S. Narasimhan and C.S. Seshadri, Stable and unitary vector bundles on a compact Riemann surface, \textit{Annals of Math.} \textbf{82} (1965), 540--567.
 
 \bibitem{schneider-venjakob}
 P. Schneider and O. Venjakob, Coates-Wiles homomorphisms and Iwasawa cohomology for Lubin-Tate extensions, arXiv:1511.04922v1 (2015).
