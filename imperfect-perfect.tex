@@ -74,7 +74,7 @@
 
 \title{On categories of $(\varphi, \Gamma)$-modules}
 \author{Kiran S. Kedlaya and Jonathan Pottharst}
-\thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015)}
+\thanks{Kedlaya was supported by NSF (grant DMS-1501214), UC San Diego (Warschawski Professorship), Guggenheim Fellowship (fall 2015). Thanks to Ofer Gabber for helpful feedback.}
 \date{May 10, 2016}
 
 \begin{abstract}
@@ -128,13 +128,14 @@ Note that the actions of $\varphi$ and $\Gamma$ commute.
 \end{defn}
 
 \begin{defn}
-Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions on the annuli $* < \left| \pi \right| < 1$ over $F \widehat{\otimes}_{\QQ_p} A$. This ring is complete for the locally convex direct limit topology induced by the topologies of uniform convergence on quasicompact subspaces (the \emph{LF topology}). We extend the actions of $\varphi$ and $\Gamma$ on $\calR^\infty_{F,A}$ to continuous actions on $\calR_{F,A}$ using the same formulas \eqref{eq:phi formula}, \eqref{eq:gamma formula}.
+Let $\calR_{F,A}$ be the direct limit of the rings of rigid analytic functions on the annuli $* < \left| \pi \right| < 1$ over $F \widehat{\otimes}_{\QQ_p} A$. This ring is complete for the direct limit topology (in the category of locally convex topological $\QQ_p$-vector spaces) induced by the topologies of uniform convergence on quasicompact subspaces (the \emph{LF topology}). We extend the actions of $\varphi$ and $\Gamma$ on $\calR^\infty_{F,A}$ to continuous actions on $\calR_{F,A}$ using the same formulas \eqref{eq:phi formula}, \eqref{eq:gamma formula}.
+Note that $\calR_{F,A}$ is connected whenever $A$ is.
 \end{defn}
 
 \begin{defn}
 A \emph{$(\varphi, \Gamma)$-module} over $\calR_{F,A}$ is a finite projective $\calR_{F,A}$-module $M$ equipped with commuting semilinear actions of $\varphi$ and $\Gamma$ such that the action of $\Gamma$ is continuous for the LF topology. Here by a \emph{semilinear action} of $\varphi$ on a module $M$, we mean a semilinear map $\varphi_M: M \to M$ induced by an isomorphism $\varphi^* M \to M$; note that the isomorphism property does not ensure that $\varphi_M$ acts bijectively on $M$, as this already fails for $M = \calR_{F,A}$ with the standard $\varphi$-action.
 
-Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \Cont(\Maxspec A,\ZZ)$ computing the rank of the underlying $\calR_{F,A}$-module.
+Let $\PhiGamma_{F,A}$ denote the category of $(\varphi, \Gamma)$-modules over $\calR_{F,A}$, viewed as an exact tensor category with rank function $\rank_F: \Phi\Gamma_{F,A} \to \Cont(\Spec A,\ZZ)$ computing the rank of the underlying $\calR_{F,A}$-module.
 \end{defn}
 
 We will establish the following result in \S\ref{sec:alternate}.
@@ -144,7 +145,7 @@ There exists a full embedding $\Rep_A(G_F) \to \PhiGamma_{F,A}$.
 In the interim, let us see how this result can be used to define a corresponding category with $F$ replaced by $K$.
 
 \begin{defn}
-Let $\calR_{K,A} \in \PhiGamma_{F,A}$ be the object of rank $[F:K]$ corresponding to $\Ind^{G_F}_{G_K} \rho_{\triv}$ via Theorem~\ref{T:phi gamma embedding}. The canonical isomorphisms $\rho_{\triv} \otimes \rho_{\triv} \cong \rho_{\triv}^\dual \otimes \rho_{\triv} \cong \rho_{\triv}$
+Let $\calR_{K,A} \in \PhiGamma_{F,A}$ be the object of rank $[K:F]$ corresponding to $\Ind^{G_F}_{G_K} \rho_{\triv}$ via Theorem~\ref{T:phi gamma embedding}. The canonical isomorphisms $\rho_{\triv} \otimes \rho_{\triv} \cong \rho_{\triv}^\dual \otimes \rho_{\triv} \cong \rho_{\triv}$
 then correspond to an associative morphism $\mu_K: \calR_{K,A} \otimes \calR_{K,A} \to \calR_{K,A}$; this gives $\calR_{K,A}$ the structure of a finite flat $\calR_{F,A}$-algebra equipped with continuous actions of $\varphi$ and $\Gamma$.
 
 Let $\PhiGamma_{K,A}$ be the category of pairs $(M, \mu)$ for which $M \in \PhiGamma_{F,A}$
@@ -182,7 +183,7 @@ For $M \in \PhiGamma_{K,A}$, define the \emph{Cartier dual}
 \[
 M^* = M^\dual(1) = M^\dual \otimes_{\calR_{K,A}} \calR_{K,A}(1) \in \PhiGamma_{K,A};
 \]
-for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^*$ corresponds to the Cartier dual of $V$.
+for $M$ corresponding to $V \in \Rep_A(G_K)$ via Theorem~\ref{T:phi gamma embedding}, $M^*$ corresponds to the Cartier dual of $V$ (i.e., the contragredient of $V$ twisted by the cyclotomic character).
 \end{defn}
 
 
@@ -195,20 +196,23 @@ See Remark~\ref{R:not connected2} and \cite[Remark~2.2.12]{kedlaya-new-phigamma}
 \section{Interlude on perfectoid fields}
 \label{sec:perfectoid}
 
-In preparation for giving alternate descriptions of the category $\PhiGamma_{K,A}$, we introduce the basic theory of \emph{perfectoid fields}, which subsumes the earlier theory of \emph{norm fields} on which the classical theory of $(\varphi, \Gamma)$-modules is built; see \cite{kedlaya-new-phigamma} for more historical discussion. In the process, we must do a bit of extra work in order to accommodate the coefficient ring $A$.
+In preparation for giving alternate descriptions of the category $\PhiGamma_{K,A}$, we introduce the basic theory of \emph{perfectoid fields}, which subsumes the earlier theory of \emph{norm fields} on which the classical theory of $(\varphi, \Gamma)$-modules is built; 
+we briefly discuss the relationship with the older theory in 
+Remark~\ref{R:deeply ramified}, deferring to \cite{kedlaya-new-phigamma} for more historical discussion. In the process, we must do a bit of extra work in order to accommodate the coefficient ring $A$.
 
 \begin{defn}
 Let $L$ be a field containing $K$ which is complete with respect to a nonarchimedean absolute value, denoted $\left| \cdot \right|$. Let $\frako_L$ denote the valuation subring of $L$ (i.e., elements of norm at most $1$). We say $L$ is \emph{perfectoid} if $L$ is not discretely valued and the Frobenius map on $\frako_L/(p)$ is surjective.
 \end{defn}
 
 \begin{example}  \label{exa:cyclotomic}
-Let $L$ be the completion of $F(\mu_{p^\infty})$.
+Suppose that $K = F$ and let $L$ be the completion of $K(\mu_{p^\infty})$.
 Then 
 \begin{align*}
 \frako_L &\cong (W(k)[\zeta_p, \zeta_{p^2}, \dots]/(1 + \zeta_p + \cdots + \zeta_p^{p-1}, \zeta_p - \zeta_{p^2}^p, \zeta_{p^2} - \zeta_{p^3}^p, \dots)^{\wedge}_{(p)} \\
 \frako_L/(p) &\cong k[T_1, T_2, \dots]/(1+T_1 + \cdots + T_1^{p-1}, T_1 - T_2^p, T_2 - T_3^p, \dots),
 \end{align*}
-so $L$ is perfectoid.
+so $L$ is perfectoid; the same will hold for general $K$ by Theorem~\ref{T:perfectoid} below.
+For some more general results that subsume this example, see Remark~\ref{R:deeply ramified} and Lemma~\ref{L:deeply ramified is perfectoid}.
 \end{example}
 
 \begin{hypothesis}
@@ -224,7 +228,8 @@ L^{\flat} = \varprojlim_{x \mapsto x^p} L.
 \begin{enumerate}
 \item[(a)]
 There is a unique way to promote $\frako_{L^{\flat}}$ and $L^{\flat}$ to rings
-in such a way that the maps $\frako_{L^{\flat}} \to L^{\flat}$ and $\frako_{L^{\flat}} \to \frako_L \to \frako_L/(p)$ become ring homomorphisms.
+in such a way that the map $\frako_{L^{\flat}} \to L^{\flat}$ and the composition $\frako_{L^{\flat}} \to \frako_L \to \frako_L/(p)$ become ring homomorphisms.
+(The map $\frako_{L^{\flat}} \to \frako_L$ is multiplicative but not additive.)
 \item[(b)]
 The ring $L^{\flat}$ is a perfect field. In addition,
 the function $L^{\flat} \to L \stackrel{\left| \cdot \right|}{\to} \RR$ is an absolute value with respect to which $L^{\flat}$ is complete with valuation subring $\frako_{L^{\flat}}$.
@@ -255,8 +260,13 @@ For $0 < s \leq r$, let $\tilde{\calR}^{[s,r]}_L$ be the completion of $W^r(L^\f
 with respect to $\max\{\left| \cdot \right|_s, \left| \cdot \right|_r\}$,
 and put $\tilde{\calR}^{[s,r]}_{L,A} = \tilde{\calR}^{[s,r]}_L \widehat{\otimes}_{\QQ_p} A$.
 Let $\tilde{\calR}^r_{L,A}$ be the inverse limit of the $\tilde{\calR}^{[s,r]}_{L,A}$ over all $s \in (0,r)$, equipped with the Fr\'echet topology. Let $\tilde{\calR}_{L,A}$ be the direct  limit of the $\tilde{\calR}^r_{L,A}$ over all $r>0$, equipped with the locally convex direct limit topology (LF topology).
+
+The notation is meant to suggest a strong analogy between (for example) the ring $\calR^{[s,r]}_{K,A}$ of power series convergent on a (relative) closed annulus and the somewhat more mysterious ring $\tilde{\calR}^{[s,r]}_{L,A}$. In fact, one may (somewhat imprecisely) think of the latter as consisting of certain ``Laurent series in $p$ with Teichm\"uller coefficients''; this point of view is pursued in \cite{kedlaya-witt} to express certain geometric consequences. In the case where $A$ is a field, a simultaneous development of
+the ring-theoretic properties of $\calR^{[s,r]}_{K,A}$ and $\tilde{\calR}^{[s,r]}_{L,A}$
+can be found in \cite{kedlaya-revisited}.
 \end{defn}
 
+For $A$ a field, the following is a consequence of \cite[Theorem~3.5.8]{kedlaya-liu2}.
 \begin{lemma} \label{L:Witt module descend}
 Let $L'$ be the completion of a (possibly infinite) Galois algebraic extension of $L$ with Galois group $G$. Then for $0 < s \leq r$, the functor from finite projective $\tilde{\calR}^{[s,r]}_{L,A}$-modules to finite projective
 $\tilde{\calR}^{[s,r]}_{L',A}$-modules equipped with continuous semilinear $G$-actions is an equivalence of categories.
@@ -278,13 +288,12 @@ For $A = \QQ_p$, this equality is a consequence of \cite[Theorem~9.2.15]{kedlaya
 we may deduce the general case from this by constructing a Schauder basis for $A$ over $\QQ_p$, as in \cite[Proposition~2.7.2/3]{bgr} or \cite[Lemma~2.2.9(b)]{kedlaya-liu1}.
 
 We next check essential surjectivity.
-Let $M'$ be a finite projective $\tilde{\calR}^{[s,r]}_{L',A}$-module equipped with a continuous semilinear $G$-action. The $G$-action may then be described in terms of an isomorphism $\iota$ between the two base extensions of $M$ to $\tilde{\calR}^{[s,r]}_{L',A} \widehat{\otimes}_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r]}_{L',A}$;
+Let $M'$ be a finite projective $\tilde{\calR}^{[s,r]}_{L',A}$-module equipped with a continuous semilinear $G$-action. The $G$-action may then be described in terms of an isomorphism $\iota$ between the two base extensions of $M'$ to $\tilde{\calR}^{[s,r]}_{L',A} \widehat{\otimes}_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r]}_{L',A}$;
 note that $\iota$ obeys a cocycle condition expressing the compatibility of the $G$-action with composition in the group $G$. Specifying $\iota$ involves only finitely elements of the ring $\tilde{\calR}^{[s,r]}_{L',A}$, so it may be realized over some subfield of $L'$ which is the completion of an algebraic extension of $L$ of at most countable degree; we may thus assume that $L'$ itself has this form. From the proof of \cite[Theorem~9.2.15]{kedlaya-liu1}, we see that $\tilde{\calR}^{[s,r]}_{L',\QQ_p}$ splits in the category of Banach modules over $\tilde{\calR}^{[s,r]}_{L,\QQ_p}$; by tensoring with $A$, we see that
 $\tilde{\calR}^{[s,r]}_{L',A}$ splits in the category of Banach modules over $\tilde{\calR}^{[s,r]}_{L,A}$.
-Tensoring $M'$ with this splitting yields a finite projective $\tilde{\calR}^{[s,r]}_{L,A}$-module $M$; the base extension of $\iota$ along the splitting yields an isomorphism
-$M \otimes_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r]}_{L',A} \cong M'$
-of modules over $\tilde{\calR}^{[s,r]}_{L',A}$. The cocycle condition on $\iota$ ensures that this isomorphism is compatible with the $G$-actions on both sides.
-This proves the claim.
+This means that $\tilde{\calR}^{[s,r]}_{L,A} \to \tilde{\calR}^{[s,r]}_{L',A}$ is a universally injective morphism in the category of Banach modules over $\tilde{\calR}^{[s,r]}_{L,A}$, so we may apply a general descent theorem of Joyal--Tierney \cite{joyal-tierney}
+(compare \cite[Lemma~1.2.17]{kedlaya-liu2}) to descend $M'$ to a finite projective $\tilde{\calR}^{[s,r]}_{L,A}$-module $M$. (See also \cite[Tag~08WE]{stacks-project} for a more elementary treatment of the corresponding descent statement for ordinary modules over a ring,
+whose proof may be emulated for Banach modules.)
 \end{proof}
 
 \begin{remark} \label{R:glueing lemma}
@@ -303,8 +312,7 @@ W^r(L) \to W^{r/p}(L), \qquad
 \tilde{\calR}^{r}_{L,A} \to \tilde{\calR}^{r/p}_{L,A}, \qquad
 \tilde{\calR}_{L,A} \to \tilde{\calR}_{L,A}.
 \]
-A \emph{$\varphi$-module} over $\tilde{\calR}_{L,A}$ is a finite projective $\tilde{\calR}_{L,A}$-module equipped with a semilinear $\varphi$-action;
-note that unlike for $(\varphi, \Gamma)$-modules, this action is necessarily bijective.
+A \emph{$\varphi$-module} over $\tilde{\calR}_{L,A}$ is a finite projective $\tilde{\calR}_{L,A}$-module equipped with a semilinear $\varphi$-action; unlike for $(\varphi, \Gamma)$-modules, this action is necessarily bijective (because the same is true of the maps $\varphi$ displayed above).
 Let $\PhiMod_{L,A}$ be the category of $\varphi$-modules over $\tilde{\calR}_{L,A}$.
 \end{defn}
 
@@ -382,7 +390,7 @@ V \cong (M \otimes_{\tilde{\calR}_{L,A}} \tilde{\calR}_{\CC_L,A})^{\varphi};
 from this we see that the functor $V \mapsto M$ is fully faithful.
 \end{proof}
 
-\begin{defn}
+\begin{defn} \label{D:theta}
 There is a canonical surjection $\theta: W(\frako_{L^\flat}) \to \frako_L$ whose kernel is a principal ideal; see
 \cite[\S 1]{kedlaya-new-phigamma} for the construction.
 By \cite[Lemma~5.5.5]{kedlaya-liu1}, for any interval $[s,r]$ containing 1,
@@ -390,6 +398,8 @@ this map extends to a surjection
 $\theta: \tilde{\calR}^{[s,r]}_{L,A} \to L \widehat{\otimes}_{\QQ_p} A$.
 \end{defn}
 
+We now introduce a geometric construction developed in great detail by Fargues and Fontaine
+\cite{fargues-fontaine}; see \cite{fargues, fargues-fontaine-durham} for expository treatments.
 \begin{defn}
 Define the graded ring
 \[
@@ -404,7 +414,7 @@ For any $x$ in the maximal ideal of $\frako_{L^{\flat}}$, the sum $\sum_{n \in \
 converges to a nonzero element of $P_{L,\QQ_p,1}$.
 \end{example}
 
-\begin{defn}
+\begin{defn} \label{D:B-pairs}
 The map $\theta$ defines a closed immersion $\Spec(L \widehat{\otimes}_{\QQ_p} A) \to X_{L,A}$; let $Z_{L,A}$ be the resulting closed subscheme of $X_{L,A}$, and let $U_{L,A}$ be the complement of $Z_{L,A}$ in $X_{L,A}$.
 By \cite[Lemma~8.9.3]{kedlaya-liu1}, $U_{L,A}$ is affine and $Z_{L,A}$ is contained in an open affine subspace of $X_{L,A}$; consequently, we may complete $X_{L,A}$ along $Z_{L,A}$ to get another affine scheme $\widehat{Z}_{L,A}$. Let $\bB_{e,L,A}, \bB^+_{\dR,L,A}, \bB_{\dR,L,A}$ be the respective coordinate rings of the affine schemes 
 \[
@@ -433,6 +443,74 @@ $\bigoplus_{n=0}^\infty M(n)^{\varphi}$ as a graded module over $P_{L,A}$, and t
 Using Lemma~\ref{L:enough phi-invariants}, this follows as in the proof of \cite[Theorem~6.3.12]{kedlaya-liu1}.
 \end{proof}
 
+\begin{remark}
+Throughout this remark, assume that $A$ is a field.
+In this setting, the concept of $B$-pairs was introduced by Berger \cite{berger-b-pairs}
+in a purely algebraic fashion,
+without reference to the schemes defined in Definition~\ref{D:B-pairs}. Therein,
+the ring $\bB_{e,L,A}$ appears in connection with Fontaine's crystalline period ring
+$\bB_{\mathrm{crys}}$.
+
+The scheme $X_{L,A}$ introduced by Fargues--Fontaine is in some sense a ``complete curve'': in particular, it is a regular one-dimensional noetherian scheme.
+The space $P_{L,A,n}$ constitutes the sections of the $n$-th power of a certain ample line bundle on this scheme. This scheme admits something resembling an analytification in the category of adic spaces, in that there is a morphism into it from an adic space built out of the rings $\tilde{\calR}^{[s,r]}_{L,A}$, the pullback along which induces an equivalence of categories of coherent sheaves by analogy with Serre's GAGA theorem in complex algebraic geometry. This adic space in turn admits an infinite cyclic \'etale cover which is
+a ``quasi-Stein space'' whose global sections are the ring $\bigcap_{r>0} \tilde{\calR}^r_{L,A}$, on which the deck transformations act via the powers of $\varphi$.
+For more on this story, see the aforementioned references such as \cite{fargues-fontaine},
+and also \cite[\S 8.7, 8.8]{kedlaya-liu1} and \cite[\S 4.7]{kedlaya-liu2}.
+\end{remark}
+
+\begin{remark} \label{R:deeply ramified}
+Let $F/K$ be an algebraic extension. In the case where $F = \QQ_p(\mu_{p^\infty})$, we have seen already (Example~\ref{exa:cyclotomic}) that the completion of $F$ is a perfectoid field. 
+This property turns to be closely related to ramification of local fields; let us now recall the precise nature of this relationship.
+
+Coates--Greenberg \cite{coates-greenberg} define $F/K$ to be
+\emph{deeply ramified} if for every finite extension $F'$ of $F$, the trace map
+$\Trace: \frakm_{F'} \to \frakm_F$ is surjective. This holds in particular if $F/K$ is 
+\emph{arithmetically profinite} in the sense of Fontaine--Wintenberger
+\cite{fontaine-wintenberger} (see \cite[Corollary~1.5]{fesenko} for a detailed proof);
+the latter holds in turn if $F/K$ is an infinite Galois extension with finite residual extension whose Galois group is a $p$-adic Lie group, by a theorem of Sen \cite{sen-lie}.
+\end{remark}
+
+\begin{lemma} \label{L:deeply ramified is perfectoid}
+Let $F/K$ be an algebraic extension with completion $L$. Then $F/K$ is deeply ramified if and only if $L$ is a perfectoid field.
+\end{lemma}
+\begin{proof}
+Suppose first that $L$ is not perfectoid. If the value group of $L$ is not $p$-divisible or the residue field of $L$ is not perfect, it is obvious that $F/K$ is not discretely ramified. Otherwise, there exists some $\lambda \in \frakm_F$ such that $\lambda^p$ divides $p$ in $\frako_F$ and
+the Frobenius map from $\frako_F/(\lambda)$ to $\frako_F/(\lambda^p)$ must fail to be surjective.
+Choose $x \in \frako_F$ whose image in $\frako_F/(\lambda^p)$ is not in the image of Frobenius. Since the set of $p$-th powers in $\frako_F$ is closed,
+the minimum of $\left| x - y^p \right|$ over all $y \in \frako_F$ is achieved by some element $y_0$. 
+Since by hypothesis $\left| x - y_0^p \right| > \left| \lambda^p \right|$, 
+we may choose $\mu \in L$ with $\left| \mu^p \right| = \left| x - y_0^p \right|$
+and write the integral closure of $\frako_F$ in $F(x^{1/p})$ as the set of elements of the form
+\[
+\sum_{i=0}^{p-1} z_i \left( \frac{x^{1/p} - y_0}{\mu} \right)^{i} 
+\qquad (z_0,\dots,z_{p-1} \in \frako_F).
+\]
+The trace of such an element is $\sum_{i=0}^{p-1} pz_i (-y_0/\mu)^i$, which is necessarily divisible by $p/\mu^{p-1}$; hence $F/K$ is not deeply ramified.
+
+Conversely, suppose that $L$ is perfectoid.
+For any finite extension $F'$ of $F$, by Theorem~\ref{T:perfectoid}
+the completion $L'$ of $F'$ is again perfectoid. 
+Using the existence of a commutative diagram
+\[
+\xymatrix{
+W(\frako_{L^\flat}) \ar[r] \ar[d] & \frako_{L} \ar[d] \\
+W(\frako_{L^{\prime \flat}}) \ar[r] & \frako_{L'} 
+}
+\]
+in which the horizontal arrows are surjective (see Definition~\ref{D:theta}), the surjectivity
+of $\Trace: \frakm_{F'} \to \frakm_{F}$ reduces to the surjectivity of
+$\Trace: \frakm_{L^{\prime \flat}} \to \frakm_{L^{\flat}}$,
+or equivalently the fact that the cokernel of the latter map
+is annihilated by all of $\frakm_{L^{\flat}}$.
+This holds because the annihilator of the cokernel is nonzero
+(because $L^{\prime \flat}/L^{\flat}$ is a finite separable extension)
+and closed under taking $p$-th roots.
+(This argument is a special case of the \emph{almost purity theorem} for perfectoid rings;
+see \cite[Theorem~5.5.9]{kedlaya-liu1} and \cite[Theorem~7.9]{scholze1}.)
+\end{proof}
+
+
+
 \section{Slopes of \texorpdfstring{$\varphi$}{phi}-modules}
 \label{sec:slopes}
 
@@ -452,9 +530,18 @@ See \cite[Corollary~4.2.5]{kedlaya-liu1}.
 \end{proof}
 
 \begin{defn}
-Suppose that $A$ is a field. Let $v(A)$ denote the valuation group of $A$, normalized so that $v(\QQ_p^\times) = \ZZ$. By Lemma~\ref{L:units},
-we obtain a canonical homomorphism $\tilde{\calR}_{L,A}^{\times} \to v(A)$
-and thus a morphism $\deg: \Pic(X_{L,A}) \to v(A)$ called the \emph{degree} map.
+Suppose that $A$ is a field. Let $v(A)$ denote the valuation group of $A$, normalized so that $v(\QQ_p^\times) = \ZZ$. 
+Let $k$ be the largest finite extension of $\mathbb{F}_p$ which embeds into both $L$ and the residue field of $A$, and let $A_0$ be the unramified extension of $\QQ_p$ with residue field $k$; then $W(L) \widehat{\otimes}_{\QQ_p} A = W(L) \otimes_{\QQ_p} A$ splits into copies of the integral domain $W(L) \otimes_{A_0} A$ indexed by choices of the embedding $k \to L$.
+The $p$-adic valuation on $W(L)$ extends to a valuation
+$W(L) \otimes_{A_0} A$ with values in $v(A)$; summing across components gives a map
+$W(L) \otimes_{\QQ_p} A \to v(A) \cup \{+\infty\}$.
+By Lemma~\ref{L:units},
+we obtain a homomorphism $\tilde{\calR}_{L,A}^{\times} \to v(A)$; note that this map is invariant under $\varphi$-pullback.
+
+By Theorem~\ref{T:perfect equivalence}, line bundles on $X_{L,A}$ correspond to $\varphi$-modules over $\tilde{\calR}_{L,A}$ whose underlying modules are projective of rank 1.
+By taking determinants of these modules and using the $\varphi$-invariance of the map 
+$\tilde{\calR}_{L,A}^{\times} \to v(A)$, we obtain a morphism $\deg: \Pic(X_{L,A}) \to v(A)$ called the \emph{degree map}.
+(This map can also be given an interpretation in terms of rational sections of line bundles, in parallel with the usual construction of the degree map for line bundles on an algebraic curve; see \cite{fargues-fontaine} for this viewpoint.)
 As usual, for $\calF \in \VB_{L,A}$ of arbitrary rank, we define the \emph{degree} of $\calF$ as the degree of its determinant $\wedge^{\rank(\calF)} \calF$, and (if $\calF \neq 0$) the \emph{slope} of $\calF$ as the ratio $\mu(\calF) = \deg(\calF)/\rank(\calF)$.
 We may transfer these definitions to $\PhiMod_{L,A}$ using Theorem~\ref{T:perfect equivalence}.
 \end{defn}
@@ -469,7 +556,10 @@ Suppose that $x$ belongs to the kernel. The equality
 \left| x \right|_{t} = \left| \varphi(x) \right|_{t/p} = \left| p^{-n} x \right|_{t/p} 
 = p^n \left| x \right|_{t/p}
 \]
-holds initially for $t \in [s, r]$, then by induction for all $t \in (0, r]$.
+holds initially for $t \in [s, r]$, then by induction for 
+$t \in [p^{-m} s, r]$ for each nonnegative integer $m$,
+and hence for
+all $t \in (0, r]$.
 It follows that $\left| x \right|_t$ remains bounded as $t \to 0^+$, so by 
 \cite[Lemma~4.2.4]{kedlaya-liu1} we have $x \in \tilde{\calR}_{L,A}^{\times}$.
 However, by Lemma~\ref{L:units}, this means that $x$ has a well-defined $p$-adic valuation, which is the same as the valuation of $\varphi(x)$; we must then have $n=0$, contradiction.
@@ -595,6 +685,14 @@ Theorem~\ref{T:tilde no tilde}, when restricted to \'etale objects, reproduces t
 Note that the embedding in Theorem~\ref{T:phi gamma embedding1} is not quite canonical: it depends on the coherent sequence of $p$-power roots of unity chosen in Definition~\ref{D:untilde to tilde map}. This suggests that in some sense, the embedding of $\Rep_{G_K}(A)$ into $\PhiGammatilde_{K,A}$  is more natural than the embedding into $\PhiGamma_{K,A}$.
 \end{remark}
 
+\begin{remark}
+Let $F/K$ be a deeply ramified Galois algebraic extension, so that by Lemma~\ref{L:deeply ramified is perfectoid} the completion $L$ of $F$ is a perfectoid field. 
+Using Lemma~\ref{L:Witt module descend}, we may describe the category
+$\PhiGammatilde_{K,A}$ as the category of objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $\Gal(F/K)$-actions; in particular, we again obtain a full embedding
+of $\Rep_A(G_K)$ into this category. However, in general there is no natural analogue of the category $\PhiGamma_{K,A}$ because the ring $\tilde{\calR}_{L,A}$ cannot be obtained in a natural way from a ring of Laurent series. For this reason, we are driven to reformulate known constructions involving $\PhiGamma_{K,A}$ using $\PhiGammatilde_{K,A}$ with the eye towards generalizing to towers other than the cyclotomic tower; we will pick up on this theme
+in \S\ref{sec:coda}.
+\end{remark}
+
 \section{Cohomology of $(\varphi, \Gamma)$-modules}
 
 We now upgrade the previous discussion to relate Galois cohomology to $(\varphi, \Gamma)$-modules. This time, we start directly with the perfectoid framework.
@@ -606,13 +704,15 @@ For $\tilde{M} \in \PhiMod_{L,A}$, let $H^0_{\varphi}(\tilde{M}), H^1_{\varphi}(
 \begin{lemma} \label{L:truncate cohomology}
 Choose $r,s$ with $0 < s \leq r/p$. Let $\tilde{M}, \tilde{M}^r, \tilde{M}^{[s,r]}$
 be corresponding objects in the categories (a),(b),(c) of Lemma~\ref{L:phi modules bundles}.
-Then the complexes
-\begin{gather*}
-0 \to \tilde{M} \stackrel{\varphi-1}{\to} \tilde{M} \to 0 \\
-0 \to \tilde{M}^r \stackrel{\varphi-1}{\to} \tilde{M}^r \otimes_{\tilde{\calR}^r_{L,A}} \tilde{\calR}^{r/p}_{L,A} \to 0 \\
-0 \to \tilde{M}^{[s,r]} \stackrel{\varphi-1}{\to} \tilde{M}^{[s,r]} \otimes_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r/p]}_{L,A} \to 0
-\end{gather*}
-are quasi-isomorphic via the base extension functors.
+Then the vertical arrows in the diagram
+\[
+\xymatrix@C=2cm{
+0 \ar[r] & \tilde{M} \ar^(.4){\varphi-1}[r] & \tilde{M} \ar[r] &  0 \\
+0 \ar[r] & \tilde{M}^r \ar^(.4){\varphi-1}[r] \ar[u] \ar[d] & \tilde{M}^r \otimes_{\tilde{\calR}^r_{L,A}} \tilde{\calR}^{r/p}_{L,A} \ar[r] \ar[d] \ar[u] & 0 \\
+0 \ar[r] & \tilde{M}^{[s,r]} \ar^(.4){\varphi-1}[r] & \tilde{M}^{[s,r]} \otimes_{\tilde{\calR}^{[s,r]}_{L,A}} \tilde{\calR}^{[s,r/p]}_{L,A} \ar[r] & 0
+}
+\]
+constitute quasi-isomorphisms of the horizontal complexes.
 \end{lemma}
 \begin{proof}
 The proof of \cite[Proposition~6.3.19]{kedlaya-liu1} in the case $A = \QQ_p$ adapts without change.
@@ -654,7 +754,8 @@ from Theorem~\ref{T:perfect equivalence}, using in the case $i=1$ the interpreta
 
 
 \begin{theorem} \label{T:compare phi Gamma cohomology}
-The morphisms $H^i_{\varphi, \Gamma}(M) \to H^i_{\varphi, \Gamma}(\tilde{M})$ are isomorphisms for all $i$.
+For $M \in \PhiGamma_{K,A}$, $\tilde{M} \in \PhiGammatilde_{K,A}$ corresponding via Theorem~\ref{T:tilde no tilde}, 
+the morphisms $H^i_{\varphi, \Gamma}(M) \to H^i_{\varphi, \Gamma}(\tilde{M})$ are isomorphisms for all $i$.
 \end{theorem}
 \begin{proof}
 As in Theorem~\ref{T:tilde no tilde},
@@ -687,15 +788,23 @@ In particular, the $A$-modules $H^i_{\varphi, \Gamma}(M)$ coincide with the Galo
 See \cite[Proposition~2.3.7, Theorem~4.4.2, Theorem~4.4.3]{kpx}.
 \end{proof}
 
-\begin{remark}
+\begin{remark} \label{R:Cartan-Serre}
 While Theorem~\ref{T:compare phi Gamma cohomology} and Theorem~\ref{T:coherence cohomology} together assert that the groups $H^i_{\varphi, \Gamma}(\tilde{M})$
 are finite $A$-modules,
 the proof of this statement depends crucially on the interpretation of $\tilde{M}$ in terms of the category $\PhiGamma_{K,A}$. 
 To illustrate this, we sketch a proof of Theorem~\ref{T:coherence cohomology}(a) in the spirit of \cite{kpx} but technically somewhat simpler. (It is also slightly more general,
 as we only need to assume that $A$ is a noetherian Banach algebra over $\QQ_p$.)
 
-By formal arguments (Shapiro's lemma), we may reduce to the case $K = \QQ_p$.
-Choose $r,s,r',s'$ with $0 < s < s' \leq r'/p \leq r/p$. 
+We first reduce to the case $K = \QQ_p$ using the $(\varphi,\Gamma)$-module-theoretic counterpart of Shapiro's lemma described in \cite[Theorem~3.2]{liu-herr}
+(compare also Remark~\ref{R:not connected2}).
+For $M \in \PhiGamma_{A,K}$, Shapiro's lemma as usual implies that
+$H^i_{\varphi,\Gamma_K}(M) \cong H^i_{\varphi,\Gamma}(\Ind^{\Gamma}_{\Gamma_K} M)$;
+since the definition of the latter does not explicitly reference the module structure,
+we may view $\Ind^\Gamma_{\Gamma_K} M$ as a module over
+$\Ind^{\Gamma}_{\Gamma_K} \calR_{K,A}$ and then restrict scalars to $\calR_{\QQ_p,A}$
+without changing the cohomology.
+
+Now assuming $K = \QQ_p$, choose $r,s,r',s'$ with $0 < s < s' \leq r'/p \leq r/p$. 
 Let $\calR^{[s,r]}_{\QQ_p,A}$ be the ring of rigid analytic functions 
 on the disc $p^{-rp/(p-1)} < \left| \pi \right| < p^{-sp/(p-1)}$ over $A$. For $r$ sufficiently small, we may (by analogy with Lemma~\ref{L:phi modules bundles} and Lemma~\ref{L:truncate cohomology}) realize $M$ as a finite projective $\calR^{[s,r]}_{\QQ_p,A}$-module $M^{[s,r]}$
 equipped with an isomorphism 
@@ -715,9 +824,16 @@ We then have a diagram
 }
 \]
 in which the vertical arrows define a quasi-isomorphism of the total complexes associated to the rows. However, each vertical arrow is composed of maps which are  \emph{completely continuous} morphisms of Banach spaces over $A$, i.e., uniform limits of morphisms of finite rank. 
-(Note that $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear; we thus need $[K:\QQ_p] < \infty$ in order to reduce to the case $K = F = \QQ_p$.)
-By the Cartan-Serre-Schwartz lemma (as in \cite[Satz~2.6]{kiehl-finiteness}), we deduce that the cohomology groups of the total complexes are finite $A$-modules.
+By the Cartan-Serre-Schwartz lemma as applied in \cite[\S 3]{kedlaya-liu-finiteness}
+(compare \cite[Satz~2.6]{kiehl-finiteness}),
+we deduce that the cohomology groups of the total complexes are finite $A$-modules.
 (By contrast, the maps $\tilde{\calR}^{[s,r]}_{\QQ_p,A} \to \tilde{\calR}^{[s',r']}_{\QQ_p,A}$ are not completely continuous.)
+\end{remark}
+
+\begin{remark}
+In Remark~\ref{R:Cartan-Serre}, 
+note that $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear; we thus need $[K:\QQ_p] < \infty$ in order to reduce to the case $K = F = \QQ_p$.
+If we relax the hypothesis on $K$ to allow it to be a more general local field, the vanishing of $H^i_{\varphi, \Gamma}(M)$ for $i=0$ and $i>2$ remains valid, but the finite generation of $H^i_{\varphi,\Gamma}$ for $i=1$ and $i=2$ can fail.
 \end{remark}
 
 \section{The cyclotomic deformation}
@@ -727,19 +843,25 @@ We now consider a key example of an arithmetic deformation. The construction fol
 
 \begin{defn}
 Let $X$ be a rigid analytic space over $\QQ_p$. 
-Define the sheaves $\calR_{K,X}, \tilde{\calR}^{[s,r]}_{K,X}, \tilde{\calR}^{r}_{K,X}$,
-$\tilde{\calR}_{K,X}$ on $X$ so that their values on the affinoid space $\Maxspec(A)$
-coincide with the previously defined rings $\calR_{K,A}, \tilde{\calR}^{[s,r]}_{K,A}, \tilde{\calR}^{r}_{K,A}, \tilde{\calR}_{K,A}$.
+The rings $\calR_{K,A}, \tilde{\calR}^{[s,r]}_{K,A}, \tilde{\calR}^{r}_{K,A}, \tilde{\calR}_{K,A}$ all satisfy the sheaf axiom and Tate acyclicity with respect to finite coverings by affinoid subdomains: for example, the \v{C}ech sequence for $\tilde{\calR}_{K,A}$
+with respect to a given covering is obtained from the corresponding sequence for the structure sheaf by the exact operation of 
+taking the completed tensor product over $\QQ_p$ with $\tilde{\calR}_{K,\QQ_p}$.
+(The exactness of completed tensor products over $\QQ_p$ does involve a nontrivial argument using Schauder bases; see for example \cite[Lemma~2.2.9]{kedlaya-liu1}.)
+These constructions thus give rise to ring sheaves $\calR_{K,X}, \tilde{\calR}^{[s,r]}_{K,X}, \tilde{\calR}^{r}_{K,X}, \tilde{\calR}_{K,A}$ on the affinoid space $\Maxspec(A)$ which are acyclic on affinoid subspaces.
+
 Let $\PhiGamma_{K,X}, \PhiGammatilde_{K,X}$ be the categories of finite projective
 modules over the respective ring sheaves $\calR_{K,X}$, $\tilde{\calR}_{K,X}$ equipped with continuous commuting semilinear actions of $\varphi, \Gamma$. 
 These form stacks for both the analytic topology and the \'etale topology; in particular, Theorem~\ref{T:tilde no tilde} gives rise to an equivalence of categories $\PhiGamma_{K,X} \to \PhiGammatilde_{K,X}$.
 \end{defn}
 
 \begin{defn}
-Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra. We may then apply Berthelot's generic fiber construction to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $W_K$ over $\QQ_p$ (the \emph{weight space} of $\Gamma_K$).
+Let $\ZZ_p \llbracket \Gamma_K \rrbracket$ be the completed group algebra.
+Since this ring is formally of finite type over $\ZZ_p$, we may apply Berthelot's generic fiber construction (see for example \cite[\S 7]{dejong-crys})
+to view this ring as the collection of bounded-by-1 rigid analytic functions on a certain one-dimensional quasi-Stein space $W_K$ over $\QQ_p$ (the \emph{weight space} of $\Gamma_K$).
+More precisely, in case $\Gamma_K \cong \ZZ_p$, the space $W_K$ is an open unit disc admitting $\gamma-1$ as a coordinate for any topological generator $\gamma \in \Gamma_K$; in the general case, $W_K$ is a finite disjoint union of such discs.
+
 The action of $\ZZ_p \llbracket \Gamma_K \rrbracket$ on $\Lambda_K = \calO(W_K)$ by (left) multiplication
 defines a canonical one-dimensional Galois representation on $W_K$; let $\Dfm_{K}$ be the corresponding $(\varphi, \Gamma_K)$-module.
-
 For $X$ a rigid analytic space over $\QQ_p$ and $M \in \PhiGamma_{K,X}$,
 define the \emph{cyclotomic deformation} of $M$
 as the external tensor product $M \boxtimes \Dfm_{K} \in \PhiGamma_{K,X \times_{\Qp} W_K}$. We similarly define the cyclotomic deformation of $\tilde{M} \in \PhiGammatilde_{K,X}$ as an object $\tilde{M} \boxtimes \Dfm_{K}$ of $\PhiGammatilde_{K,X \times_{\Qp} W_K}$.
@@ -766,7 +888,9 @@ The goal of this section is to describe various constructions in the classical l
 Assume hereafter that $[K:\QQ_p] < \infty$.
 
 \begin{defn}
-Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$; by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
+Define the map $\psi: \calR_{K,A} \to \calR_{K,A}$ as the reduced trace of $\varphi$, i.e.,
+as $p^{-1} \varphi^{-1} \circ \Trace(\calR_{K,A} \to \varphi(\calR_{K,A}))$;
+by definition, it is a left inverse of $\varphi$. For any $M \in \PhiGamma_{K,A}$,
 we may likewise take the reduced trace of the action of $\varphi$ on $M$ to obtain an action of $\psi$ on $M$, which is again a left inverse of $\varphi$;
 concretely, the action of $\psi$ on $M$ is characterized by additivity and the identity
 \[
@@ -815,7 +939,24 @@ any such map corresponds to an element of $M$.
 \end{proof}
 
 \begin{remark} \label{R:berger explicit}
-When $K/\QQ_p$ is unramified, $A$ is finite over $\QQ_p$, and $M \in \PhiGamma_{K,A}$ is crystalline, the object $M^{\psi=1}$ is related to the Galois
+One of the key constructions in $p$-adic Hodge theory is Fontaine's \emph{crystalline period functor}, which takes a representation $V \in \Rep_A(G_K)$ to the finite $A$-module
+\[
+D_{\mathrm{crys}}(V) = (V \otimes_{\QQ_p} \bB_{\mathrm{crys}})^{G_K}
+\]
+where $\bB_{\mathrm{crys}}$ is a certain topological $\QQ_p$-algebra (the \emph{ring of crystalline periods}). For example, when $A = \QQ_p$ and $V$ is the $p$-adic \'etale cohomology of a smooth proper scheme over $\frako_K$, the \emph{crystalline comparison theorem} defines a functorial isomorphism of $D_{\mathrm{crys}}(V)$ with the rational crystalline cohomology of the same scheme; see \cite{bhatt-morrow-scholze} for a thoroughly modern take on the construction.
+
+The functor $D_{\mathrm{crys}}$ factors naturally through $\PhiGamma_{K,A}$
+and $\PhiGammatilde_{K,A}$: for example, for $M = \PhiGamma_{K,A}$,
+$\tilde{M} \in \PhiGammatilde_{K,A}$
+corresponding to $V \in \Rep_A(G_K)$, we have a canonical isomorphism
+\[
+D_{\mathrm{crys}}(V) \cong M[t^{-1}]^\Gamma \cong \tilde{M}[t^{-1}]^{\Gamma}, \qquad
+t = \log(1+\pi).
+\]
+In the case of $\tilde{M}$, all we are using about $t$ is that it belongs to $P_{L_K, A, n}$
+for some $n>0$ and that its zero locus on $X_{L,A}$ is precisely $Z_{L,A}$; this interpretation can be used to avoid specific references to the cyclotomic tower.
+
+When $K/\QQ_p$ is unramified, $A$ is finite over $\QQ_p$, and $M \in \PhiGamma_{K,A}$ is crystalline (i.e., its $D_{\mathrm{crys}}$ is ``as large as possible'', as if $M$ arose from the comparison isomorphism), the object $M^{\psi=1}$ is related to the Galois
 cohomology $H^1$ of each of the twists of $M$ in its cyclotomic
 deformation (see Corollary~\ref{C:Iwasawa} below), and $M^{\psi=0}$ is related to the $D_{\mathrm{crys}}$ of the same twists
 of $M$.  As shown by Berger \cite{berger-explicit} (and generalized by Nakamura \cite{nakamura}),
@@ -993,6 +1134,10 @@ L. Berger and P. Colmez, Familles de repr\'esentations de de Rham et monodromie 
 \bibitem{berger-fourquaux}
 L. Berger and L. Fourquaux, Iwawasa theory and $F$-analytic Lubin-Tate $(\varphi, \Gamma)$-modules, arXiv:1512.03383v1 (2015).
 
+\bibitem{bhatt-morrow-scholze}
+B. Bhatt, M. Morrow, and P. Scholze,
+Integral $p$-adic Hodge theory, arXiv:1602.03148v1 (2016).
+
 \bibitem{bgr}
 S. Bosch, U. G\"untzer, and R. Remmert,
 \textit{Non-Archimedean Analysis},
@@ -1006,8 +1151,54 @@ $\Gal(\overline{\QQ}_p/\QQ_p)$, \textit{Math. Ann.} \textbf{355} (2013), 1469--1
 F. Cherbonnier and P. Colmez, Repr\'esentations $p$-adiques surconvergentes,
 \textit{Invent. Math.} \textbf{133} (1998), 581--611.
 
+\bibitem{coates-greenberg}
+J. Coates and R. Greenberg, Kummer theory for abelian varieties over local fields,
+\textit{Invent. Math.} \textbf{124} (1996), 129--174.
+
+\bibitem{dejong-crys}
+A.J. de Jong, Crystalline Dieudonn\'e theory via formal and rigid geometry,
+\textit{Publ. Math. IH\'ES} \textbf{82} (1995), 5--96.
+
+\bibitem{fargues}
+L. Fargues, Quelques r\'esultats et conjectures concernant la courbe,
+\textit{Ast\'erisque} \textbf{369} (2015), 325--374.
+
+\bibitem{fargues-fontaine-durham}
+L. Fargues and J.-M. Fontaine, Vector bundles on curves and $p$-adic Hodge theory,
+in \textit{Automorphic Forms and Galois Representations, Volume 1},
+London Math. Soc. Lect. Note Ser. 414, Cambridge Univ. Press, 2014.
+
+\bibitem{fargues-fontaine}
+L. Fargues and J.-M. Fontaine, Courbes et fibr\'es vectoriels en th\'eorie de Hodge
+$p$-adique, in preparation; draft (September 2015) available at
+\url{http://webusers.imj-prg.fr/~laurent.fargues/}.
+
+\bibitem{fesenko}
+I.B. Fesenko, On deeply ramified extensions,
+\textit{J. London Math. Soc.} \textbf{57} 1998), 325--335.
+
+\bibitem{fontaine-wintenberger}
+J.-M. Fontaine and J.-P. Wintenberger,
+Le ``corps des normes'' de certaines extensions alg\'ebriques
+de corps locaux,
+\textit{C.R. Acad. Sci. Paris S\'er. A-B} \textbf{288} (1979), A367--A370.
+
+\bibitem{joyal-tierney}
+A. Joyal and M. Tierney, An extension of the Galois theory of Grothendieck,
+\textit{Mem. Amer. Math. Soc.} \textbf{309} (1984).
+
+\bibitem{kedlaya-revisited}
+K.S. Kedlaya, Slope filtrations revisited,
+\textit{Doc. Math.} \textbf{10} (2005), 447--525;
+errata, \textit{ibid.} \textbf{12} (2007), 361--362;
+additional errata, \cite[Remark~4.2.19]{kedlaya-liu1}.
+
 \bibitem{kedlaya-bordeaux}
 K.S. Kedlaya, Some new directions in $p$-adic Hodge theory, \textit{J. Th\'eorie Nombres Bordeaux} \textbf{21} (2009), 285--300.
+
+\bibitem{kedlaya-witt}
+K.S. Kedlaya, Nonarchimedean geometry of Witt vectors,
+\textit{Nagoya Math. J.} \textbf{209} (2013), 111--165.
 
 \bibitem{kedlaya-new-phigamma}
 K.S. Kedlaya, New methods for $(\varphi, \Gamma)$-modules,
@@ -1032,6 +1223,10 @@ K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory: Foundations,
 \bibitem{kedlaya-liu2}
 K.S. Kedlaya and R. Liu, Relative $p$-adic Hodge theory II: Imperfect period rings,
 arXiv:1602.06899v1 (2016).
+
+\bibitem{kedlaya-liu-finiteness}
+K.S. Kedlaya and R. Liu, Finiteness of cohomology of local systems on rigid analytic spaces,
+in preparation.
 
 \bibitem{kpx}
 K.S. Kedlaya, J. Pottharst, and L. Xiao, Cohomology of arithmetic families of $(\varphi, \Gamma)$-modules, \textit{J. Amer. Math. Soc.}  \textbf{27} (2014), 1043--1115. 
@@ -1061,6 +1256,14 @@ P. Scholze, $p$-adic Hodge theory for rigid analytic varieties, \textit{Forum Ma
 \bibitem{scholze-icm}
 P. Scholze, Perfectoid spaces and their applications, in \textit{Proceedings of the
 International Congress of Mathematicians, Seoul, 2014}.
+
+\bibitem{sen-lie}
+S. Sen, Ramification in $p$-adic Lie extensions,
+\textit{Inv. Math.} \textbf{17} (1972), 44--50.
+
+\bibitem{stacks-project}
+The Stacks Project Authors, \textit{Stacks Project},
+\url{http://stacks.math.columbia.edu}, retrieved November 2015.
 
 \end{thebibliography}
 
