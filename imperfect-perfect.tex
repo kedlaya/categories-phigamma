@@ -261,8 +261,8 @@ with respect to $\max\{\left| \cdot \right|_s, \left| \cdot \right|_r\}$,
 and put $\tilde{\calR}^{[s,r]}_{L,A} = \tilde{\calR}^{[s,r]}_L \widehat{\otimes}_{\QQ_p} A$.
 Let $\tilde{\calR}^r_{L,A}$ be the inverse limit of the $\tilde{\calR}^{[s,r]}_{L,A}$ over all $s \in (0,r)$, equipped with the Fr\'echet topology. Let $\tilde{\calR}_{L,A}$ be the direct  limit of the $\tilde{\calR}^r_{L,A}$ over all $r>0$, equipped with the locally convex direct limit topology (LF topology).
 
-The notation is meant to suggest a strong analogy between (for example) the ring $\tilde\calR^{[s,r]}_{K,A}$ of power series convergent on a (relative) closed annulus and the somewhat more mysterious ring $\tilde{\calR}^{[s,r]}_{L,A}$. In fact, one may (somewhat imprecisely) think of the latter as consisting of certain ``Laurent series in $p$ with Teichm\"uller coefficients''; this point of view is pursued in \cite{kedlaya-witt} to express certain geometric consequences. In the case where $A$ is a field, a simultaneous development of
-the ring-theoretic properties of $\tilde\calR^{[s,r]}_{K,A}$ and $\tilde{\calR}^{[s,r]}_{L,A}$
+The notation is meant to suggest a strong analogy between (for example) the ring $\calR^{[s,r]}_{K,A}$ of power series convergent on a (relative) closed annulus and the somewhat more mysterious ring $\tilde{\calR}^{[s,r]}_{L,A}$. In fact, one may (somewhat imprecisely) think of the latter as consisting of certain ``Laurent series in $p$ with Teichm\"uller coefficients''; this point of view is pursued in \cite{kedlaya-witt} to express certain geometric consequences. In the case where $A$ is a field, a simultaneous development of
+the ring-theoretic properties of $\calR^{[s,r]}_{K,A}$ and $\tilde{\calR}^{[s,r]}_{L,A}$
 can be found in \cite{kedlaya-revisited}.
 \end{defn}
 
@@ -467,27 +467,25 @@ Coates--Greenberg \cite{coates-greenberg} define $F/K$ to be
 $\Trace: \frakm_{F'} \to \frakm_F$ is surjective. This holds in particular if $F/K$ is 
 \emph{arithmetically profinite} in the sense of Fontaine--Wintenberger
 \cite{fontaine-wintenberger} (see \cite[Corollary~1.5]{fesenko} for a detailed proof);
-the latter holds in turn if $F/K$ is a not totally unramified Galois extension whose Galois group is a $p$-adic Lie group, by a theorem of Sen \cite{sen-lie}.
+the latter holds in turn if $F/K$ is an infinite Galois extension with finite residual extension whose Galois group is a $p$-adic Lie group, by a theorem of Sen \cite{sen-lie}.
 \end{remark}
 
 \begin{lemma} \label{L:deeply ramified is perfectoid}
 Let $F/K$ be an algebraic extension with completion $L$. Then $F/K$ is deeply ramified if and only if $L$ is a perfectoid field.
 \end{lemma}
 \begin{proof}
-Suppose first that $F/K$ is deeply ramified. It is clear that the value group of $L$ must be $p$-divisible (so in particular $L$ is not discretely valued) 
-and the residue field of $L$ must be perfect. To prove that $L$ is perfectoid, it then suffices to choose some $\lambda \in \frakm_F$ such that $\lambda^p$ divides $p$ in $\frako_F$, then check that
-the Frobenius map from $\frako_F/(\lambda)$ to $\frako_F/(\lambda^p)$ is surjective.
-To this end, choose $x \in \frako_F$. Since the set of $p$-th powers in $\frako_F$ is closed,
+Suppose first that $L$ is not perfectoid. If the value group of $L$ is not $p$-divisible or the residue field of $L$ is not perfect, it is obvious that $F/K$ is not discretely ramified. Otherwise, there exists some $\lambda \in \frakm_F$ such that $\lambda^p$ divides $p$ in $\frako_F$ and
+the Frobenius map from $\frako_F/(\lambda)$ to $\frako_F/(\lambda^p)$ must fail to be surjective.
+Choose $x \in \frako_F$ whose image in $\frako_F/(\lambda^p)$ is not in the image of Frobenius. Since the set of $p$-th powers in $\frako_F$ is closed,
 the minimum of $\left| x - y^p \right|$ over all $y \in \frako_F$ is achieved by some element $y_0$. 
-If $\left| x - y_0^p \right| > \left| \lambda^p \right|$, 
+Since by hypothesis $\left| x - y_0^p \right| > \left| \lambda^p \right|$, 
 we may choose $\mu \in L$ with $\left| \mu^p \right| = \left| x - y_0^p \right|$
 and write the integral closure of $\frako_F$ in $F(x^{1/p})$ as the set of elements of the form
 \[
 \sum_{i=0}^{p-1} z_i \left( \frac{x^{1/p} - y_0}{\mu} \right)^{i} 
 \qquad (z_0,\dots,z_{p-1} \in \frako_F).
 \]
-The trace of such an element is $\sum_{i=0}^{p-1} pz_i (-y_0/\mu)^i$, which is necessarily divisible by $p/\mu^{p-1}$; this contradicts the assumption that $F/K$ is deeply ramified.
-We thus conclude that $L$ is perfectoid.
+The trace of such an element is $\sum_{i=0}^{p-1} pz_i (-y_0/\mu)^i$, which is necessarily divisible by $p/\mu^{p-1}$; hence $F/K$ is not deeply ramified.
 
 Conversely, suppose that $L$ is perfectoid.
 For any finite extension $F'$ of $F$, by Theorem~\ref{T:perfectoid}
@@ -691,7 +689,7 @@ Note that the embedding in Theorem~\ref{T:phi gamma embedding1} is not quite can
 Let $F/K$ be a deeply ramified Galois algebraic extension, so that by Lemma~\ref{L:deeply ramified is perfectoid} the completion $L$ of $F$ is a perfectoid field. 
 Using Lemma~\ref{L:Witt module descend}, we may describe the category
 $\PhiGammatilde_{K,A}$ as the category of objects of $\PhiMod_{L,A}$ equipped with continuous semilinear $\Gal(F/K)$-actions; in particular, we again obtain a full embedding
-of $\Rep_A(G_K)$ into this category. However, in general there is no natural analogue of the category $\PhiGamma_{K,A}$ because the ring $\tilde{\calR}_{L,A}$ cannot be obtained in a natural way from a ring of Laurent series. For this reason, we are driven to reformulate known constructions involving $\PhiGamma_{K,A}$ using $\PhiGammatilde_{K,A}$ with the eye towards generalizing to towers other the cyclotomic tower; we will pick up on this theme
+of $\Rep_A(G_K)$ into this category. However, in general there is no natural analogue of the category $\PhiGamma_{K,A}$ because the ring $\tilde{\calR}_{L,A}$ cannot be obtained in a natural way from a ring of Laurent series. For this reason, we are driven to reformulate known constructions involving $\PhiGamma_{K,A}$ using $\PhiGammatilde_{K,A}$ with the eye towards generalizing to towers other than the cyclotomic tower; we will pick up on this theme
 in \S\ref{sec:coda}.
 \end{remark}
 
@@ -835,7 +833,7 @@ we deduce that the cohomology groups of the total complexes are finite $A$-modul
 \begin{remark}
 In Remark~\ref{R:Cartan-Serre}, 
 note that $\varphi$ is only $A$-linear rather than $(F \widehat{\otimes}_{\QQ_p} A)$-linear; we thus need $[K:\QQ_p] < \infty$ in order to reduce to the case $K = F = \QQ_p$.
-If we relax the hypothesis on $K$ to allow it to be a more general local field, the vanishing of $H^i_{\varphi, \Gamma}(M)$ for $i>2$ remains valid, but the finite generation of $H^i_{\varphi,\Gamma}$ for $i=0,1,2$ can fail.
+If we relax the hypothesis on $K$ to allow it to be a more general local field, the vanishing of $H^i_{\varphi, \Gamma}(M)$ for $i=0$ and $i>2$ remains valid, but the finite generation of $H^i_{\varphi,\Gamma}$ for $i=1$ and $i=2$ can fail.
 \end{remark}
 
 \section{The cyclotomic deformation}
